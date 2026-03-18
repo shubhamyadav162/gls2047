@@ -1,6 +1,9 @@
 # Dependencies
 node_modules/
 .pnp
+# Deployment keys
+gls_deploy
+gls_deploy.pub
 .pnp.js
 
 # Testing

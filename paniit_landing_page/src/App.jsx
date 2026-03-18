@@ -348,10 +348,11 @@ export default function App() {
       <header id="header" className="sticky top-0 bg-white shadow-md z-[1000]">
         <div className="container flex justify-between items-center py-2 px-4 md:px-8 max-w-[1400px] mx-auto">
           
-          <div className="flex items-center">
-            <a href="/" className="flex items-center">
-              <img src="/images/GLS_Logo.jpg" alt="GLS Vision 2047" className="gls-logo h-12 md:h-14 w-auto transition-all" />
+          <div className="flex items-center gap-4">
+            <a href="/" className="flex items-center border-r border-gray-200 pr-4">
+              <img src="assets/vision2047logomain.png" alt="GLS Vision 2047" className="gls-logo h-12 md:h-14 w-auto transition-all" />
             </a>
+            <img src="assets/iitalumuniai.png" alt="PanIIT Alumni India" className="h-8 md:h-10 w-auto" />
           </div>
 
           <div>
@@ -368,7 +369,7 @@ export default function App() {
 
       {/* FULL-SCREEN IMMERSIVE HERO SECTION */}
       <section className="w-full">
-        <img src="assets/hero.png" alt="GLS Vision 2047 3D Background" className="w-full h-auto block" />
+        <img src="assets/hero.png" alt="GLS Vision 2047 Hero" className="w-full h-auto block" />
       </section>
 
       {/* WHAT'S BEING SHOWCASED (Light Section) */}
@@ -567,7 +568,11 @@ export default function App() {
       <footer className="bg-[#002D62] text-white py-12 border-t-4 border-[#D4AF37]">
         <div className="max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
            <div>
-             <img src="assets/gls_logo.jpg" className="h-10 bg-white p-1 rounded-lg mb-4" alt="GLS" />
+             <div className="flex items-center gap-4 mb-4 bg-white p-2 rounded-xl">
+               <img src="assets/vision2047logomain.png" className="h-10 w-auto" alt="GLS" />
+               <div className="w-px h-8 bg-gray-200"></div>
+               <img src="assets/iitalumuniai.png" className="h-8 w-auto" alt="PanIIT" />
+             </div>
              <p className="text-blue-200 text-sm">© 2026 GLS Vision 2047 Alumni India. All Rights Reserved.</p>
            </div>
            <div className="flex gap-6 text-sm font-semibold text-blue-200">
@@ -602,7 +607,11 @@ export default function App() {
                      <button onClick={closeModal} className="mb-8 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors w-fit md:hidden">
                        <X size={20} />
                      </button>
-                     <img src="assets/gls_logo.jpg" alt="GLS" className="h-16 bg-white p-2 rounded-xl shadow-lg mb-8" />
+                     <div className="flex items-center gap-4 mb-8 bg-white p-3 rounded-2xl shadow-lg w-fit">
+                       <img src="assets/vision2047logomain.png" alt="GLS" className="h-12 w-auto" />
+                       <div className="w-px h-10 bg-gray-200"></div>
+                       <img src="assets/iitalumuniai.png" alt="PanIIT" className="h-10 w-auto" />
+                     </div>
                      <h2 className="text-4xl font-bold text-white mb-4 leading-tight">Secure Your <br/><span className="text-[#D4AF37]">Pavilion Space</span></h2>
                      <p className="text-blue-100 text-lg leading-relaxed">Connect with 200+ global investors, government bodies, and 500+ CXOs under one roof.</p>
                    </div>
@@ -904,15 +913,15 @@ export default function App() {
             </div>  
             <div className="footer-section">
                 <h4 style={{textAlign: 'center'}}>Organised By</h4>
-                <div style={{display: 'flex'}}>
-                  <a href="https://iconexglobal.com/" target="_blank" style={{width: '50%', paddingTop: '5px'}}>
-                    <img src="/images/iCONEX_LOGO.png" style={{width: '100%'}} />
-                  </a>
-                  <hr style={{width: '2px', height: '30px', color: '#fff', margin: '5px 10px'}} />
-                  <a href="" style={{width: '50%'}}>
-                    <img src="/images/nextgen.jpeg" style={{width: '100%', paddingTop: '5px'}} />
-                  </a>
-                </div>
+                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px'}}>
+                   <a href="https://iconexglobal.com/" target="_blank" style={{width: '120px'}}>
+                     <img src="/images/iCONEX_LOGO.png" style={{width: '100%'}} alt="iCONEX" />
+                   </a>
+                   <div style={{width: '1px', height: '40px', backgroundColor: 'rgba(255,255,255,0.3)'}}></div>
+                   <div style={{width: '120px'}}>
+                     <img src="assets/molog-logo.png" style={{width: '100%'}} alt="Partner" />
+                   </div>
+                 </div>
             </div>
           </div>
           <div className="footer-section">
