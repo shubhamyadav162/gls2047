@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - GLS Vision 2047</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="icon" type="image/png" href="../images/GLS_Favicon.png">
+</head>
+<body class="admin-body">
+    <!-- Admin Header -->
+    <header class="admin-header">
+        <div class="admin-container">
+            <div class="admin-logo">
+                <img src="../images/vision2047logomain.png" alt="GLS Vision 2047">
+                <span>Admin Dashboard</span>
+            </div>
+            <div class="admin-user">
+                <span id="adminName">Admin User</span>
+                <button class="btn-logout" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Admin Sidebar -->
+    <aside class="admin-sidebar">
+        <nav class="admin-nav">
+            <a href="dashboard.html" class="admin-nav-link active">
+                <span class="nav-icon">📊</span>
+                Dashboard
+            </a>
+            <a href="tickets.html" class="admin-nav-link">
+                <span class="nav-icon">🎫</span>
+                Tickets & Orders
+            </a>
+            <a href="sponsorship.html" class="admin-nav-link">
+                <span class="nav-icon">💼</span>
+                Sponsorship Inquiries
+            </a>
+            <a href="startups.html" class="admin-nav-link">
+                <span class="nav-icon">🚀</span>
+                Startup Applications
+            </a>
+            <a href="contacts.html" class="admin-nav-link">
+                <span class="nav-icon">✉️</span>
+                Contact Inquiries
+            </a>
+            <a href="speakers.html" class="admin-nav-link">
+                <span class="nav-icon">🎤</span>
+                Manage Speakers
+            </a>
+            <a href="settings.html" class="admin-nav-link">
+                <span class="nav-icon">⚙️</span>
+                Settings
+            </a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="admin-container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>Dashboard Overview</h1>
+                <div class="header-actions">
+                    <button class="btn btn-outline" id="refreshBtn">
+                        <span>🔄</span> Refresh
+                    </button>
+                    <button class="btn btn-primary" id="exportBtn">
+                        <span>📥</span> Export Report
+                    </button>
+                </div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #0D47A1;">🎫</div>
+                    <div class="stat-content">
+                        <h3 id="totalTickets">0</h3>
+                        <p>Total Tickets Sold</p>
+                        <span class="stat-change positive">+12% from last week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #D4AF37;">💰</div>
+                    <div class="stat-content">
+                        <h3 id="totalRevenue">₹0</h3>
+                        <p>Total Revenue</p>
+                        <span class="stat-change positive">+18% from last week</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #4CAF50;">✅</div>
+                    <div class="stat-content">
+                        <h3 id="confirmedTickets">0</h3>
+                        <p>Confirmed Bookings</p>
+                        <span class="stat-change">Updated just now</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #FF9800;">⏳</div>
+                    <div class="stat-content">
+                        <h3 id="pendingTickets">0</h3>
+                        <p>Pending Payments</p>
+                        <span class="stat-change">Last hour</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Sales Overview</h3>
+                        <select id="salesPeriod">
+                            <option value="7">Last 7 Days</option>
+                            <option value="30">Last 30 Days</option>
+                            <option value="90">Last 3 Months</option>
+                        </select>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Ticket Distribution</h3>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="ticketChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions -->
+            <div class="data-card">
+                <div class="data-header">
+                    <h3>Recent Transactions</h3>
+                    <a href="tickets.html" class="link-view-all">View All →</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Transaction ID</th>
+                                <th>Customer</th>
+                                <th>Ticket Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentTransactions">
+                            <tr>
+                                <td colspan="7" class="text-center">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="quick-stats-grid">
+                <div class="quick-stat-card">
+                    <h4>💼 Sponsorship Inquiries</h4>
+                    <div class="quick-stat-value" id="sponsorshipCount">0</div>
+                    <a href="sponsorship.html" class="quick-stat-link">View Details →</a>
+                </div>
+
+                <div class="quick-stat-card">
+                    <h4>🚀 Startup Applications</h4>
+                    <div class="quick-stat-value" id="startupCount">0</div>
+                    <a href="startups.html" class="quick-stat-link">Review Applications →</a>
+                </div>
+
+                <div class="quick-stat-card">
+                    <h4>✉️ Contact Messages</h4>
+                    <div class="quick-stat-value" id="contactCount">0</div>
+                    <a href="contacts.html" class="quick-stat-link">View Messages →</a>
+                </div>
+
+                <div class="quick-stat-card">
+                    <h4>👥 Total Attendees</h4>
+                    <div class="quick-stat-value" id="attendeeCount">0</div>
+                    <p class="quick-stat-subtext">Across all ticket types</p>
+                </div>
+            </div>
+
+            <!-- Payment Gateway Status -->
+            <div class="data-card">
+                <div class="data-header">
+                    <h3>Payment Gateway Status</h3>
+                </div>
+                <div class="payment-status-grid">
+                    <div class="payment-gateway-card">
+                        <div class="gateway-header">
+                            <img src="../assets/payu-logo.png" alt="PayU" style="height: 30px;">
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                        <div class="gateway-stats">
+                            <div class="gateway-stat">
+                                <span>Transactions</span>
+                                <strong id="payuTransactions">0</strong>
+                            </div>
+                            <div class="gateway-stat">
+                                <span>Success Rate</span>
+                                <strong id="payuSuccessRate">0%</strong>
+                            </div>
+                            <div class="gateway-stat">
+                                <span>Amount</span>
+                                <strong id="payuAmount">₹0</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="payment-gateway-card">
+                        <div class="gateway-header">
+                            <img src="../assets/easebuzz-logo.png" alt="Easebuzz" style="height: 30px;">
+                            <span class="status-badge status-active">Active</span>
+                        </div>
+                        <div class="gateway-stats">
+                            <div class="gateway-stat">
+                                <span>Transactions</span>
+                                <strong id="easebuzzTransactions">0</strong>
+                            </div>
+                            <div class="gateway-stat">
+                                <span>Success Rate</span>
+                                <strong id="easebuzzSuccessRate">0%</strong>
+                            </div>
+                            <div class="gateway-stat">
+                                <span>Amount</span>
+                                <strong id="easebuzzAmount">₹0</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+</body>
+</html>

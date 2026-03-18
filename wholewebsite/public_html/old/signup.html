@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Global Leadership Summit Vision 2047</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="images/PanIITLogo.png">
+    <style>
+        /* ===== Make Send OTP button clearly visible ===== */
+#sendSignupOtp {
+  display: inline-block;
+  background: linear-gradient(90deg, #0056b3, #007bff); /* Blue gradient */
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  width: 100%;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(0, 123, 255, 0.4);
+}
+
+/* On hover */
+#sendSignupOtp:hover {
+  background: linear-gradient(90deg, #007bff, #00a2ff);
+  transform: scale(1.03);
+  box-shadow: 0 0 18px rgba(0, 162, 255, 0.6);
+}
+
+/* Focus / Active (keyboard or click) */
+#sendSignupOtp:focus,
+#sendSignupOtp:active {
+  outline: none;
+  box-shadow: 0 0 22px rgba(245, 197, 66, 0.8);
+  background: linear-gradient(90deg, #004b99, #0066cc);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/PanIITLogo.png" alt="GLS Vision 2047 Logo" class="logo-img">
+                        <span class="logo-text">GLS Vision 2047</span>
+                    </a>
+                </div>
+                <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Signup Section -->
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <h2 class="auth-title">Join GLS Vision 2047</h2>
+                    <p class="auth-subtitle">Create your account and be part of India's premier leadership summit</p>
+                    
+                    <form id="signupForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="signupName">Full Name *</label>
+                            <input type="text" id="signupName" name="name" required placeholder="Enter your full name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupEmail">Email Address *</label>
+                            <input type="email" id="signupEmail" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupPhone">Phone Number *</label>
+                            <input type="tel" id="signupPhone" name="phone" required placeholder="+91 XXXXX XXXXX" pattern="[0-9]{10,15}">
+                            <small>Enter 10-digit mobile number without country code</small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="signupPassword">Password *</label>
+                            <input type="password" id="signupPassword" name="password" required placeholder="Create a strong password" minlength="6">
+                        </div>
+                        
+                        <div class="form-group">
+                            <button type="button" id="sendSignupOtp" class="btn btn-outline btn-block">Send OTP</button>
+                        </div>
+                        
+                        <div id="signupOtpSection" class="otp-section" style="display: none;">
+                            <div class="form-group">
+                                <label for="signupOtp">Enter OTP *</label>
+                                <input type="text" id="signupOtp" name="otp" maxlength="6" placeholder="Enter 6-digit OTP">
+                                <small>OTP sent to your mobile number</small>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.html">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Global Leadership Summit Vision 2047</h4>
+                    <p>Organized by GLS Vision 2047</p>
+                    <p class="footer-tagline">Leadership • Innovation • Vision 2047</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Global Leadership Summit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const sendOtpBtn = document.getElementById('sendSignupOtp');
+  const otpSection = document.getElementById('signupOtpSection');
+  const signupForm = document.getElementById('signupForm');
+
+  // 1️⃣ Send verification code to user's email
+  sendOtpBtn.addEventListener('click', async () => {
+    const email = document.getElementById('signupEmail').value.trim();
+
+    if (!email) {
+      alert('Please enter your email first');
+      return;
+    }
+
+    try {
+      const res = await fetch('send_email_otp.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email })
+      });
+      const out = await res.json();
+
+      if (out.success) {
+        otpSection.style.display = 'block';
+        alert('Verification code sent to your email!');
+      } else {
+        alert(out.message);
+      }
+    } catch (e) {
+      alert('Server error while sending verification email.');
+      console.error(e);
+    }
+  });
+
+  // 2️⃣ Submit signup form after verifying OTP
+  signupForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      name: document.getElementById('signupName').value.trim(),
+      email: document.getElementById('signupEmail').value.trim(),
+      phone: document.getElementById('signupPhone').value.trim(),
+      password: document.getElementById('signupPassword').value,
+      otp: document.getElementById('signupOtp').value.trim()
+    };
+
+    if (!formData.otp) {
+      alert('Please enter the verification code sent to your email.');
+      return;
+    }
+
+    try {
+      const response = await fetch('signup.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('Signup successful! You can now login.');
+        window.location.href = 'login.html';
+      } else {
+        alert(result.message);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Server error during signup.');
+    }
+  });
+});
+</script>
+</body>
+</html>

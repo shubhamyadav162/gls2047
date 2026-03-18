@@ -1,0 +1,3923 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GLS Vision 2047 presents Global Leadership Summit Vision 2047 - India's most prestigious leadership & industry platform uniting IIT alumni, unicorn founders, VCs, and policymakers at Yashobhumi, Delhi">
+    <meta name="keywords" content="GLS Vision 2047, Global Leadership Summit, GLS Vision 2047, Leadership Conference, Innovation Summit, IIT Alumni">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Global Leadership Summit Vision 2047 | Vision 2047">
+    <meta property="og:description" content="GLS Vision 2047 presents India's brightest minds and global capital at Yashobhumi, Delhi. 5,000+ delegates, 500+ CXOs, 200+ Investors.">
+    <meta property="og:image" content="images/GLS_Favicon.png">
+    <meta property="og:url" content="https://glsvision2047.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Global Leadership Summit Vision 2047 | Vision 2047">
+    <meta name="twitter:description" content="GLS Vision 2047 presents India's brightest minds and global capital at Yashobhumi, Delhi.">
+    <meta name="twitter:image" content="images/GLS_Favicon.png">
+    
+    <title>Global Leadership Summit Vision 2047</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/stalls.css">
+    <link rel="icon" type="image/png" href="images/GLS_Favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    
+    <style>
+          /* === Your Original Code === */
+          .logo {
+            display: flex;
+            flex-direction: column; /* stack vertically (image on top, text below) */
+            align-items: center;     /* center horizontally */
+            text-align: center;
+            padding-top: 10px
+          }
+    
+          .logo-text {
+            margin-top: 6px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.2;
+          }
+    
+          .navbar {
+            padding: 4px 0;
+          }
+    
+          .logo-img {
+            height: 70px;
+            width: auto;
+          }
+    
+          .logo-text {
+            font-size: 0.9rem;
+            margin-top: 2px;
+          }
+    
+          .investors-content .lead {
+            color: #fff;
+          }
+    
+          .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: auto;
+          }
+    
+          .auth-nav-items, .user-profile-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+    
+          .user-name {
+            font-weight: 600;
+            white-space: nowrap;
+          }
+    
+          .mobile-menu-toggle {
+            display: none;
+          }
+    
+          /* === Responsive Additions === */
+          .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+          }
+          .mobile-menu-toggle span {
+            display: block;
+            width: 26px;
+            height: 3px;
+            background: #000000;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+          }
+          .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translateY(8px);
+          }
+          .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+          }
+          .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translateY(-8px);
+          }
+    
+          .session_col{
+            display: flex;
+            flex-direction: row;
+          }
+          /* === Mobile Menu === */
+          @media (max-width: 900px) {
+            .mobile-menu-toggle {
+              display: flex;
+            }
+    
+            .nav-menu {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              right: 0;
+              flex-direction: column;
+              background: #ffbf01; /* match header color */
+              text-align: center;
+              /* padding: 15px 0; */
+              display: none;
+              animation: slideDown 0.3s ease forwards;
+            }
+    
+            .nav-menu.open {
+              display: flex;
+            }
+            .logo-img {
+                height: 60px;
+                width: auto;
+              }
+            @keyframes slideDown {
+              from {
+                opacity: 0;
+                transform: translateY(-15px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+    
+            .nav-menu li {
+              margin: 8px 0;
+            }
+          }
+          /* swipwer-slide */
+          .wrapper-slider {
+            position: relative;
+            width: 100%;
+            margin: auto;
+            color: #262626;
+            background: black;
+            .item {
+              position: relative;
+              width: 100vw;
+              height: 100vh;
+              padding-inline: 2rem;
+              
+              picture {
+                display: block;
+                &:before {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0, 0, 0, 0.4);
+                  inset: 0;
+                  z-index: 1;
+                }
+                img {
+                  position: absolute;
+                  inset: 0;
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+              .hero-overlay {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                z-index: 2;
+                background: linear-gradient(135deg, rgba(0, 154, 159, 0.7), rgba(11, 60, 94, 0.6));
+              }
+              .video {
+                &:before {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 100%;
+                  background: rgba(0, 0, 0, 0.4);
+                  inset: 0;
+                  z-index: 1;
+                }
+              }
+              video {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                inset: 0;
+              }
+            }
+            .parent-text {
+              padding: 3rem 2rem;
+              position: relative;
+              z-index: 2;
+              color: white;
+              
+              .info-text {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+              }
+              h2 {
+                text-transform: uppercase;
+                font-size: 3.9rem;
+                
+              }
+              p {
+                font-size: 2.1rem;
+                
+              }
+              
+            }
+            .swiper-pagination {
+              width: 100%;
+              bottom: 5rem;
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              font-size: 1.4rem;
+              font-weight: 500;
+              padding-inline: 4rem;
+              .svg-icon {
+                width: 1.5rem;
+                height: 1.5rem;
+                path {
+                  fill: white;
+                }
+              }
+              .swiper-pagination-bullet {
+                color: white;
+                opacity: 1;
+                width: initial;
+                height: initial;
+                background: transparent;
+                button {
+                  background: transparent;
+                  border: 0;
+                  display: flex;
+                  cursor: pointer;
+                }
+              }
+              .bullet-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .icon {
+                position: absolute;
+                z-index: 1;
+              }
+            }
+          }
+          .percentage {
+            --colorf3: #1c69d4;
+            --color13: #1c69d4;
+            width: 3.4rem;
+            aspect-ratio: 1;
+            mask: radial-gradient(transparent 55%, black 60% 100%);
+            -webkit-mask: radial-gradient(transparent 55%, black 60% 100%);
+            transition: opacity 0.6s ease;
+            opacity: 0;
+            background: conic-gradient(transparent 0, transparent var(--p), #c9d6d7 0),
+              conic-gradient(var(--colorf3), #1c69d4, #1c69d4, #1c69d4, var(--colorf3)),
+              conic-gradient(transparent, transparent 10%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+    
+            &.show {
+              opacity: 1;
+            }
+            .number {
+              width: 80%;
+              aspect-ratio: 1;
+              display: inherit;
+              align-items: inherit;
+              justify-content: inherit;
+              background: white;
+              border-radius: inherit;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 800;
+              line-height: 24px;
+              color: var(--color13);
+            }
+          }
+          @media (max-width: 900px) {
+            .wrapper-slider {
+            .parent-text {
+              padding: 2rem 1.2rem;
+              position: relative;
+              z-index: 2;
+              color: white;
+              
+              .info-text {
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+              }
+              h2 {
+                text-transform: uppercase;
+                font-size: 1.9rem;
+                
+              }
+              p {
+                font-size: 1rem;
+                /* font-weight: 300; */
+              }
+            }
+            }
+            .swiper-pagination {
+              opacity: 0;
+              width: 100%;
+              bottom: 5rem;
+              display: flex;
+              align-items: center;
+              gap: 0.3rem;
+              font-size: .8rem;
+              font-weight: 400;
+              padding-inline: 2rem;
+              .svg-icon {
+                width: .8rem;
+                height: .8rem;
+                path {
+                  fill: white;
+                }
+              }
+              .swiper-pagination-bullet {
+                color: white;
+                opacity: 0;
+                width: initial;
+                height: initial;
+                background: transparent;
+                button {
+                  background: transparent;
+                  border: 0;
+                  display: flex;
+                  cursor: pointer;
+                }
+              }
+              .bullet-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              }
+              .icon {
+                position: absolute;
+                z-index: 1;
+              }
+            }
+          }
+          
+    
+        .curve {
+          position: absolute;
+          width: 1000px;
+          height: 450px;
+          border-top: 6px solid #ffd966;
+          border-bottom: 1px solid #ffd96649;
+          border-left: 2px solid #ffd966;
+          border-right: 1px solid #ffd966;
+          border-radius: 50%;
+          top: 100px;
+          left: 200px;
+          transform: rotate(160deg);
+          opacity: 0.9;
+          z-index: 1;
+        }
+    
+        .date-box {
+          border: 2px solid #fff;
+          padding: 20px;
+          border-radius: 10px;
+        }
+    
+        .date {
+          font-size: 28px;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+
+        .venue p {
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .venue span {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .date-venue{
+          width: 100%;
+          text-align: center;
+          width: 500px;
+          margin-top: -50px; 
+        }
+        .date-venue-border{
+          border: 2px solid #ffffff;
+          padding:50px 30px;
+           background:linear-gradient(to left, rgba(0, 154, 159,.5), rgb(6, 41, 66),rgba(0, 154, 159, .5));
+        }
+        .venus{
+          padding: 10px 10px;
+          font-size: 1.5rem;
+        
+        }
+        .venus-p{
+            padding: 10px 20px;
+            font-size: 2rem;
+        }
+        .date-v{
+          background:linear-gradient(to left, rgba(0, 154, 159, .9 ), rgba(6, 41, 66 ,1 ) ,80%, rgba(0, 154, 159, .9)); 
+          padding: 10px 20px;
+          font-size: 2rem;
+        }
+        
+        
+        @media (max-width: 900px){
+          .date-venue{
+          width: 100%;
+          text-align: center;
+          width: 300px;
+          margin: auto;
+          margin-top: -20px; 
+        }
+        .date-venue-border{
+          padding:30px 20px;
+        }
+          .date-v{
+            font-size: 1rem;
+          }
+          .venus{
+          
+          font-size: 1rem;
+        
+        }
+        .venus-p{
+            
+            font-size: 1rem;
+        }
+        }
+        .header_logo{
+          display:flex;
+          justify-content:space-between;
+          align-items: center;
+        }
+        
+        @media (max-width: 900px){
+          .session_col{
+                display: flex;
+                flex-direction: column;
+              }
+              .header_logo{
+              justify-content:space-between;
+              align-items: center;
+              width: 280px;
+            }
+            #header{
+              display: flex;
+              align-items: center;
+              width: auto;
+            }
+            .logo-text{
+              font-size: 10px;
+              margin-top: -5px;
+            }
+            #home{
+                padding-top:100px;
+            }
+          }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggle = document.querySelector(".mobile-menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+
+        toggle.addEventListener("click", () => {
+          navMenu.classList.toggle("open");
+          toggle.classList.toggle("active");
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!-- Fixed Header Navigation -->
+    <header id="header">
+      <div class="container"> 
+        <div class="header_logo">
+          <a href="index.html" class="log" style="display: flex; justify-items: center;justify-content: center;height: 100%;">
+            <img src="images/vision2047logomain.png" alt="Vision 2047 Logo" class="logo-img">
+          </a>
+          <a href="https://nextgentechno.in/" target="_blank" class="logo">
+            <img src="images/iitalumuniai.png" alt="IIT Alumni Logo" class="logo-img">
+            <!--<span class="logo-text" style="color:#000">GLS Vision 2047</span>-->
+          </a>
+        </div>  
+      </div>
+      <nav class="navbar">
+        <div class="container nav-container">
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+          <ul class="nav-menu">
+              <li><a href="#home" class="nav-link active">Home</a></li>
+              <li><a href="#about" class="nav-link">About</a></li>
+              <li><a href="#vision2047" class="nav-link">GLS Vision 2047</a></li>
+              <li><a href="#theme" class="nav-link">Theme</a></li>
+              <li><a href="#speakers" class="nav-link">Speakers</a></li>
+              <li><a href="#conference" class="nav-link">Conference</a></li>
+               <li><a href="#zone" class="nav-link">Zones</a></li>
+              <li><a href="#investors" class="nav-link">Investors</a></li>
+              <li><a href="#awards" class="nav-link">Awards</a></li>
+              <li><a href="#partners" class="nav-link">Partners</a></li>
+              <li><a href="/exhibition/" class="nav-link">Exhibition</a></li>
+              <li><a href="/exhibition/" class="nav-link">Shop</a></li>
+              <li><a href="#tickets" class="nav-link">Tickets</a></li>
+              <li><a href="#contact" class="nav-link">Contact</a></li>
+
+              <!-- Auth Buttons -->
+              <li id="authButtons" class="auth-nav-items">
+                  <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                  <a href="signup.html" class="btn btn-primary btn-sm">SignUp</a>
+              </li>
+
+              <!-- User Profile -->
+              <li id="userProfile" class="user-profile-nav" style="display:none;">
+                  <span id="welcomeText" class="user-name"></span>
+                  <button id="logoutBtn" class="btn btn-outline btn-sm">Logout</button>
+              </li>
+              <!-- <li>
+                <a href="https://iconexglobal.com/" class="logo" style="gap:0px !important">
+                  <span class="logo-texts" style="color:#fff;">Organised By</span>
+                  <img src="images/iCONEX_LOGO.png" alt="GLS Vision 2047 Logo" class="logo-imgs" style="width: 150px;padding: 5px;">  
+                </a>
+              </li> -->
+              
+          </ul> 
+        </div>
+      </nav>
+    </header>
+
+    
+  
+    <section id="home" class="hero-section">
+      <div class="wrapper-slider">
+        <div class="swiper main-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="curve"></div>
+              <div class="item">
+                <picture>
+                  <img src="images/Globe_BG-01.png" alt="image">
+                    <div class="hero-overlay"></div>
+                  </picture>
+                
+                <div class="parent-text">
+                  <div class="info-text">
+                    <h2 style="text-align: center;"><span style="text-transform: none;">GLS Vision 2047</span> <span style="text-transform: capitalize;">Global Leadership <br>Summit 2026.</span></h2>
+                    <div class="hero-meta fade-in">
+                      <div class="hero-meta-item event-partners">
+                       
+                        <span><strong><span style="background: linear-gradient(to left, rgba(0, 154, 159,.5), rgb(6, 41, 66),rgba(0, 154, 159, 0.397));padding: 5px 100px;">THEME:</span></strong><br> .&nbsp;TECHNOLOGY &nbsp;.&nbsp;INVESTMENTS &nbsp;.&nbsp; GOVERNANCE &nbsp;.&nbsp; DIPLOMACY</span>
+                      </div>
+
+                      <div style="width: 100%;text-align: center;z-index: 2;">
+                        <span class="icon">
+                        </span>
+                        <span class="date-v" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#f5c542" viewBox="0 0 16 16">
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h.5A1.5 1.5 0 0 1 15 2.5V4H1V2.5A1.5 1.5 0 0 1 2.5 1H3v-.5a.5.5 0 0 1 .5-.5zM1 14V5h14v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2z"/>
+                          </svg> <b>18 – 19 July 2026</b></span>
+                      </div>
+                      <div class="date-venue" >
+                        <div class="date-venue-border">
+                          <span >
+                           
+                          <span class="venus">📍Yashobhoomi Convention Centre,</span><br>
+                          <span class="venus-p">New Delhi, India</span>
+                        </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="cta-buttons fade-in">
+                      <a href="#tickets" class="btn btn-primary">Book Your Pass</a>
+                      <a href="partner_with_us.html" class="btn btn-outline">Partner With Us</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="curve"></div>
+            </div>
+            <div class="swiper-slide">
+              <div class="item">
+                <div class="hero-overlay"></div>
+                <picture>
+                  <img src="images/GLS_Hero_Slide_2.jpg" alt="image">
+
+                </picture>
+                <div class="parent-text">
+                  <div class="info-text">
+                   <h2 style="text-align: center;"><span style="text-transform: none;">GLS Vision 2047</span> <span style="text-transform: capitalize;">Global Leadership <br>Summit 2026.</span></h2>
+                    
+                    <div class="hero-meta fade-in">
+                      <div class="hero-meta-item event-partners">
+                        
+                        <span><strong><span style="background: linear-gradient(to left, rgba(0, 154, 159,.5), rgb(6, 41, 66),rgba(0, 154, 159, 0.397));padding: 5px 100px;">THEME:</span></strong><br> .&nbsp;TECHNOLOGY &nbsp;.&nbsp;INVESTMENTS &nbsp;.&nbsp; GOVERNANCE &nbsp;.&nbsp; DIPLOMACY</span>
+                      </div>
+
+                      <div style="width: 100%;text-align: center;z-index: 2;">
+                        <span class="icon">
+                        </span>
+                        <span class="date-v" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#f5c542" viewBox="0 0 16 16">
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h.5A1.5 1.5 0 0 1 15 2.5V4H1V2.5A1.5 1.5 0 0 1 2.5 1H3v-.5a.5.5 0 0 1 .5-.5zM1 14V5h14v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2z"/>
+                          </svg> <b>18 – 19 July 2026</b></span>
+                      </div>
+                      <div class="date-venue" >
+                        <div class="date-venue-border">
+                          <span >
+                           
+                          <span class="venus">📍 Yashobhoomi Convention Centre,</span><br>
+                          <span class="venus-p">New Delhi, India</span>
+                        </span>
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                    <div class="cta-buttons fade-in">
+                      <a href="#tickets" class="btn btn-primary">Book Your Pass</a>
+                      <a href="partner_with_us.html" class="btn btn-outline">Partner With Us</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="item">
+                <div class="hero-overlay"></div>
+                <picture>
+                  <img src="images/GLS_Hero_Slide_3.jpg" alt="image">
+                </picture>
+                <div class="hero-overlay"></div>
+                <div class="parent-text">
+                  <div class="info-text">
+                    <h2 style="text-align: center;"><span style="text-transform: none;">GLS Vision 2047</span> <span style="text-transform: capitalize;">Global Leadership <br>Summit 2026.</span></h2>
+                    
+                    <div class="hero-meta fade-in">
+                      <div class="hero-meta-item event-partners">
+                       
+                        <span><strong><span style="background: linear-gradient(to left, rgba(0, 154, 159,.5), rgb(6, 41, 66),rgba(0, 154, 159, 0.397));padding: 5px 100px;">THEME:</span></strong><br> .&nbsp;TECHNOLOGY &nbsp;.&nbsp;INVESTMENTS &nbsp;.&nbsp; GOVERNANCE &nbsp;.&nbsp; DIPLOMACY</span>
+                      </div>
+
+                      <div style="width: 100%;text-align: center;z-index: 2;">
+                        <span class="icon">
+                        </span>
+                        <span class="date-v" >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#f5c542" viewBox="0 0 16 16">
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h.5A1.5 1.5 0 0 1 15 2.5V4H1V2.5A1.5 1.5 0 0 1 2.5 1H3v-.5a.5.5 0 0 1 .5-.5zM1 14V5h14v9a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2z"/>
+                          </svg> <b>18 – 19 July 2026</b></span>
+                      </div>
+                      <div class="date-venue" >
+                        <div class="date-venue-border">
+                          <span >
+                           
+                          <span class="venus">📍 Yashobhoomi Convention Centre,</span><br>
+                          <span class="venus-p">New Delhi, India</span>
+                        </span>
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                    <div class="cta-buttons fade-in">
+                      <a href="#tickets" class="btn btn-primary">Book Your Pass</a>
+                      <a href="partner_with_us.html" class="btn btn-outline">Partner With Us</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>  
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Section 2: About Event -->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+          <div class="section-header">
+              <h2 class="section-title">About Global Leadership Summit Vision 2047</h2>
+              <p class="section-subtitle">Leadership • Innovation • Vision 2047</p>
+          </div>
+          <div class="about-content">
+            <div class="about-text">
+                <p><b>GLS Vision 2047 Alumni India</b> is an umbrella organization, representing alumni of all Indian Institutes of Technology (IITs). GLS Vision 2047 is a not-for-profit Society under the Societies Registration Act XXI of 1860 with Registration No. S-56680 of 2006 dated 20 September 2006 duly registered with the Registrar of Societies, Government of NCT of Delhi, Delhi. It is the Indian legal entity of the global GLS Vision 2047 movement.</p>
+                <p>The movement, over the years, has developed and and spread in various parts of the world. Besides India, it has a very active presence in the United States, Canada, United Kingdom, Korea, Singapore, and Australia..</p>
+                <div class="highlight-box">
+                  <ul>
+                    <li>
+                      GLS Vision 2047 is the global body of IIT alumni, representing 5,00,000+ IITians from India’s most prestigious institutions.
+                    </li>
+                    <li>
+                      A driving force in leadership, entrepreneurship, and national growth.
+                    </li>
+                    <li>
+                      IIT alumni today are Global CEOs, Unicorn founders, Venture Capital Partners, and Policymakers shaping global economy.
+                    </li>
+                    <li>
+                      GLS Vision 2047 Leaders initiative connects IIT leadership with India’s growth story towards Vision 2047.
+                    </li>
+                  </ul>
+                </div>
+                
+                
+              <div class="benefits-grid">
+                <div class="benefit-item">
+                  <div class="benefit-icon">
+                    <img src="images/network.png" alt="Elite Network">
+                  </div>
+                  <h3>Elite Network</h3>
+                  <p>Connect with India's top leaders, unicorn founders, and global investors.</p>
+                </div>
+
+                <div class="benefit-item">
+                  <div class="benefit-icon">
+                    <img src="images/innovation.png" alt="Showcase Innovation">
+                  </div>
+                  <h3>Showcase Innovation</h3>
+                  <p>Present your solutions to decision-makers and capital providers.</p>
+                </div>
+
+                <div class="benefit-item">
+                  <div class="benefit-icon">
+                    <img src="images/recognition.png" alt="Recognition">
+                  </div>
+                  <h3>Recognition</h3>
+                  <p>Gain visibility as a contributor to India's Vision 2047 journey.</p>
+                </div>
+
+                <div class="benefit-item">
+                  <div class="benefit-icon">
+                    <img src="images/insight.png" alt="Strategic Insights">
+                  </div>
+                  <h3>Strategic Insights</h3>
+                  <p>Access exclusive insights on policy, technology, and market trends.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+            <!-- Key Stats -->
+             <h2 style="color: var(--gold)">Join us as we collaborate to shape the leaders of tomorrow and create lasting impact—locally, nationally, and globally</h2>
+          <div class="stats-grid">
+            <div class="stat-card">
+              <div class="stat-number" data-target="5000">0</div>
+              <div class="stat-suffix">+</div>
+              <div class="stat-label">IITians & Global Leaders</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="500">0</div>
+              <div class="stat-suffix">+</div>
+              <div class="stat-label">CXOs & MD-Level Delegates</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="200">0</div>
+              <div class="stat-suffix">+</div>
+              <div class="stat-label">Global Investors & VCs</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-number" data-target="100">0</div>
+              <div class="stat-suffix">+</div>
+              <div class="stat-label">Speakers & Policymakers</div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <style>/* ---------- BENEFITS GRID ---------- */
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 40px;
+        padding: 80px 0;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* ---------- CARD ---------- */
+      .benefit-item {
+        background: #fff;
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s ease;
+        transform: translateY(40px);
+        opacity: 0;
+        animation: fadeUp 1s forwards;
+      }
+
+      .benefit-item:nth-child(1) { animation-delay: 0.2s; }
+      .benefit-item:nth-child(2) { animation-delay: 0.4s; }
+      .benefit-item:nth-child(3) { animation-delay: 0.6s; }
+      .benefit-item:nth-child(4) { animation-delay: 0.8s; }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ---------- IMAGE ---------- */
+      .benefit-item img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+
+      /* ---------- HOVER EFFECT ---------- */
+      .benefit-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .benefit-item:hover img {
+        transform: scale(1.08);
+      }
+
+      /* ---------- TEXT ---------- */
+      .benefit-item h3 {
+        font-size: 1.25rem;
+        margin: 15px 0 10px;
+        color: #009a9f;
+        font-weight: 700;
+        transition: color 0.3s ease;
+      }
+
+      .benefit-item:hover h3 {
+        color: #009a9f;
+      }
+
+      .benefit-item p {
+        font-size: 0.96rem;
+        color: #333;
+        line-height: 1.6;
+        padding: 0 20px 25px;
+        margin: 0;
+      }
+      .chair-text{
+        width: 50%;
+         display: flex;
+         flex-direction: column; 
+         justify-content: center;
+         align-items: center;
+      }
+      .card-image{
+        background-color: #0057b399;
+        width: 50%;
+      }
+      .chair-text h2{
+        font-size: 40px;
+        text-align: start;
+        color: #fff;
+      }
+      .chair-text h3{
+        font-size: 35px;
+        text-align: start;
+        color: #fff;
+      }
+      .chair-text h5{
+        font-size: 25px;
+        text-align: start;
+        color: #fff;
+      }
+      .chair_card{
+        display: flex;
+      }
+
+      /* ---------- SCROLL FADE-IN ---------- */
+      @media (prefers-reduced-motion: no-preference) {
+        .benefit-item {
+          will-change: transform, opacity;
+        }
+      }
+
+      /* ---------- RESPONSIVE ---------- */
+      @media (max-width: 768px) {
+        .benefit-item img {
+          height: 180px;
+        }
+        .chair-text h2{
+        font-size: 20px;
+      }
+      .chair-text h3{
+        font-size: 18px;
+      }
+      .chair-text h5{
+        font-size: 16px;
+      }
+      .chair_card{
+        flex-direction: column;
+      }
+      .chair-text{
+        width: 100%;
+        order: 2;
+         
+      }
+      .card-image{
+        
+        width: 100%;
+        order: 1;
+      }
+      }
+    </style>
+    <section class="conference-section section-padding bg-light">
+      <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">MESSAGE</h2>
+            <p class="section-subtitle">MESSAGE FROM GLS Vision 2047 CHAIRMAN</p>
+        </div>
+        <div class="content-split">
+          <div class="content-image">
+              <img src="images/GLS_Organizer_Chairman.png" alt="GLS Vision 2047 Leaders" class="img-fluid" style="background: #fff;">
+          </div>
+          <div class="content-text">
+            <h3>Prabhat Kumar, IRS</h3>
+            <p>Chairman, GLS Vision 2047 Alumni India <br>IIT Delhi, Batch of 1991</p>
+            
+          </div>
+        </div><br>
+        <div class="about-text">
+          <p>The global economy is undergoing a profound transformation—shaped by technological disruption, shifting geopolitical landscapes, sustainability imperatives, and rapidly changing consumer expectations. In this dynamic environment, industry leadership is not just about staying competitive; it is about shaping the future with vision, collaboration, and responsibility.</p>
+          <p>It is with great pleasure that I invite you and your esteemed organisation to participate in the Global Leadership Summit Vision 2047. Designed as a premier platform for dialogue, innovation, and strategic exchange, the Summit brings together global CEOs, policymakers, investors, entrepreneurs, and thought leaders to explore new frontiers of growth and leadership.</p>
+          <p>The Summit will feature high-impact keynote sessions, strategic panel discussions, leadership forums, and sector-focused dialogues aimed at addressing today’s most pressing challenges—from digital transformation and sustainability to global trade, investment flows, and futureready workforce development. This gathering is an unparalleled opportunity for industry to:</p>
+          <div class="highlight-box">
+            <li style="list-style: none;">Engage directly with global and national decision-makers</li>
+            <li style="list-style: none;">Showcase innovations, capabilities, and success stories</li>
+            <li style="list-style: none;">Build strategic partnerships and cross-border collaborations</li>
+            <li style="list-style: none;">Gain actionable insights to navigate emerging opportunities</li>
+            <li style="list-style: none;">Contribute to shaping a future-focused leadership agenda</li>
+          </div><br>
+          <p>Your presence will not only enrich the quality of discussions but also reinforce the vital role industry plays in driving economic growth and societal progress. Together, we can build a roadmap that inspires bold ideas, strengthens global competitiveness, and accelerates shared prosperity</p>
+          <p>I look forward to welcoming you to the GLS Vision 2047 Global Leadership Summit and to your active participation in this landmark initiative.</p>
+        </div><br><br>
+        
+        <div class="section-header">
+            <h2 class="section-title">Chair and Co-Chair</h2>
+        </div>
+        <div class="sliderChair" style="background: linear-gradient(to left, #000000a5 , #0a0a0a7f),url('images/backzone1.jpg');background-position: center;background-size: cover;">
+            <div class="grid" style="width: 100%; height: 450px;">
+              <div class="chair_card" style="width: 100%;" >
+                <div class="card-image" style="">
+                  <img src="images/speakers/gaural_goyal.png" style="width: 100%;">
+                </div>
+                <div class="chair-text">
+                  <h2>Chair</h2>
+                  <h5>GLS Vision 2047</h5>
+                  <h3 style="color:#fddb00">Gaurav Goyal</h3>
+                  <h5>IIT Delhi Alumnus</h5>
+                  <h5>Chair of GLS Vision 2047</h5>
+                </div>
+              </div>
+            </div>
+            <div class="grid" style="width: 100%; height: 450px;">
+              <div class="chair_card" >
+                <div class="chair-text" >
+                  <h2 >Co-Chair </h2>
+                  <h5>GLS Vision 2047</h5>
+                  <h3 style="color:#fddb00">Ashish Shandilya</h3>
+                  <h5>Co-Chair</h5>
+                  <h5> GLS Vision 2047</h5>
+                </div>
+                <div class="card-image" ><img src="images/speakers/ashish_sandilya.png"></div>
+              </div>
+            </div>
+        </div>
+        
+
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        
+        $(document).ready(function () {
+          $('.sliderChair').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: false,
+            speed: 300,
+            infinite: true,
+            autoplaySpeed: 5000,
+            autoplay: true,
+            gap:20,
+            responsive: [
+              {
+                breakpoint: 991,
+                settings: {
+                  slidesToShow: 1,
+                }
+              },
+              {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 1,
+                }
+              }
+            ]
+          });
+        });
+
+    </script>
+    <!-- Section 3: GLS Vision 2047 Leaders -->
+    <section id="vision2047" class="vision2047-section section-padding bg-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ABOUT SUMMIT</h2>
+                <p class="section-subtitle">Global Body of IIT Alumni Driving National Growth</p>
+            </div>
+            
+            <div class="content-split">
+                <div class="content-image">
+                    <!-- Replace with GLS Vision 2047 image -->
+                    <img src="images/GLS_Logoss.jpg" alt="GLS Vision 2047 Leaders" class="img-fluid" style="background: #fff;">
+                </div>
+                <div class="content-text">
+                    <p >Global Leadership Summit Vision 2047 – Delhi (GLS Vision 2047 GLS) is a premier platform dedicated to empowering leaders, innovators, thinkers, and changemakers from across industries. Designed as a high-impact forum, the summit will bring together global visionaries, corporate leaders, policymakers, entrepreneurs, educators, and emerging professionals to collaborate, exchange ideas, and shape the future of leadership.</p>
+                    <p>At the heart of the GLS Vision 2047 GLS is a commitment to fostering transformational leadership—leadership that inspires innovation, drives sustainable growth, and builds resilient organisations for the future. The summit provides a dynamic environment where participants gain strategic insights, expand their global network, and explore new leadership paradigms that are shaping today’s competitive world.</p>
+                    <p>Hosting the summit in Delhi—India’s hub for business and policy—the event becomes a dynamic gateway for knowledge exchange, leadership excellence, and global collaboration. It brings together world-renowned speakers for inspiring keynote sessions, impactful panel discussions, immersive workshops, hands-on leadership labs, and exclusive networking opportunities that foster meaningful conversations and deliver practical, actionable insights.</p>
+                    <p>With a focus on future-ready leadership, digital transformation, sustainability, emotional intelligence, organisational excellence, and global competitiveness, the GLS Vision 2047 Global Leadership Summit – Delhi is committed to building a community of forward-thinking leaders prepared to navigate complex challenges.</p>
+                    <p>Whether you are a senior executive seeking strategic direction, a professional aiming to accelerate your leadership journey, or an organisation committed to developing its talent pipeline, the GLS Vision 2047 GLS offers unmatched value, inspiration, and opportunity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="theme"  class="conference-section section-padding bg-light">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">THEME</h2>
+          <p class="section-subtitle">TECHNOLOGY | INVESTMENTS I GOVERNANCE I DIPLOMACY</p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">Technology</span></h2>
+            <p>IITians have been pivotal contributors in this technological evolution across the world. From founding groundbreaking startups to leading R&D at Fortune 500 companies, IIT alumni consistently push the boundaries of what is possible. Their work in AI, semiconductor design, fintech, climate tech, and space engineering has influenced global standards and accelerated progress in multiple sectors. IITians also play key roles in government, policy-making, and academia, shaping technology frameworks that impact millions.</p>
+          </div>
+
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">Investments</span></h2>
+            <p><b>IIT Alumni are a powerhouse in India’s startup ecosystem.</b> Out of 108 unicorns, <b>68 have at least one IIT graduate behind them </b>—think Flipkart or Paytm. IIT founders have attracted nearly<b> half of India’s total equity funding</b> in the past decade, driving fintech and deep-tech growth. With strong problem-solving skills and global networks, many are now shifting to the investor side as angels and VCs, pumping billions back into the ecosystem.</p>
+            <p><b>VC trends in India are also heating up.</b> Funding is rebounding sharply—<b>October alone saw $5.3B across 100 deals,</b> up 81% year-on-year. H1 hit $5.7B, led by global players like Sequoia and Tiger.</p>
+          </div>
+
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">Governance</span></h2>
+            <p><b>Strong governance is a growth accelerator.</b> Stable policies, low corruption, and faster bureaucracy have helped India shift from a “stalling” to a “scaling” economy. Reforms like GST, the Insolvency Code, and major digital infrastructure upgrades have improved India’s Ease of Doing Business by <b>29 ranks since 2016.</b> Better courts and dispute resolution cut economic drag by 3.5% last year, while stronger institutions pulled in<b> $21B in FDI,</b> boosting manufacturing and jobs. Challenges remain—land laws and red tape still slow infrastructure—but good governance consistently turns disorder into economic opportunity.</p>
+            <p><b>Digital infrastructure shows how governance pays off.</b> UPI now processes<b> 12 billion transactions a month,</b> powering small-business growth. Aadhaar’s <b>920 million </b>verified IDs reduce fraud and speed up welfare delivery.</p>
+          </div>
+
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">Diplomacy</span></h2>
+            <p><b>Diplomacy is powering India’s economic rise.</b> Big deals like the India-EFTA pact and the US iCET partnership are unlocking investments, boosting chip and AI collaborations, and pushing FDI up <b>18% to $35B.</b> Platforms like the Quad and G20 are strengthening supply chains and easing global market access, while smoother visas help India pull top talent. Geopolitical bumps remain, but overall, foreign policy is turning India into a magnet for capital and innovation.</p>
+            <p><b>Trade agreements amplify the momentum.</b> India now has <b>13 FTAs and 6 PTAs,</b> driving growth with neighbors like Bhutan, Nepal, and Bangladesh through low- or zero-tariff access.</p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <!-- Section 4: Event Partners -->
+    <section id="nextgen" class="nextgen-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Event Partners</h2>
+                <p class="section-subtitle">Strategic Support + World-Class Event Execution</p>
+            </div>
+            
+            <div class="content-split reverse">
+                <div class="content-image">
+                    <!-- Replace with Event Partners image -->
+                    <img src="images/GLS_Organizer_Partners.png" alt="Event Partners" class="img-fluid">
+                </div>
+                <div class="content-text">
+                    <p class="lead">Global Leadership Summit Vision 2047 is supported by a consortium of leading event partners, combining strategic expertise with exceptional event execution capabilities.</p>
+                    <p>A team of experienced professionals with extensive backgrounds in building businesses and organizing large-scale industry platforms ensures world-class delivery and execution.</p>
+                    
+                    <div class="achievements">
+                        <h4>Key Partners</h4>
+                        <div class="achievement-grid">
+                            <div class="achievement-item">
+                                <div class="achievement-icon">✓</div>
+                                <p>Various IITs and its Alumni bodies</p>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-icon">✓</div>
+                                <p>Event partners like Jagran, Bright, EV Expo etc..</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <style>
+      .tracks-grid-speaker {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 4fr));
+          gap: 20px;
+          max-width: 1200px;
+          margin: 50px auto;
+          padding: 0 10px;
+        }
+
+      .track-card-speaker {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.5s ease;
+        transform: translateY(40px);
+        opacity: 0;
+        animation: fadeUp 1s forwards;
+        position: relative;
+        padding: 20px 15px;
+        margin: 10px;
+      }
+
+      /* Staggered animation */
+      .track-card-speaker:nth-child(1) { animation-delay: 0.2s; }
+      .track-card-speaker:nth-child(2) { animation-delay: 0.4s; }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+    /* -----------------------------
+      IMAGE AREA — NO CROPPING
+    ----------------------------- */
+    .track-icon-speaker {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8faff;
+      
+    }
+
+    .track-icon-speaker img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;        /* Show full image */
+      transition: transform 1s ease, filter 0.6s ease;
+      border-radius: 14px;        /* Slight curve for smooth look */
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94));
+    }
+
+    /* Hover animation */
+    .track-card-speaker:hover .track-icon-speaker img {
+      transform: scale(1.05);
+      filter: brightness(1.08) saturate(1.1);
+    }
+
+    /* Soft blue glow overlay */
+    .track-card-speaker::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(0, 86, 214, 0) 70%, rgba(0, 86, 214, 0.1) 100%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .track-card-speaker:hover::after {
+      opacity: 1;
+    }
+
+    /* -----------------------------
+      TEXT AREA
+    ----------------------------- */
+    .track-card-speaker h3 {
+      font-size: 1.3rem;
+      color: #0b3d91;
+      font-weight: 700;
+      margin: 22px 20px 12px;
+      text-align: center;
+      letter-spacing: 0.3px;
+      transition: color 0.4s ease;
+    }
+
+    .track-card-speaker:hover h3 {
+      color: #0056d6;
+    }
+
+    .track-card-speaker p {
+      color: #333;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      text-align: center;
+      margin: 0 22px 30px;
+      transition: all 0.4s ease;
+    }
+
+    /* -----------------------------
+      HOVER LIFT & SHADOW
+    ----------------------------- */
+    .track-card-speaker:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+      border: 1px solid rgba(0, 102, 255, 0.15);
+    }
+
+    /* -----------------------------
+      SCROLL FADE-IN (ON VIEW)
+    ----------------------------- */
+      @media (prefers-reduced-motion: no-preference) {
+          .track-card-speaker {
+            will-change: transform, opacity;
+          }
+        }
+
+      .track-card-speaker.visible {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+
+      /* -----------------------------
+        RESPONSIVE DESIGN
+      ----------------------------- */
+      @media (max-width: 768px) {
+        .tracks-grid-speaker {
+          gap: 25px;
+          margin: 50px auto;
+        }
+
+        .track-icon-speaker {
+          padding: 10px;
+        }
+
+        .track-card-speaker h3 {
+          font-size: 1.15rem;
+          margin-top: 18px;
+        }
+
+        .track-card-speaker p {
+          font-size: 0.9rem;
+          margin-bottom: 20px;
+        }
+      }
+      
+    </style> 
+    <style>
+      
+      .slider{
+        visibility: hidden;
+        height: 0px;
+      }
+      @media (max-width: 768px){
+        .tracks-grid-speaker{
+          visibility: hidden;
+          height:0px
+      }
+      .slider{
+        visibility: inherit;
+        height: 100%;
+        
+      }
+      
+      }
+      
+    </style>
+
+    <section id="speakers">
+      <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Speakers</h2>
+            <p class="section-subtitle">Past Speakers</p>
+        </div>
+        <div class="slider">
+          <div>
+            <div class="track-card-speaker">
+                <div class="track-icon-speaker">
+                  <img src="images/speakers/Modi.png" alt="Leadership & Governance">
+                </div>
+                <h3>Narendra Modi</h3>
+                <p>Prime Minister, India</p>
+              </div>
+            </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Manmohan_Singh.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Manmohan Singh</h3>
+              <p>Former Prime Minster, India</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/APJ_Abdul_Kalam.png" alt="Technology & Sustainability">
+              </div>
+              <h3>APJ Abdul Kalam</h3>
+              <p>Former President, India</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Pratibha_Patil.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Pratibha Patil</h3>
+              <p>Former President, India</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Bill_Clinton.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Bill Clinton</h3>
+              <p>Former President, USA</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Nitin_Gadkari.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Nitin Gadkari</h3>
+              <p>Union Minister,Road Transport & Highways</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/MK_Stalin.png" alt="Technology & Sustainability">
+              </div>
+              <h3>MK Stalin</h3>
+              <p>Chief Minister,Tamil Nadu</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Arjun_Malhotra.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Arjun Malhotra</h3>
+              <p>Chairman, Magic Software Founder, HCL</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Mamata_Banerjee.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Mamata Banarjee</h3>
+              <p>Chief Minister, West Bengal</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Manohar_Parrikar.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Manohar Parrikar</h3>
+              <p>Former Chief Minister, Goa</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Piyush_Goyal.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Piyush Goyal</h3>
+              <p>Union Minister, Textiles</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/NR_Narayana_Murthy.png" alt="Technology & Sustainability">
+              </div>
+              <h3>NR Narayana Murthy</h3>
+              <p>Founder, Infosys</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/K_Ananth_Krishnan.png" alt="Technology & Sustainability">
+              </div>
+              <h3>K Ananth Krishnan</h3>
+              <p>Former CTO, TCS</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/AS_Kiran_Kumar.png" alt="Technology & Sustainability">
+              </div>
+              <h3>A S Kiran Kumar</h3>
+              <p>Former Chairman, ISRO</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Nandan_M_Nilekani.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Nandan M Nilekani</h3>
+              <p>Co-Founder & Chairman, Infosys</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Abhay_Karandikar.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Abhay Karandikar</h3>
+              <p>Secretary, Govt of India Dept of Sc & Tech</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Bill_Gates.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Bill Gates</h3>
+              <p>Chairman, Gates Foundation</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Deepak_Pahwa.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Deepak Pahwas</h3>
+              <p>Chairman, Bry-Air Asia</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Amartya_Sen.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Amartya Sen</h3>
+              <p>Nobel Prize Winner and Professor, Harvard</p>
+            </div>
+          </div>
+          <div>
+            <div class="track-card-speaker">
+              <div class="track-icon-speaker">
+                <img src="images/speakers/Arvind_Krishna.png" alt="Technology & Sustainability">
+              </div>
+              <h3>Arvind Krishna</h3>
+              <p>CEO, IBM</p>
+            </div>
+          </div>
+
+        </div>
+        <div class="tracks-grid-speaker">
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Modi.png" alt="Leadership & Governance">
+            </div>
+            <h3>Narendra Modi</h3>
+            <p>Prime Minister, India</p>
+          </div>
+
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Manmohan_Singh.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Manmohan Singh</h3>
+            <p>Former Prime Minster, India</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/APJ_Abdul_Kalam.png" alt="Technology & Sustainability">
+            </div>
+            <h3>APJ Abdul Kalam</h3>
+            <p>Former President, India</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Pratibha_Patil.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Pratibha Patil</h3>
+            <p>Former President, India</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Bill_Clinton.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Bill Clinton</h3>
+            <p>Former President, USA</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Nitin_Gadkari.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Nitin Gadkari</h3>
+            <p>Union Minister,Road Transport & Highways</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/MK_Stalin.png" alt="Technology & Sustainability">
+            </div>
+            <h3>MK Stalin</h3>
+            <p>Chief Minister,Tamil Nadu</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Arjun_Malhotra.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Arjun Malhotra</h3>
+            <p>Chairman, Magic Software Founder, HCL</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Mamata_Banerjee.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Mamata Banarjee</h3>
+            <p>Chief Minister, West Bengal</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Manohar_Parrikar.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Manohar Parrikar</h3>
+            <p>Former Chief Minister, Goa</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Piyush_Goyal.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Piyush Goyal</h3>
+            <p>Union Minister, Textiles</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/NR_Narayana_Murthy.png" alt="Technology & Sustainability">
+            </div>
+            <h3>NR Narayana Murthy</h3>
+            <p>Founder, Infosys</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/K_Ananth_Krishnan.png" alt="Technology & Sustainability">
+            </div>
+            <h3>K Ananth Krishnan</h3>
+            <p>Former CTO, TCS</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/AS_Kiran_Kumar.png" alt="Technology & Sustainability">
+            </div>
+            <h3>A S Kiran Kumar</h3>
+            <p>Former Chairman, ISRO</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Nandan_M_Nilekani.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Nandan M Nilekani</h3>
+            <p>Co-Founder & Chairman, Infosys</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Abhay_Karandikar.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Abhay Karandikar</h3>
+            <p>Secretary, Govt of India Dept of Sc & Tech</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Bill_Gates.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Bill Gates</h3>
+            <p>Chairman, Gates Foundation</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Deepak_Pahwa.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Deepak Pahwas</h3>
+            <p>Chairman, Bry-Air Asia</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Amartya_Sen.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Amartya Sen</h3>
+            <p>Nobel Prize Winner and Professor, Harvard</p>
+          </div>
+          <div class="track-card-speaker">
+            <div class="track-icon-speaker">
+              <img src="images/speakers/Arvind_Krishna.png" alt="Technology & Sustainability">
+            </div>
+            <h3>Arvind Krishna</h3>
+            <p>CEO, IBM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        // Slick initialization (jQuery required)
+        $(document).ready(function () {
+          $('.slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: false,
+            speed: 300,
+            infinite: true,
+            autoplaySpeed: 5000,
+            autoplay: true,
+            gap:20,
+            responsive: [
+              {
+                breakpoint: 991,
+                settings: {
+                  slidesToShow: 1,
+                }
+              },
+              {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 1,
+                }
+              }
+            ]
+          });
+        });
+
+      </script>
+    
+    <style>
+          /* =============================
+        TRACKS GRID (VISION 2047 SUMMIT)
+        ============================= */
+      .tracks-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 80px auto;
+        padding: 0 20px;
+      }
+
+      /* -----------------------------
+        TRACK CARD BASE STYLE
+      ----------------------------- */
+      .track-card {
+        background: #fff;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.5s ease;
+        transform: translateY(40px);
+        opacity: 0;
+        animation: fadeUp 1s forwards;
+        position: relative;
+      }
+
+      /* Staggered animation */
+      .track-card:nth-child(1) { animation-delay: 0.2s; }
+      .track-card:nth-child(2) { animation-delay: 0.4s; }
+
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* -----------------------------
+        IMAGE AREA — NO CROPPING
+      ----------------------------- */
+      .track-icon {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #f8faff;
+        padding: 20px;
+      }
+
+      .track-icon img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;        /* Show full image */
+        transition: transform 1s ease, filter 0.6s ease;
+        border-radius: 14px;        /* Slight curve for smooth look */
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      }
+
+        /* Hover animation */
+        .track-card:hover .track-icon img {
+          transform: scale(1.05);
+          filter: brightness(1.08) saturate(1.1);
+        }
+
+        /* Soft blue glow overlay */
+        .track-card::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: 20px;
+          background: linear-gradient(180deg, rgba(0, 86, 214, 0) 70%, rgba(0, 86, 214, 0.1) 100%);
+          opacity: 0;
+          transition: opacity 0.6s ease;
+        }
+
+        .track-card:hover::after {
+          opacity: 1;
+        }
+
+        /* -----------------------------
+          TEXT AREA
+        ----------------------------- */
+        .track-card h3 {
+          font-size: 1.3rem;
+          color: #0b3d91;
+          font-weight: 700;
+          margin: 22px 20px 12px;
+          text-align: center;
+          letter-spacing: 0.3px;
+          transition: color 0.4s ease;
+        }
+
+        .track-card:hover h3 {
+          color: #0056d6;
+        }
+
+        .track-card p {
+          color: #333;
+          font-size: 0.95rem;
+          line-height: 1.7;
+          text-align: center;
+          margin: 0 22px 30px;
+          transition: all 0.4s ease;
+        }
+
+        /* -----------------------------
+          HOVER LIFT & SHADOW
+        ----------------------------- */
+        .track-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+          border: 1px solid rgba(0, 102, 255, 0.15);
+        }
+
+        /* -----------------------------
+          SCROLL FADE-IN (ON VIEW)
+        ----------------------------- */
+        @media (prefers-reduced-motion: no-preference) {
+          .track-card {
+            will-change: transform, opacity;
+          }
+        }
+
+        .track-card.visible {
+          opacity: 1 !important;
+          transform: translateY(0) !important;
+        }
+
+        /* -----------------------------
+          RESPONSIVE DESIGN
+        ----------------------------- */
+        @media (max-width: 768px) {
+          .tracks-grid {
+            gap: 25px;
+            margin: 50px auto;
+          }
+
+          .track-icon {
+            padding: 10px;
+          }
+
+          .track-card h3 {
+            font-size: 1.15rem;
+            margin-top: 18px;
+          }
+
+          .track-card p {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+          }
+        }
+    </style>
+    <!-- Section 5: Conference & Exhibition -->   
+    <section id="conference" class="conference-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GLS Vision 2047 CONFERENCES</h2>
+                <p class="section-subtitle">GLS Vision 2047 CONFERENCES</p>
+            </div>
+            
+            <div class="tracks-grid">
+                <div class="track-card">
+                    <div class="track-icon">🚀
+                    <span style="font-size: 1.4rem;">Day - 1 (18th July 2026)</span>
+                    </div>
+                    <h3>Focus – *Global Investors, Leadership, Governance, Defence & Geo-Politics*</h3>
+                    <div class="highlight-box">
+                      <ul style="text-align: start;">
+                        <li>Global Investors Meet</li>
+                        <li>Vision 2047: $50 Trillion India</li>
+                        <li>Policy & Governance for Growth</li>
+                        <li>IIT Officers in Nation Building</li>
+                        <li>Global Trade & Diplomacy</li>
+                        <li>Defence, Security & Geo-Politics</li>
+                      </ul>
+                    </div>
+                </div>
+                <div class="track-card">
+                    <div class="track-icon">🚀 <span style="font-size: 1.4rem;">Day - 2 (19th July 2026)</span></div>
+                    <h3>Focus – *Entrepreneurship, Technology, Innovation & Sustainability*</h3>
+                    <div class="highlight-box">
+                      <ul style="text-align: start;">
+                        <li>Unicorns & Startups</li>
+                        <li>Venture Capital & Funding India’s Future</li>
+                        <li>Clean Energy & Climate Action</li>
+                        <li>Digital Transformation & AI</li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tracks-grid">
+              <div class="track-card">
+                <div class="track-icon">
+                  <img src="images/leadership.png" alt="Leadership & Governance">
+                </div>
+                <h3>WHO WILL YOU MEET</h3>
+                <div class="highlight-box">
+                  <ul style="text-align: start;">
+                    <li>Global CEOs, business leaders, and top industry decision-makers</li>
+                    <li>Union Ministers, senior government officials, and policy influencers</li>
+                    <li>International delegates, diplomats, and global trade representatives</li>
+                    <li>Venture capitalists, investors, and financial institutions</li>
+                    <li>Technology pioneers, AI innovators, and digital transformation leaders</li>
+                    <li>Sustainability experts, climate strategists, and ESG specialists</li>
+                    <li>Academia, think tanks, and research institutions</li>
+                    <li>Entrepreneurs, startup founders, and emerging market disruptors</li>
+                    <li>Corporate leadership teams across manufacturing, services, and technology</li>
+                    <li>Representatives from global organisations, chambers, and industry bodies</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Exhibition Sectors -->
+            <div class="sectors-section">
+                <h3 class="subsection-title">Exhibition Sectors</h3>
+                <div class="sectors-grid">
+                    <div class="sector-tag">Technology & AI</div>
+                    <div class="sector-tag">EVs & Mobility</div>
+                    <div class="sector-tag">FinTech</div>
+                    <div class="sector-tag">Healthcare</div>
+                    <div class="sector-tag">Clean Energy</div>
+                    <div class="sector-tag">Manufacturing & Smart Factories</div>
+                    <div class="sector-tag">Real Estate & Smart Cities</div>
+                    <div class="sector-tag">FMCG</div>
+                    <div class="sector-tag">EdTech</div>
+                    <div class="sector-tag">AgriTech & FoodTech</div>
+                    <div class="sector-tag">Defence & Aerospace</div>
+                    <div class="sector-tag">Media & Entertainment</div>
+                    <div class="sector-tag">Hospitality & Tourism</div>
+                    <div class="sector-tag">Infrastructure & Logistics</div>
+                </div>
+            </div>
+
+            <!-- Event Agenda -->
+            <div class="agenda-section">
+                <h3 class="subsection-title">Event Agenda</h3>
+                <div class="agenda-tabs">
+                    <button class="tab-btn active" data-tab="day1">Day 1 - July 18, 2026</button>
+                    <button class="tab-btn" data-tab="day2">Day 2 - July 19, 2026</button>
+                </div>
+                
+                <div class="tab-content active" id="day1">
+                    <div class="agenda-item">
+                        <div class="agenda-time">0900 - 1000</div>
+                        <div class="agenda-details">
+                            <h4>Registration & High Tea with snacks</h4>
+                            <!-- <p>Welcome delegates with networking breakfast and exhibition access</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1000 - 1030</div>
+                        <div class="agenda-details">
+                            <h4>Inauguration by Chairman GLS Vision 2047, Hon’ble Cebinet Minister & State CM</h4>
+                            <!-- <p>Chief Guest address, GLS Vision 2047 welcome, Global Leadership Summit Vision 2047 vision presentation</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1030 - 1045</div>
+                        <div class="agenda-details">
+                            <h4>Opening Speech by Chairman GLS Vision 2047</h4>
+                            <!-- <p>Policy leaders and economists outline India's development roadmap</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1045 - 1100</div>
+                        <div class="agenda-details">
+                            <h4>Speech by Hon’ble Cabinet Minister</h4>
+                            <!-- <p>Founders and VCs discuss scaling startups to billion-dollar valuations</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1100 - 1130</div>
+                        <div class="agenda-details">
+                            <h4>Speech by Industry Leader</h4>
+                            <!-- <p>Curated networking with exhibition floor access</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1130 - 1230</div>
+                        <div class="agenda-details">
+                            <h4 class="session_col"><span style="border: 1px solid #000;padding: 5px 10px;">Session 1</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 2</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 3</span>&nbsp;&nbsp; <span style="border: 1px solid #000;padding: 5px 10px;">Session 4</span></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1230 - 1330</div>
+                        <div class="agenda-details">
+                            <h4 class="session_col"><span style="border: 1px solid #000;padding: 5px 10px;">Session 5</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 6</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 7</span>&nbsp;&nbsp; <span style="border: 1px solid #000;padding: 5px 10px;">Session 8</span></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1330 - 1500</div>
+                        <div class="agenda-details">
+                            <h4>Lunch Break</h4>
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1500 - 1530</div>
+                        <div class="agenda-details">
+                            <h4 class="session_col"><span style="border: 1px solid #000;padding: 5px 10px;">Session 9</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 10</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 11</span>&nbsp;&nbsp; <span style="border: 1px solid #000;padding: 5px 10px;">Session 12</span></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1530 - 1600</div>
+                        <div class="agenda-details">
+                            <h4 class="session_col"><span style="border: 1px solid #000;padding: 5px 10px;">Session 13</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 14</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 15</span>&nbsp;&nbsp; <span style="border: 1px solid #000;padding: 5px 10px;">Session 16</span></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1600 - 1700</div>
+                        <div class="agenda-details">
+                            <h4>Tea Break</h4>
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1700 - 1930</div>
+                        <div class="agenda-details">
+                            <h4>Musical & Cultural Show</h4>
+                            
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1930 Onwards</div>
+                        <div class="agenda-details">
+                            <h4>Gala Networking Dinner</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="day2">
+                    <div class="agenda-item">
+                        <div class="agenda-time">0900 - 1000</div>
+                        <div class="agenda-details">
+                            <h4>Registration & High Tea with snacks</h4> 
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1000 - 1030</div>
+                        <div class="agenda-details">
+                            <h4>Sarasvati Vandana with Dignitaries</h4>
+                            <!-- <p>Solutions for net-zero transition and sustainable development</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1030 - 1045</div>
+                        <div class="agenda-details">
+                            <h4>Opening Speech by Chairman GLS Vision 2047</h4>
+                            <!-- <p>Smart factories, automation, and India's manufacturing renaissance</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1045 - 1100</div>
+                        <div class="agenda-details">
+                            <h4>Speech by Hon’ble Cabinet Minister</h4>
+                            <!-- <p>Exclusive conversation with international business icons</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1100 - 1130</div>
+                        <div class="agenda-details">
+                            <h4>Speech by Industry Leader</h4>
+                            <!-- <p>Final networking opportunity with delegates and exhibitors</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1130 - 1230</div>
+                        <div class="agenda-details">
+                            <h4>Felicitation Ceremony</h4>
+                            <!-- <p>Top startups present innovations to investor audience</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1230 - 1330</div>
+                        <div class="agenda-details">
+                            <h4>Special Session</h4>
+                            <!-- <p>Summit conclusions and roadmap for collaborative action</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1330 - 1500</div>
+                        <div class="agenda-details">
+                            <h4>Lunch Break</h4>
+                            <!-- <p>Thank you note and announcement of Global Leadership Summit Vision 2047</p> -->
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1500 - 1530</div>
+                        <div class="agenda-details">
+                            <h4 class="session_col"><span style="border: 1px solid #000;padding: 5px 10px;">Session 17</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 18</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 19</span>&nbsp;&nbsp; <span style="border: 1px solid #000;padding: 5px 10px;">Session 20</span></h4>
+                            
+                        </div>
+                    </div>
+                    <div class="agenda-item">
+                        <div class="agenda-time">1530 - 1600</div>
+                        <div class="agenda-details">
+                            <h4 class="session_col"><span style="border: 1px solid #000;padding: 5px 10px;">Session 21</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 22</span>&nbsp;&nbsp;<span style="border: 1px solid #000;padding: 5px 10px;">Session 23</span>&nbsp;&nbsp; <span style="border: 1px solid #000;padding: 5px 10px;">Session 24</span></h4>
+                            
+                        </div>
+                    </div>
+                      <div class="agenda-item">
+                        <div class="agenda-time">1600 - 1700</div>
+                        <div class="agenda-details">
+                            <h4>GLS Vision 2047 GLS Awards - Indian Leaders 2047</h4>
+                            <!-- <p>Thank you note and announcement of Global Leadership Summit Vision 2047</p> -->
+                        </div>
+                    </div>
+                      <div class="agenda-item">
+                        <div class="agenda-time">1700 - 1730</div>
+                        <div class="agenda-details">
+                            <h4>Closing Ceremony by Eminent Personality</h4>
+                            <!-- <p>Thank you note and announcement of Global Leadership Summit Vision 2047</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <style>
+    
+  .slidergride .track-card h3 {
+    font-size: 1.2rem;
+    color: #0b3d91;
+    font-weight: 700;
+    margin: 10px 10px 10px;
+    text-align: center;
+    letter-spacing: 0.3px;
+    transition: color 0.4s ease;
+  }
+  .slidergride .track-card {
+    height: 750px;
+  }
+  </style>
+    <section id="zone" class="conference-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">SHOWCASE YOUR INNOVATIONS IN HIGH-IMPACT THEMATIC ZONES</h2>
+                <p class="section-subtitle">GLS Vision 2047  ZONES</p>
+            </div>
+            
+
+            <div class="slidergride" style="height: 750px;">
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon">
+                      <img src="images/pan_ZONES/fidi.jpg" alt="Leadership & Governance">
+                    </div>
+                    <h3>FiDi Financial District Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The FiDi Financial District Pavilion serves as the financial backbone of the Global Leadership Summit. It brings together banks, angel investors, venture capital firms, and equity funds to foster investment opportunities and financial collaboration. This pavilion provides a platform for capital deployment, strategic partnerships, and discussions on global financial trends, enabling sustainable economic growth and innovation.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon">
+                      <img src="images/pan_ZONES/Entrepreneur_Zone.jpg" alt="Leadership & Governance">
+                    </div>
+                    <h3>Entrepreneur Zone</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Entrepreneur Zone is a dynamic hub for startups, minicorns, and soonicorns to showcase innovation and disruptive ideas. This pavilion encourages entrepreneurial leadership, business scaling, and collaboration with investors and industry experts. It aims to nurture emerging enterprises and empower entrepreneurs to transform ideas into globally competitive ventures.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/State_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>State Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The State Pavilion highlights the economic, cultural, and investment potential of Indian states such as Rajasthan, Tamil Nadu, Andhra Pradesh, Delhi, and others. It promotes inter-state collaboration, policy awareness, and regional development opportunities. This pavilion serves as a bridge between state governments, investors, and industry leaders.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Diplomatic_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Diplomatic Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Diplomatic Pavilion hosts embassies and foreign fund companies, promoting international cooperation and cross-border investment. It facilitates dialogue on global trade, diplomacy, and international partnerships. This pavilion strengthens bilateral and multilateral relationships, encouraging global economic integration and leadership collaboration.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Ministerial_Governance _Zone.jpg" alt="Leadership & Governance"></div>
+                    <h3>Ministerial / Governance Zone</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Ministerial and Governance Zone focuses on public policy, MSME development, and skill enhancement initiatives. It highlights government programs and leadership in governance that support entrepreneurship and workforce development. This pavilion promotes collaboration between policymakers, institutions, and industry to drive inclusive growth.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Technology_AI_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Technology / AI Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Technology and AI Pavilion showcases advancements in deep-tech, cloud computing, blockchain, quantum technologies, and artificial intelligence. It highlights the role of technology-driven leadership in shaping the future. Participants explore innovation, digital transformation, and responsible tech solutions for global challenges.
+                      </p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Energy_Pavilion_participants.jpg" alt="Leadership & Governance"></div>
+                    <h3>Energy Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Energy Pavilion focuses on the future of power and sustainability, featuring participants from EVs, solar, wind, oil, and gas sectors. It promotes leadership in energy transition, clean technologies, and energy security. This pavilion supports dialogue on sustainable energy solutions for global development.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Med_Tech_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Med Tech Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Med Tech Pavilion showcases innovations in medical technology and assistive technology. It emphasizes leadership in healthcare innovation, accessibility, and patient-centric solutions. This pavilion connects healthcare innovators, policymakers, and investors to advance global health outcomes.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Food_Park_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Food Park Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Food Park Pavilion brings together processed food manufacturers and ingredient providers to highlight advancements in food innovation and supply chains. It focuses on food security, quality, and sustainability. This pavilion promotes leadership in agri-business and food processing for a growing global population.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Defence_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Defence Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Defence Pavilion highlights advancements in defense manufacturing, technology, and strategic capabilities. It focuses on national security, innovation, and global defense collaboration. This pavilion fosters dialogue between industry leaders, policymakers, and strategic partners.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Fintech_Impact_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Fintech Impact Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Fintech Impact Pavilion features fintech companies driving financial inclusion and digital transformation. It highlights leadership in digital payments, lending, and financial services innovation. This pavilion explores the impact of fintech solutions on global economies and inclusive growth.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Supply_Chain_Logistics_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Supply Chain & Logistics Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">This pavilion focuses on smart, resilient, and efficient supply chain and logistics solutions. It highlights leadership in transportation, warehousing, and global trade facilitation. Participants explore innovations that strengthen connectivity and optimize global supply networks.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Smart_Manufacturing_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Smart Manufacturing Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Smart Manufacturing Pavilion showcases advanced manufacturing technologies and Industry 4.0 solutions. It emphasizes automation, robotics, and digital manufacturing leadership. This pavilion supports innovation-driven industrial growth and global competitiveness.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Consumer_Tech_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Consumer Tech Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Consumer Tech Pavilion features companies from retail and FMCG sectors. It highlights leadership in consumer innovation, digital retail, and evolving market trends. This pavilion focuses on enhancing consumer experience and sustainable consumption.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Infrastructure_Pavilion.jpg" alt="Leadership & Governance"></div>
+                    <h3>Infrastructure Pavilion</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Infrastructure Pavilion brings together real estate developers and road construction companies. It focuses on leadership in urban development, smart cities, and infrastructure growth. This pavilion promotes sustainable and resilient infrastructure for economic advancement.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Brand_Equity_Launch _Pad.jpg" alt="Leadership & Governance"></div>
+                    <h3>Brand Equity Launch Pad</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Brand Equity Launch Pad is a strategic platform for brand launches, visibility, and market positioning. It enables organizations to strengthen brand identity and connect with global stakeholders. This pavilion highlights leadership in branding, communication, and market influence.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Global_Leader_Club.jpg" alt="Leadership & Governance"></div>
+                    <h3>Global Leaders’ Club</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Global Leaders’ Club is an exclusive networking pavilion for distinguished leaders, policymakers, investors, and industry captains. It facilitates high-level dialogue, strategic collaboration, and leadership exchange. This space fosters meaningful global partnerships.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Women_Leaders_Forum.jpg" alt="Leadership & Governance"></div>
+                    <h3>Women Leaders’ Forum</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">The Women Leaders’ Forum celebrates and promotes women in leadership across industries. It focuses on empowerment, inclusivity, and gender equality in global leadership. This pavilion encourages dialogue, mentorship, and collaboration for a more balanced leadership ecosystem.</p>
+                    </div>
+                </div>
+                <div class="track-card" style="border-radius: 0px !important;">
+                    <div class="track-icon"><img src="images/pan_ZONES/Global_Leader_Tv.jpg" alt="Leadership & Governance"></div>
+                    <h3>Global Leaders TV</h3>
+                    <div class="highlight-box">
+                      <p style="text-align: justify; margin: 0px !important;font-size: 1rem;">Global Leaders TV is a live media and content platform featuring podcasts, interviews, and live streaming. It captures leadership insights, success stories, and summit highlights. This pavilion amplifies global voices and extends the summit’s impact worldwide.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 80px;">
+              <a class="btn btn-primary" href="zone.html">ENQUIRE ABOUT EXHIBITING WITHIN A ZONE</a>
+            </div>
+        </div>
+    </section>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
+    <script>
+        // Slick initialization (jQuery required)
+        $(document).ready(function () {
+          $('.slidergride').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            arrows: true,
+            dots: false,
+            speed: 300,
+            infinite: true,
+            autoplaySpeed: 5000,
+            autoplay: true,
+            gap:20,
+            responsive: [
+              {
+                breakpoint: 991,
+                settings: {
+                  slidesToShow: 1,
+                }
+              },
+              {
+                breakpoint: 767,
+                settings: {
+                  slidesToShow: 1,
+                }
+              }
+            ]
+          });
+        });
+
+    </script>
+    <!-- Section 6: Global Investors Meet -->
+    <section id="investors" class="investors-section section-padding bg-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">GLS Vision 2047 EXHIBITION & INDUSTRY VERTICALS</h2>
+                <p class="section-subtitle">Connecting Capital with Innovation</p>
+            </div>
+            
+            <div class="investors-content">
+                <h3>EXHIBITOR BENEFITS</h3>
+                <div class="highlight-box">
+                  <ul style="text-align: start;">
+                    <li>Showcase to IIT alumni & global investors</li>
+                    <li>Meet policy makers, bureaucrats, startups, investors & corporate leaders</li>
+                    <li>Generate premium leads, partnerships & investments</li>
+                  </ul>
+                </div>
+                
+                
+                <div class="investors-grid">
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/TECHNOLOGY_COMPANIES.png" alt="1-on-1 Investor Meetings">
+                    </div>
+                    <h3>DeepTech & AI</h3>
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/TELECOM_PHARMA_AVIATION.png" alt="Startup Pavilion, Hackathon">
+                    </div>
+                    <h3>EVs & Mobility</h3>
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/GOVERNMENT_AGENCIES.png" alt="Elite Investor Lounge">
+                    </div>
+                    <h3>FinTech & BFSI</h3>
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/INNOVATION_ZONE.png" alt="Demo Day & Pitches">
+                    </div>
+                    <h3>Healthcare & Biotech</h3>
+                    
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/RENEWABLE_ENERGY.png" alt="1-on-1 Investor Meetings">
+                    </div>
+                    <h3>Clean Energy & Sustainability</h3>
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/MANUFACTURING.png" alt="Startup Pavilion, Hackathon">
+                    </div>
+                    <h3>Manufacturing & Smart Factories</h3>
+                    
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/CONSTRUCTION_HSE_FORUM.png" alt="Elite Investor Lounge">
+                    </div>
+                    <h3>Defence & Aerospace</h3>
+                    
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/AUTOMOBILE.png" alt="Demo Day & Pitches">
+                    </div>
+                    <h3>Infrastructure & Logistics</h3>
+                  </div>
+                  <div class="investor-feature">
+                    <div class="feature-icon">
+                      <img src="images/participating/ACADEMIA.png" alt="Demo Day & Pitches">
+                    </div>
+                    <h3>EdTech & Skilling</h3>
+                  </div>
+                </div>
+
+
+                <div class="cta-box">
+                    <h3>Seeking Investment?</h3>
+                    <p>Apply for the Startup Pavilion, Hackathon and get direct access to 200+ investors</p>
+                    <a href="pavali.html" class="btn btn-primary">Apply for Startup Pavilion, Hackathon</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        /* ============================
+        INVESTOR CARD HOVER EFFECTS
+        ============================ */
+
+        /* Smooth appearance */
+        .investor-feature {
+          position: relative;
+          overflow: hidden;
+          transition: all 0.4s ease;
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        /* Subtle lift + glow on hover */
+        .investor-feature:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 12px 30px rgba(0, 86, 214, 0.15);
+          border-color: rgba(0, 86, 214, 0.2);
+        }
+
+        /* Image zoom effect */
+        .feature-icon img {
+          transition: transform 0.6s ease, filter 0.4s ease;
+          border-radius: 50%;
+          height: 250px;
+          width: 250px;
+          transition: ease-in-out;
+        }
+
+        .investor-feature:hover .feature-icon img {
+          transform: scale(1.08);
+          filter: brightness(1.08);
+          border-radius: 10%;
+        }
+
+        /* Soft blue glow around icon */
+        .feature-icon {
+          transition: box-shadow 0.4s ease, transform 0.4s ease;
+          width: 250px;
+          height: 250px;
+          margin: auto;
+          margin-bottom: 30px;
+        }
+
+        .investor-feature:hover .feature-icon {
+          box-shadow: 0 0 25px rgba(0, 86, 214, 0.25);
+          transform: scale(1.05);
+        }
+
+        /* Title color + motion */
+        .investor-feature h3 {
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .investor-feature:hover h3 {
+          color: #0056d6;
+          transform: translateY(-2px);
+        }
+
+        /* Subtle highlight sweep across card */
+        .investor-feature::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 60%;
+          height: 100%;
+          background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+          transform: skewX(-25deg);
+          transition: left 0.8s ease;
+          pointer-events: none;
+          border-radius: inherit;
+        }
+        .investor-feature:hover::after {
+          left: 130%;
+        }
+
+    </style>
+    
+    <!-- Section 7: Awards -->
+    <section id="awards" class="awards-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Global Leadership Summit Vision 2047 Awards</h2>
+        <p class="section-subtitle" style="color:#fff;">Celebrating Innovation, Leadership & Impact</p>
+
+        </div>
+
+        <!-- Awards Intro -->
+        <div class="awards-intro fade-in">
+          <p class="lead">
+            The Global Leadership Summit Vision 2047 Awards recognize exceptional achievements across industries — honoring visionaries, innovators, and organizations shaping the future of technology, sustainability, and leadership.
+          </p>
+        </div>
+
+        <!-- Awards Categories -->
+    <div class="awards-grid">
+      <div class="award-card fade-up">
+        <div class="award-icon">
+          <img src="images/innovator.png" alt="Innovator of the Year">
+        </div>
+        <h3 class="award-title">Innovator of the Year</h3>
+        <p class="award-text">
+          Honoring individuals or startups driving groundbreaking innovation and transforming industries with new-age technologies.
+        </p>
+      </div>
+
+      <div class="award-card fade-up">
+        <div class="award-icon">
+          <img src="images/sustainability.png" alt="Sustainability Leadership Award">
+        </div>
+        <h3 class="award-title">Sustainability Leadership Award</h3>
+        <p class="award-text">
+          Recognizing organizations leading the charge in sustainability, renewable energy, and green initiatives.
+        </p>
+      </div>
+
+      <div class="award-card fade-up">
+        <div class="award-icon">
+          <img src="images/tech.png" alt="Tech Disruptor Award">
+        </div>
+        <h3 class="award-title">Tech Disruptor Award</h3>
+        <p class="award-text">
+          Celebrating companies that have disrupted markets through innovation, AI, and cutting-edge solutions.
+        </p>
+      </div>
+
+      <div class="award-card fade-up">
+        <div class="award-icon">
+          <img src="images/startup.png" alt="Startup Excellence Award">
+        </div>
+        <h3 class="award-title">Startup Excellence Award</h3>
+        <p class="award-text">
+          Acknowledging startups with rapid growth, unique products, and inspiring success stories.
+        </p>
+      </div>
+
+      <div class="award-card fade-up">
+        <div class="award-icon">
+          <img src="images/csr.png" alt="CSR Award">
+        </div>
+        <h3 class="award-title">Corporate Social Responsibility (CSR) Award</h3>
+        <p class="award-text">
+          Recognizing corporations making a meaningful social impact through responsible and ethical initiatives.
+        </p>
+      </div>
+
+      <div class="award-card fade-up">
+        <div class="award-icon">
+          <img src="images/women.png" alt="Women in Leadership Award">
+        </div>
+        <h3 class="award-title">Women in Leadership Award</h3>
+        <p class="award-text">
+          Celebrating influential women leaders who inspire change and promote gender diversity in business and innovation.
+        </p>
+      </div>
+    </div>
+
+
+        <!-- Call to Action -->
+        <div class="awards-cta fade-in">
+          <p>🎉 Nominations are open! Submit your entries for Global Leadership Summit Vision 2047 Awards today.</p>
+          <a href="nominate.html" class="btn btn-primary">Nominate Now</a>
+        </div>
+      </div>
+    </section>
+    <style>
+          /* ==========================================
+        Awards Section
+        ========================================== */
+        .awards-section {
+          background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+          color: #fff;
+          padding: 80px 0;
+        }
+
+        .awards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-top: 40px;
+        }
+
+        .award-card {
+          background: rgba(255, 255, 255, 0.08);
+          border: 2px solid rgba(255, 255, 255, 0.15);
+          border-radius: 15px;
+          text-align: center;
+          padding: 30px 20px;
+          transition: all 0.4s ease;
+          backdrop-filter: blur(6px);
+        }
+
+        .award-card:hover {
+          transform: translateY(-10px);
+          border-color: var(--gold);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .award-icon {
+          font-size: 3rem;
+          margin-bottom: 15px;
+        }
+
+        .award-title {
+          color: var(--gold);
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+
+        .award-text {
+          color: #ddd;
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+
+        .awards-cta {
+          text-align: center;
+          margin-top: 60px;
+        }
+
+        .awards-cta p {
+          font-size: 1.1rem;
+          margin-bottom: 15px;
+        }
+
+        /* Fade-in animations */
+        .fade-in {
+          opacity: 0;
+          transform: translateY(30px);
+          animation: fadeInUp 0.8s forwards;
+        }
+
+        .fade-up {
+          opacity: 0;
+          transform: translateY(40px);
+          animation: fadeInUp 0.8s ease forwards;
+        }
+        /* Section Title in Gold */
+        .section-title {
+          color: var(--gold, #f5c542); /* gold color */
+          font-weight: 700;
+        }
+
+        /* Subtitle clearly visible */
+        .section-subtitle {
+          color: #fff;                 /* white text */
+          font-size: 1.1rem;
+          opacity: 0.9;                /* slightly soft white */
+          margin-top: 10px;
+        }
+
+        /* Awards paragraph text in white */
+        .awards-section .lead {
+          color: #fff;                 /* pure white */
+          font-size: 1.1rem;
+          line-height: 1.7;
+          margin-top: 20px;
+        }
+
+
+        @keyframes fadeInUp {
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        /* ==========================================
+          🏆 NEXT-GEN PREMIUM AWARDS SECTION
+          ========================================== */
+        .awards-section {
+          background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+          color: #fff;
+          padding: 100px 0;
+          position: relative;
+          overflow: hidden;
+          font-family: "Poppins", sans-serif;
+        }
+
+        /* Soft gold ambient glow in background */
+        .awards-section::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(circle at 25% 20%, rgba(245, 197, 66, 0.08), transparent 60%),
+                      radial-gradient(circle at 75% 80%, rgba(245, 197, 66, 0.05), transparent 70%);
+          animation: bgGlow 10s ease-in-out infinite alternate;
+          z-index: 0;
+        }
+
+        @keyframes bgGlow {
+          0% { opacity: 0.5; transform: scale(1); }
+          100% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        /* ==========================================
+          GRID
+          ========================================== */
+        .awards-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 45px;
+          margin-top: 60px;
+          max-width: 1200px;
+          margin-inline: auto;
+          position: relative;
+          z-index: 1;
+        }
+
+    /* ==========================================
+      AWARD CARD
+      ========================================== */
+        .award-card {
+          background: rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          text-align: center;
+          padding: 45px 30px;
+          backdrop-filter: blur(10px);
+          transition: all 0.6s ease;
+          box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* Floating animation on hover */
+        .award-card:hover {
+          transform: translateY(-12px) scale(1.02);
+          border-color: var(--gold, #f5c542);
+          box-shadow: 0 20px 50px rgba(245, 197, 66, 0.25),
+                      0 0 50px rgba(245, 197, 66, 0.15);
+        }
+
+        /* ==========================================
+          AWARD IMAGE / ICON
+          ========================================== */
+        .award-icon {
+          width: 150px;
+          height: 150px;
+          margin: 0 auto 25px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 50% 50%, rgba(245, 197, 66, 0.2), rgba(255, 255, 255, 0.02));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+          transition: all 0.5s ease;
+          position: relative;
+          box-shadow: 0 0 20px rgba(245, 197, 66, 0.15);
+          animation: float 6s ease-in-out infinite;
+        }
+
+          /* Trophy image visible & glowing */
+          .award-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(1.2) contrast(1.15);
+            transition: transform 0.6s ease, filter 0.5s ease;
+          }
+
+          /* Zoom + Glow on hover */
+          .award-card:hover .award-icon img {
+            transform: scale(1.1);
+            filter: brightness(1.35);
+          }
+
+          /* Pulsing gold glow around icon */
+          .award-card:hover .award-icon {
+            box-shadow: 0 0 35px rgba(245, 197, 66, 0.45),
+                        0 0 60px rgba(245, 197, 66, 0.25);
+          }
+
+          /* Floating subtle motion */
+          @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+          }
+
+          /* Shimmer light reflection */
+          .award-icon::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -150%;
+            width: 80%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            transform: skewX(-25deg);
+            transition: left 1.5s ease;
+          }
+
+          .award-card:hover .award-icon::after {
+            left: 130%;
+          }
+
+          /* ==========================================
+            TEXT CONTENT (kept your colors exactly)
+            ========================================== */
+          .award-title {
+            color: var(--gold, #f5c542);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            transition: transform 0.4s ease;
+          }
+
+          .award-card:hover .award-title {
+            transform: translateY(-4px);
+          }
+
+          .award-text {
+            color: #ddd;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 280px;
+            margin: 0 auto;
+            transition: opacity 0.4s ease;
+          }
+
+          /* ==========================================
+            LIGHT SWEEP ANIMATION ON CARD
+            ========================================== */
+          .award-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+            transform: skewX(-25deg);
+            transition: left 1.2s ease;
+          }
+
+          .award-card:hover::before {
+            left: 130%;
+          }
+
+          /* ==========================================
+            CTA BUTTON
+            ========================================== */
+          .awards-cta {
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+          }
+
+          .awards-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #fff;
+          }
+
+          .awards-cta a.btn {
+            background: var(--gold, #f5c542);
+            color: #111;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .awards-cta a.btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.5), transparent);
+            transform: skewX(-25deg);
+            transition: left 1s ease;
+          }
+
+          .awards-cta a.btn:hover::after {
+            left: 150%;
+          }
+
+          .awards-cta a.btn:hover {
+            background: #ffe373;
+            box-shadow: 0 0 25px rgba(245, 197, 66, 0.5);
+            transform: translateY(-3px);
+          }
+
+          /* ==========================================
+            ANIMATIONS ON SCROLL
+            ========================================== */
+          .fade-up {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 0.9s ease forwards;
+          }
+
+          @keyframes fadeInUp {
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+
+          /* ==========================================
+            RESPONSIVE OPTIMIZATION
+            ========================================== */
+          @media (max-width: 1024px) {
+            .awards-grid {
+              gap: 30px;
+            }
+            .award-card {
+              padding: 40px 25px;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .award-card {
+              padding: 30px 20px;
+            }
+            .award-icon {
+              width: 110px;
+              height: 110px;
+            }
+            .award-icon img {
+              width: 100%;
+            }
+            .award-title {
+              font-size: 1.15rem;
+            }
+            .award-text {
+              font-size: 0.9rem;
+            }
+          }
+
+          @media (max-width: 480px) {
+            .awards-grid {
+              gap: 20px;
+            }
+            .award-card {
+              padding: 25px 15px;
+            }
+            .award-icon {
+              width: 95px;
+              height: 95px;
+            }
+          }
+
+    </style>
+    <section  class="conference-section section-padding">
+      <div class="container">
+       
+        <div class="about-content">
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">INVESTORS LOUNGE</span></h2>
+            <h4>Where Vision Meets Opportunity</h4>
+            <p>The Investor Lounge at the Global Leadership Summit is an exclusive, invitation-only space designed to bring together high-potential startups, visionary founders, and some of the most influential investors from India and across the globe. Curated and led by IITians, this premium lounge creates an environment where innovation is showcased, collaborations are built, and strategic investments take shape.</p>
+            <h4>What the Lounge Offers: </h4>
+            <h5 style="font-size: 1rem;margin: 10px 0px;color: #9f6a01;">Curated Networking</h5>
+            <p>Engage with top-tier VCs, angel investors, private equity leaders, and corporate venture arms actively seeking breakthrough ideas and scalable ventures.</p>
+
+            <h5 style="font-size: 1rem;margin: 10px 0px;color: #9f6a01;">Startup Showcases</h5>
+            <p>Discover cutting-edge solutions from IIT-led and global startups across technology, sustainability, deep tech, AI, healthcare, mobility, energy, and more.</p>
+            <h5 style="font-size: 1rem;margin: 10px 0px;color: #9f6a01;">One-on-One Meetings</h5>
+            <p>Dedicated meeting pods allow focused conversations, pitch discussions, and deal-negotiation sessions in a professional, distraction-free environment.</p>
+            <h5 style="font-size: 1rem;margin: 10px 0px;color: #9f6a01;">Insight Sessions</h5>
+            <p>Exclusive investor briefings, trend analyses, and closed-door discussions on emerging markets, tech opportunities, and investment landscapes.</p>
+            <h5 style="font-size: 1rem;margin: 10px 0px;color: #9f6a01;">Deal-Making Hub</h5>
+            <p>A strategic space designed to catalyze partnerships, seed funding, scale-up investments, and industry collaborations.</p>
+          </div>
+
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">STARTUPS PAVILION</span></h2>
+            <p>Aspiring leaders & young professionals, Developers, designers, and tech enthusiasts, Start-ups & change-makers,  Students from all disciplines, Educators, mentors, and industry experts The Hackathon & Global Leadership Summit brings together innovators, creators, entrepreneurs, and emerging leaders from around the world for an immersive experience at the intersection of technology and leadership.</p>
+            <p>This Event combines high-energy problem-solving with world-class thought leadership.</p>
+          </div>
+
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">SME GROWTH PAVILION</span></h2>
+            <p>GLS Vision 2047 Global Leadership Summit (GLS) serves as a powerful convergence platform for high-growth SME companies, leading merchant bankers, seasoned HNI investors, and infuential family offces. As the entrepreneurial ecosystem in India accelerates, key highlight of the summit is its dedicated focus on SME IPOs and Main Board IPOs. Merchant bankers and fnancial experts leverage the forum to evaluate promising ventures, structure capital-raising strategies, and facilitate smoother pathways to listing.</p>
+            <p>For investors—whether HNIs, family offces, or institutional participants—the summit offers exclusiveaccesstodifferentiateddealfow,pre-IPOopportunities,andearlyinsightsintocompanies poised for the next phase of expansion. The summit stands as a catalyst for funding, scaling, and showcasing companies that are ready to take the leap into public markets, making it one of the most impactful platforms for IPO-focused engagement in India..</p>
+          </div>
+
+          <div class="about-text">
+            <h2 style="background: linear-gradient(135deg, rgb(0, 154, 159), rgba(11, 60, 94)); border-left: 2px solid #0b3c5e;padding: 10px;margin-bottom: 20px;"><span style="color:#fff;">GLS Vision 2047 GLS AWARDS & GALA NETWORKING DINNER</span></h2>
+            <p>To celebrate leaders shaping India’s journey to 2047, India is moving towards its hundred years of independence with the goal of becoming a Viksit Bharat (developed nation). These awards recognize individuals and organisations who are actively contributing to this transformation in areas like economy & industry, technology and innovation, governance and public service, sustainability, social impact and global outreach. They highlight those who are not just successful today but building the India of tomorrow.</p>
+            <p>A platform like this helps encourages people to see themselves as contributor to India’s 2047 vision. The award is given to inspire next generation to bring together government industry and youth to recognize unsung heroes, to benchmark excellence for the next 25 years and to position India as a global leader.</p>
+            <p>India 2047 leadership awards exist to honour the people who are building the India. We want to see in its hundred years of Independence, innovative, inclusive, sustainable and globally respected.</p>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <!-- Section 8: Partners -->
+    <section id="partners" class="partners-section section-padding bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Partners</h2>
+                <p class="section-subtitle">A Consortium of Excellence Powering Global Leadership Summit Vision 2047</p>
+            </div>
+            
+            <div class="partners-intro">
+                <p>Global Leadership Summit Vision 2047 is powered by a strategic consortium of leading organizations committed to advancing India's leadership and innovation ecosystem.</p>
+            </div>
+
+            
+
+            <!-- Event Partners -->
+            <div class="partner-category">
+              <h3 class="partner-category-title">Associate Partners</h3>
+              <div class="partners-logo-grid">
+                  <div class="partner-logo">
+                      <img src="images/allis-clay.png" alt="Jagran Events">
+                      <!--<div class="partner-name"> Jagran Event</div>-->
+                  </div>
+                  <div class="partner-logo">
+                      <img src="images/jagran.png" alt="Bright Media Ltd">
+                      <!--<div class="partner-name">Bright Media</div>-->
+                  </div>
+                  <div class="partner-logo">
+                      <img src="images/bright.jpeg" alt="EV Expo">
+                      <!--<div class="partner-name">EV Expo</div>-->
+                  </div>
+                  <div class="partner-logo">
+                      <img src="images/bn_integra.jpeg" alt="EV Expo">
+                      <!--<div class="partner-name">EV Expo</div>-->
+                  </div>
+              </div>
+            </div>
+            <!--<div class="partner-category">-->
+            <!--  <h3 class="partner-category-title">Diplomacy Partner</h3>-->
+            <!--  <div class="partners-logo-grid">-->
+            <!--      <div class="partner-logo">-->
+            <!--          <img src="images/dfg.jpeg" alt="Jagran Events">-->
+            <!--      </div>-->
+                  
+            <!--  </div>-->
+            <!--</div>-->
+    </section>
+    <style>
+      /* ===== Partner Logos Section Styling ===== */
+
+      .partners-logo-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 60px; /* spacing between logos */
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+
+      .partner-logo {
+        position: relative;
+        background: transparent; /* remove any white background */
+        border: none;
+        padding: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .partner-logo img {
+        width: 220px;              /* make logos BIGGER */
+        height: auto;
+        object-fit: contain;
+        background: transparent;   /* ensure no background */
+        filter: brightness(1.1) contrast(1.1); /* make them pop */
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .partner-logo:hover img {
+        transform: scale(1.08);    /* zoom slightly on hover */
+        filter: brightness(1.2);
+      }
+
+      .partner-category-title {
+        font-size: 1.8rem;
+        color: var(--royal-blue, #0056b3);
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 25px;
+      }
+
+          .section-subtitle {
+        color: var(--royal-blue, #0056b3); /* blue color */
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-top: 10px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+    </style>
+        <!-- Section 9: Tickets & Registration -->
+   <section id="tickets" class="tickets-section section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Tickets & Registration</h2>
+          <p class="section-subtitle">Secure Your Place at Global Leadership Summit Vision 2047</p>
+        </div>        
+        <div class="early-bird-banner">
+          <div class="banner-icon">🎉</div>
+          <div class="banner-text">
+            <h3>Limited Registration Available</h3>
+            <p>Register your interest today for priority consideration</p>
+          </div>
+        </div>
+
+        <div class="tickets-grid">
+          <div class="ticket-card ticket-platinum">
+            <div class="ticket-badge">Premium All Access</div>
+            <h3>IIT Delegate (INR)</h3>
+            <div class="ticket-pricing">
+              <div class="original-price">₹25,000</div>
+              <div class="discounted-price">₹12,500</div>
+              <div class="early-bird-label">Early Bird Discount: 50%</div>
+              <div class="team-note">Team Members: 2 Members</div>
+              <div class="gst-note">All inclusive of GST</div>
+            </div>
+            <ul class="ticket-benefits">
+              <li>✓ Unicorn Lounge Access</li>
+              <li>✓ Investor Lounge Access</li>
+              <li>✓ All Conference Sessions</li>
+              <li>✓ Gala Dinner</li>
+              <li>✓ Exhibition Access</li>
+              <li>✓ Team Passes (2 members)</li>
+              <li>✓ Front Row Seating</li>
+              <li>✓ Exclusive Souvenir Kit</li>
+              <li>✓ Complimentary Food & Beverages</li>
+            </ul>                    
+            <a href="checkout.php?product=PremiumIIT Pass" class="btn btn-primary">
+              <span class="btn-text">Book Your Pass</span>
+              <div class="button-prices">
+                <span class="old-price">₹25,000</span>
+                <span class="new-price" style="color:#0b3c5e;">₹12,500</span>
+              </div>
+              <span class="discount-text">Early Bird 50% OFF</span>
+            </a>
+          </div>
+          
+          <div class="ticket-card ticket-gold">
+            <div class="ticket-badge">Premium All Access</div>
+            <h3>Non-IIT Delegate (INR)</h3>
+            <div class="ticket-pricing">
+              <div class="original-price">₹35,000</div>
+              <div class="discounted-price">₹17,500</div>
+              <div class="early-bird-label">Early Bird Discount: 50%</div>
+              <div class="gst-note">All inclusive of GST</div>
+            </div>                    
+            <ul class="ticket-benefits">
+              <li>✓ Unicorn Lounge Access</li>
+              <li>✓ Investor Lounge Access</li>
+              <li>✓ All Conference Sessions</li>
+              <li>✓ Gala Dinner</li>
+              <li>✓ Exhibition Access</li>
+              <li>✓ Team Passes (2 members)</li>
+              <li>✓ Front Row Seating</li>
+              <li>✓ Exclusive Souvenir Kit</li>
+              <li>✓ Complimentary Food & Beverages</li>
+            </ul>                    
+            <a href="checkout.php?product=PremiumNonIIT Pass" class="btn btn-primary">
+              <span class="btn-text">Book Your Pass</span>
+              <div class="button-prices">
+                <span class="old-price">₹35,000</span>
+                <span class="new-price" style="color:#0b3c5e;">₹17,500</span>
+              </div>
+              <span class="btn-discount" style="color:#0b3c5e;">Early Bird 50% OFF</span>
+            </a>
+          </div>
+        
+          <div class="ticket-card ticket-gold">
+            <div class="ticket-badge">Standard</div>
+            <h3>IIT Delegate (INR)</h3>
+            <div class="ticket-pricing">
+                <div class="original-price">₹10000</div>
+                <div class="discounted-price">₹2,500</div>
+                <div class="early-bird-label">Early Bird Discount: 75%</div>
+                <div class="gst-note">All inclusive of GST</div>
+            </div>
+            <ul class="ticket-benefits">
+                <li>✓ All Conference Sessions</li>
+                <li>✓ Gala Dinner</li>
+                <li>✓ Exhibition Access</li>
+                <li>✓ Networking Lunch</li>
+                <li>✓ Digital Delegate Kit</li>
+                <li>✓ Refreshments</li>
+            </ul>
+            <a href="checkout.php?product=StandardIIT Pass" class="btn btn-outline">
+              <span class="btn-text">Book Your Pass</span>
+              <div class="button-prices">
+                <span class="old-price">₹10,000</span>
+                <span class="new-price">₹2,500</span>
+              </div>
+              <span class="btn-discount">Early Bird 75% OFF</span>
+            </a>
+          </div>
+          
+          <div class="ticket-card ticket-startup">
+            <div class="ticket-badge">Standard</div>
+            <h3>Non-IIT Delegate (INR)</h3>
+            <div class="ticket-pricing">
+              <div class="original-price">₹15,000</div>
+              <div class="discounted-price">₹7,500</div>
+              <div class="early-bird-label">Early Bird Discount: 50%</div>
+              <div class="gst-note">All inclusive of GST</div>
+            </div>            
+            <ul class="ticket-benefits">
+              <li>✓ All Conference Sessions</li>
+              <li>✓ Gala Dinner</li>
+              <li>✓ Exhibition Access</li>
+              <li>✓ Networking Lunch</li>
+              <li>✓ Digital Delegate Kit</li>
+              <li>✓ Refreshments</li>
+            </ul>
+            <a href="checkout.php?product=StandardNonIIT Pass" class="btn btn-outline">
+              <span class="btn-text">Book Your Pass</span>
+              <div class="button-prices">
+                <span class="old-price">₹15,000</span>
+                <span class="new-price">₹7,500</span>
+              </div>
+              <span class="btn-discount">Early Bird 50% OFF</span>
+            </a>
+          </div>
+        </div>
+        <div class="group-discount-box">
+          <h4>Group Bookings Available</h4>
+          <p>Special rates for corporate teams and delegations. Contact us.</p>
+          <a href="#contact" class="btn btn-outline-small">Get Group Pricing</a>
+        </div>
+      </div>
+    </section>
+    <style>
+      .btn-primary {
+          display: inline-flex;
+          flex-direction: column;   /* stack text vertically */
+          align-items: center;      /* center horizontally */
+          justify-content: center;
+          gap: 4px;                 /* space between lines */
+          text-align: center;
+          padding: 12px 25px;       /* adjust as needed */
+          font-weight: 600;
+      }
+
+      .btn-primary .btn-text {
+          font-size: 1rem;
+      }
+
+      .btn-primary .discount-text {
+          font-size: 0.85rem;       /* slightly smaller */
+          color: var(--royal-blue); /* blue for discount only */
+          font-weight: 700;
+      }
+
+
+      .btn-outline {
+          display: inline-flex;
+          flex-direction: column;       /* stack text and discount vertically */
+          align-items: center;
+          justify-content: center;
+          gap: 4px;                     /* spacing between main text and discount */
+          color: #fff;                   /* main text white */
+          background: var(--royal-blue); /* blue background */
+          border: 2px solid var(--royal-blue);
+          padding: 12px 25px;
+          border-radius: 8px;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          font-family: 'Arial', sans-serif;
+          text-align: center;
+      }
+
+      .btn-outline:hover {
+          background: #fff;              /* background turns white */
+          color: var(--royal-blue);      /* text turns blue */
+          box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      }
+
+      .btn-outline .btn-text {
+          font-size: 1rem;
+      }
+
+      .btn-outline .btn-discount {
+          font-size: 0.85rem;
+          font-weight: 700;
+          color: #ffd700; /* gold color for discount */
+      }
+      .btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 8px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        gap: 5px;
+      }
+
+      .button-prices {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 4px;
+      }
+
+      .old-price {
+        text-decoration: line-through;
+        color: #ffcccc;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .new-price {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+      }
+
+      .btn-outline .new-price {
+        color: var(--primary-color);
+      }
+
+      .discount-text, .btn-discount {
+        font-size: 14px;
+        font-weight: 500;
+        color: #FFD700; /* gold */
+      }
+
+      .btn:hover .new-price {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+          .btn-outline {
+              padding: 10px 18px;
+          }
+          .btn-outline .btn-text {
+              font-size: 0.95rem;
+          }
+          .btn-outline .btn-discount {
+              font-size: 0.75rem;
+          }
+      }
+
+
+    </style>
+
+
+    
+    <!-- Section 11: Contact Us -->
+    <section id="contact" class="contact-section section-padding bg-dark">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Get in Touch with Team Global Leadership Summit Vision 2047</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Venue</h4>
+                            <p>Yashobhoomi Convention Center<br>New Delhi<br>India 110001</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Office Address 1</h4>
+                            <p>A-83, Ground Floor, Pocket-D, Okhla Phase-II<br> New Delhi-110020, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h4>Office Address 2</h4>
+                            <p>112, Nalanda Apartments, IIT Delhi, Hauz Khas,<br> New Delhi - 1100116, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p><a href="mailto:secretariat@glsvision2047.com">secretariat@glsvision2047.com</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p><a href="tel:>+91 7291907708">+91 7291907708</a></p>
+                        </div>
+                    </div>
+
+                    <!-- Venue Map -->
+                    <div class="venue-map">
+                        <h4>Venue Location</h4>
+                        <!-- Replace with actual Google Maps embed -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0826688766965!2d77.24251631508045!3d28.625160382423987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd0683919c85%3A0x5d58f323e8ad0566!2sBharat%20Mandapam!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                     <form id="contactForm" name="contactForm" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" value="" required>
+                    </div><div class="form-group">
+                        <label for="company">Organization</label>
+                        <input type="text" id="company" name="company" value="">
+                    </div>
+                    <div class="form-group">
+                        <label for="designation">Designation</label>
+                        <input type="text" id="designation" name="designation" value="">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" value="" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile">Contact</label>
+                        <input type="text" id="mobile" name="mobile" value="">
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label for="subject">I'm Interested In</label>
+                        <select id="subject" name="subject">
+                            <option value="">Select an option</option>
+                            <option value="Delegate Registration">Delegate Registration</option>
+                            <option value="Sponsorship Opportunities">Sponsorship Opportunities</option>
+                            <option value="Exhibition Stall">Exhibition Stall</option>
+                            <option value="Investor Meet">Investor Meet</option>
+                            <option value="Startup Pavilion Hackathon">Startup Pavilion, Hackathon</option>
+                            <option value="Partnership">Partnership</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" name="submit" class="btn btn-primary btn-block" style="margin-top:20px;">Send Message</button>
+                  </form>
+                  <script>
+                      document.getElementById("contactForm").addEventListener("submit", async function(e){
+                        e.preventDefault();
+                        const form = e.target;
+                        const data = new FormData(form);
+                        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLnQOTtFDUqdNuOWejZcalw9dicMTPgASOnR0hchTWZ_QfhMwkuQqHYCg-iTjPhhZE/exec"; // ✅ your live Apps Script URL
+                        const submitBtn = form.querySelector("button[type=submit]");
+                        const originalText = submitBtn.textContent;
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = "Sending...";
+                
+                        try {
+                          const res = await fetch(SCRIPT_URL, { method: "POST", body: data });
+                          const resultText = await res.text();
+                
+                          let result;
+                          try { result = JSON.parse(resultText); }
+                          catch { result = { status: "error", message: "Invalid response from server" }; }
+                
+                          if (result.status === "success") {
+                            alert("✅ Thank you! Your message has been sent successfully.");
+                            form.reset();
+                          } else {
+                            alert("❌ Error: " + (result.message || "Please try again later."));
+                          }
+                        } catch (err) {
+                          console.error("Network error:", err);
+                          alert("⚠️ Network error — please try again later.");
+                        } finally {
+                          submitBtn.disabled = false;
+                          submitBtn.textContent = originalText;
+                        }
+                      });
+                    </script>
+                  <script>
+                    // const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLnQOTtFDUqdNuOWejZcalw9dicMTPgASOnR0hchTWZ_QfhMwkuQqHYCg-iTjPhhZE/exec";
+                    
+                    // document.getElementById("contactForm").addEventListener("submit", async function (e) {
+                    //   e.preventDefault();
+                    
+                    //   const form = e.target;
+                    //   const btn = form.querySelector("button");
+                    //   btn.disabled = true;
+                    //   btn.textContent = "Sending...";
+                    
+                    //   const data = new FormData(form);
+                    
+                    //   /* ========= BASE64 FILE HANDLING ========= */
+                    //   const fileInput = document.getElementById("attachment");
+                    //   if (fileInput.files.length > 0) {
+                    //     const file = fileInput.files[0];
+                    //     const reader = new FileReader();
+                    
+                    //     reader.onload = async () => {
+                    //       data.append("file_base64", reader.result);
+                    //       data.append("file_name", file.name);
+                    //       data.append("file_type", file.type);
+                    //       await sendData(data);
+                    //     };
+                    //     reader.readAsDataURL(file);
+                    //   } else {
+                    //     await sendData(data);
+                    //   }
+                    
+                    //   async function sendData(data) {
+                    //     try {
+                    //       const res = await fetch(SCRIPT_URL, {
+                    //         method: "POST",
+                    //         body: data
+                    //       });
+                    
+                    //       const result = await res.json();
+                    
+                    //       if (result.status === "success") {
+                    //         alert("✅ Message sent successfully");
+                    //         form.reset();
+                    //       } else {
+                    //         alert("❌ Error: " + result.message);
+                    //       }
+                    //     } catch (err) {
+                    //       alert("⚠️ Network error");
+                    //       console.error(err);
+                    //     } finally {
+                    //       btn.disabled = false;
+                    //       btn.textContent = "Submit";
+                    //     }
+                    //   }
+                    // });
+                    </script>
+                  <script>
+                    //   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLnQOTtFDUqdNuOWejZcalw9dicMTPgASOnR0hchTWZ_QfhMwkuQqHYCg-iTjPhhZE/exec";
+                    
+                    // document.getElementById("contactForm").addEventListener("submit", async function (e) {
+                    //   e.preventDefault();
+                    
+                    //   const form = e.target;
+                    //   const btn = form.querySelector("button");
+                    //   btn.disabled = true;
+                    //   btn.textContent = "Sending...";
+                    
+                    //   const data = new FormData(form);
+                    
+                    //   /* ========= BASE64 FILE HANDLING ========= */
+                    //     //   const fileInput = document.getElementById("attachment");
+                    //     //   if (fileInput.files.length > 0) {
+                    //     //     const file = fileInput.files[0];
+                    //     //     const reader = new FileReader();
+                        
+                    //     //     reader.onload = async () => {
+                    //     //       data.append("file_base64", reader.result);
+                    //     //       data.append("file_name", file.name);
+                    //     //       data.append("file_type", file.type);
+                    //     //       await sendData(data);
+                    //     //     };
+                    //     //     reader.readAsDataURL(file);
+                    //     //   } else {
+                    //     //     await sendData(data);
+                    //     //   }
+                    
+                    //   async function sendData(data) {
+                    //     try {
+                    //       const res = await fetch(SCRIPT_URL, {method: "POST", body: data});
+                    
+                    //       const result = await res.json();
+                    
+                    //       if (result.status === "success") {
+                    //         alert("✅ Message sent successfully");
+                    //         form.reset();
+                    //       } else {
+                    //         alert("❌ Error: " + result.message);
+                    //       }
+                    //     } catch (err) {
+                    //       alert("⚠️ Network error");
+                    //       console.error(err);
+                    //     } finally {
+                    //       btn.disabled = false;
+                    //       btn.textContent = "Submit";
+                    //     }
+                    //   }
+                    // });
+                  </script>
+                  <script>
+                    // document.getElementById("contactForm").addEventListener("submit", async function(e){
+                    //   e.preventDefault();
+                    //   const form = e.target;
+                    //   const data = new FormData(form);
+                    //   const scriptURL = "https://script.google.com/a/macros/iconex.in/s/AKfycbzlrMSAY7QgEsETd0Ytsy9cmjH3zF1AtlABhG7gHtGWs4VTxS78NL5rasnMZlepW_EA/exec"; // narendra@iconex.in
+                      
+                    //   // ✅ your live Apps Script URL
+                    //   const submitBtn = form.querySelector("button[type=submit]");
+                    //   const originalText = submitBtn.textContent;
+                    //   submitBtn.disabled = true;
+                    //   submitBtn.textContent = "Sending...";
+
+                    //   try {
+                    //     const res = await fetch(scriptURL, { method: "POST", body: data });
+                    //     // const res2 = await fetch(scriptURL2, { method: "POST", body: data }); 
+                    //     const resultText = await res.text();
+
+                    //     let result;
+                    //     try { result = JSON.parse(resultText); }
+                    //     catch { result = { status: "error", message: "Invalid response from server" }; }
+
+                    //     if (result.status === "success") {
+                    //       alert("✅ Thank you! Your message has been sent successfully.");
+                    //       form.reset();
+                    //     } else {
+                    //       alert("❌ Error: " + (result.message || "Please try again later."));
+                    //     }
+                    //   } catch (err) {
+                    //     console.error("Network error:", err);
+                    //     alert("⚠️ Network error — please try again later.");
+                    //   } finally {
+                    //     submitBtn.disabled = false;
+                    //     submitBtn.textContent = originalText;
+                    //   }
+                    // });
+                  </script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--<script>-->
+    <!--  document.getElementById("contactForm").addEventListener("submit", async function(e){-->
+    <!--    e.preventDefault();-->
+    <!--    const form = e.target;-->
+    <!--    const data = new FormData(form);-->
+        <!--const scriptURL = "https://script.google.com/macros/s/AKfycbxi7eKdbaqWzbzrC9KB_X1y7BgX3p-j3I0oyYG1dKLTqS5myPQw_XwR3W9TpICvc3E6/exec"; // ✅ your live Apps Script URL-->
+    <!--    const submitBtn = form.querySelector("button[type=submit]");-->
+    <!--    const originalText = submitBtn.textContent;-->
+    <!--    submitBtn.disabled = true;-->
+    <!--    submitBtn.textContent = "Sending...";-->
+
+    <!--    try {-->
+    <!--      const res = await fetch(scriptURL, { method: "POST", body: data });-->
+    <!--      const resultText = await res.text();-->
+
+    <!--      let result;-->
+    <!--      try { result = JSON.parse(resultText); }-->
+    <!--      catch { result = { status: "error", message: "Invalid response from server" }; }-->
+
+    <!--      if (result.status === "success") {-->
+    <!--        alert("✅ Thank you! Your message has been sent successfully.");-->
+    <!--        form.reset();-->
+    <!--      } else {-->
+    <!--        alert("❌ Error: " + (result.message || "Please try again later."));-->
+    <!--      }-->
+    <!--    } catch (err) {-->
+    <!--      console.error("Network error:", err);-->
+    <!--      alert("⚠️ Network error — please try again later.");-->
+    <!--    } finally {-->
+    <!--      submitBtn.disabled = false;-->
+    <!--      submitBtn.textContent = originalText;-->
+    <!--    }-->
+    <!--  });-->
+    <!--</script>-->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+              <h4>Global Leadership Summit Vision 2047</h4>
+              <!--<p>Vision 2047</p>-->
+              <p class="footer-tagline">Leadership • Innovation • Vision 2047</p>
+          </div> 
+          <div class="footer-section">
+              <h4>Quick Links</h4>
+              <ul class="footer-links">
+                  <li><a href="#about">About Global Leadership Summit Vision 2047</a></li>
+                  <li><a href="#conference">Conference</a></li>
+                  <li><a href="#sponsorship">Sponsorship</a></li>
+                  <li><a href="#tickets">Register</a></li>
+              </ul>
+          </div>  
+          <div class="footer-section" style="text-align: center;">
+              <h4>Legal</h4>
+              <ul class="footer-links">
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="terms.html">Terms & Conditions</a></li>
+                  <li><a href="refund.html">Refund Policy</a></li>
+              </ul>
+          </div>  
+          <div class="footer-section">
+              <h4 style="text-align: center;">Organised By</h4>
+              <div style="display: flex;">
+                <a href="https://iconexglobal.com/" target="_blank" style="width: 50%;padding-top: 5px;">
+                  <img src="images/iCONEX_LOGO.png" style="width: 100%;" />
+                </a>
+                <hr style="width: 2px;height: 30px;color: #fff;margin: 5px 10px;">
+                <a href="" style="width: 50%;">
+                  <img src="images/nextgen.jpeg" style="width: 100%;padding-top: 5px;" />
+                </a>
+              </div>
+          </div>
+        </div>
+        <div class="footer-section">
+          <!-- <h4>Connect</h4> -->
+          <div class="social-links">
+            <a href="https://www.facebook.com/glsvision2047/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.linkedin.com/company/glsvision2047/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <a href="https://x.com/glsvision2047" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="/exhibition/" aria-label="Shop"><i class="fas fa-shopping-cart"></i> Shop</a>
+            <a href="/exhibition/" aria-label="Exhibition"><i class="fas fa-store"></i> Exhibition</a>
+            <a href="https://www.instagram.com/glsvision2047/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+          </div>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Global Leadership Summit Vision 2047. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/7719981714" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <span class="whatsapp-icon">💬</span>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
+    <link rel="stylesheet" href="css/hide-prices.css">
+    <script src="js/auth.js"></script>
+    <script src="js/payu.js"></script>
+    <script src="js/stalls.js"></script>
+    <script src="script.js"></script>
+    <script src="js/auth-ui.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const LS_LOGGED_IN = 'auth_logged_in';
+        const LS_USER_NAME = 'auth_user_name';
+
+        const authButtons  = document.getElementById('authButtons');
+        const userProfile  = document.getElementById('userProfile');
+        const welcomeText  = document.getElementById('welcomeText');
+        const logoutBtn    = document.getElementById('logoutBtn');
+
+        const isLoggedIn = localStorage.getItem(LS_LOGGED_IN) === '1';
+        const userName   = localStorage.getItem(LS_USER_NAME) || '';
+
+        console.log('Login check →', isLoggedIn, userName); // Debug line
+
+        if (isLoggedIn) {
+          if (welcomeText) welcomeText.textContent = `Welcome, ${userName}`;
+          if (authButtons) authButtons.style.display = 'none';
+          if (userProfile) userProfile.style.display = 'flex';
+        } else {
+          if (authButtons) authButtons.style.display = 'flex';
+          if (userProfile) userProfile.style.display = 'none';
+        }
+        // ✅ Logout
+        logoutBtn?.addEventListener('click', () => {
+          localStorage.removeItem(LS_LOGGED_IN);
+          localStorage.removeItem(LS_USER_NAME);
+          window.location.href = 'index.html';
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+      const sliders = document.querySelectorAll('.main-slider');
+      sliders.forEach((sliderEl, i) => {
+      const parent = sliderEl.closest('.wrapper-slider');
+      const paginationEl = parent.querySelector('.swiper-pagination');
+      let progress = 0;
+      let duration = 6000;
+      let isPlaying = true;
+      let startTime;
+      let rafId;
+      let swiper;
+      const playSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>`;
+
+      const pauseSVG = `<svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" viewBox="0 0 24 24">
+                <path d="M6 19h4V5H6zm8-14v14h4V5h-4z"/>
+                </svg>`;
+      swiper = new Swiper(sliderEl, {
+        effect: 'fade',
+        speed: 1000,
+        fadeEffect: {
+          crossFade: true,
+        },
+        loop: true,
+        pagination: {
+          el: paginationEl,
+          clickable: true,
+          renderBullet: function (index, className) {
+            return `<span class="${className}" data-index="${index}">
+                  <span class="number">${index + 1}</span>
+                </span>`;
+          }
+        },
+        on: {
+          init(swiperInstance) {
+            swiper = swiperInstance; // asignamos el swiper real
+            startCustomAutoplay();
+            resetLoaders();
+          },
+          slideChangeTransitionStart() {
+            progress = 0;
+            startTime = performance.now();
+            resetLoaders();
+          }
+        }
+      });
+
+      function startCustomAutoplay() {
+        startTime = performance.now();
+        loop();
+      }
+
+      
+      
+  
+
+      function loop(now) {
+        if (!isPlaying) return;
+        if (!startTime) startTime = now;
+        const elapsed = now - startTime;
+        progress = Math.min((elapsed / duration) * 100, 100);
+        if (swiper) updateLoader(swiper.realIndex, Math.round(progress));
+        if (progress >= 100) {
+          swiper.slideNext();
+          progress = 0;
+          startTime = performance.now();
+        }
+        rafId = requestAnimationFrame(loop);
+      }
+
+      function pauseAutoplay() {
+        isPlaying = false;
+        cancelAnimationFrame(rafId);
+      }
+
+      function resumeAutoplay() {
+        isPlaying = true;
+        startTime = performance.now() - (progress / 100) * duration;
+        loop();
+      }
+
+      function resetLoaders() {
+          paginationEl.querySelectorAll('.swiper-pagination-bullet').forEach((bullet, i) => {
+            const isActive = bullet.classList.contains('swiper-pagination-bullet-active');
+            if (isActive) {
+              bullet.innerHTML = `
+                              <div class="bullet-content flex justify-center items-center">
+                                  <button class="icon playpause-btn absolute z-[1]">
+                                      ${isPlaying ? pauseSVG : playSVG}
+                                  </button>    
+                                  <div class="percentage" style="--p: ${progress}%"></div>
+                              </div>
+                          `;
+
+              setTimeout(() => {
+                const percentage = bullet.querySelector('.percentage');
+                if (percentage) {
+                  percentage.classList.add('show');
+                }
+              }, 100);
+
+              const btn = bullet.querySelector('.playpause-btn');
+
+              btn.addEventListener('click', () => {
+                if (isPlaying) {
+                  pauseAutoplay();
+                  btn.innerHTML = playSVG;
+                } else {
+                  resumeAutoplay();
+                  btn.innerHTML = pauseSVG;
+                }
+              });
+            } else {
+              const index = bullet.dataset.index;
+              bullet.innerHTML = `<span class="number">${parseInt(index) + 1}</span>`;
+            }
+          });
+        }
+
+        function updateLoader(index, percent) {
+          const bullet = paginationEl.querySelectorAll('.swiper-pagination-bullet')[index];
+          if (bullet) {
+            const percentage = bullet.querySelector('.percentage');
+            if (percentage) {
+              percentage.style.setProperty('--p', `${percent}%`);
+            }
+          }
+        }
+      });
+    </script>
+    
+    
+
+  </body>
+</html>
+
+

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exhibitors - Global Leadership Summit Vision 2047</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link rel="icon" type="image/png" href="images/GLS_fevicon.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
+  <style>
+      .logo-img{
+        height: 70px;
+      }
+      @media (max-width: 900px) {
+        .logo-img{
+        height: 45px;
+      }
+      .btn{
+        padding: 8px 2px;
+        width: 35%;
+        font-size: 10px;
+      }
+      }
+      .auth-section{
+        background: linear-gradient(135deg, rgba(0, 154, 159, 0.9), rgba(11, 60, 94, 0.7));
+      }
+
+      .portfolio{
+  padding:40px 20px;
+  background: #f7f7f73f;
+}
+.portfolio p{
+  color: rgba(255,255,255,.6);
+  margin: 40px 40px;
+  letter-spacing: 1px;
+  line-height:1.5em;
+}
+
+/*start tabs*/
+.portfolio input[type="radio"]{
+  display: none;
+}
+.portfolio .tabs label{
+  display: inline-block;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 10px 18px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.portfolio .tabs .all{
+  display: none;
+  transform-origin: 10% 50%;
+}
+.portfolio .tabs .content {
+  margin-bottom: 29px;
+  position: relative;
+  overflow: hidden;
+}
+.portfolio .tabs .content img {
+  height: 100%;
+  width: 100%;
+}
+.portfolio .tabs label:not(:first-of-type){
+  margin-left: -4px;
+}
+.portfolio input[id="all"]:checked ~ .content .all{
+  display: block;
+  animation: animateTabe 1s;
+}
+.portfolio input[id="websiteDesign"]:checked ~ .content .websiteDesign{
+  display: block;
+  animation: animateTabe 1s;
+}
+.portfolio input[id="PHOTOGRAPHY"]:checked ~ .content .PHOTOGRAPHY{
+  display: block;
+  animation: animateTabe 1s;
+}
+.portfolio input[id="graphicDesign"]:checked ~ .content .graphicDesign{
+  display: block;
+  animation: animateTabe 1s;
+}
+.portfolio input[type="radio"]:checked + label{
+  background-color: transparent;
+  border: 1px solid #00e1ff;
+  cursor: default;
+}
+.portfolio .tabs .overlay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top:100%;
+  padding-top: 10%;
+  color: #fff;
+  text-transform: uppercase;
+  text-align: center;
+  background: rgba(0,0,0,.5);
+  left: 0;
+  transition: all .5s;
+  transition: all .5s linear;
+
+}
+.portfolio .tabs .all .content:hover .overlay{
+  top: 0;
+}
+.portfolio .tabs .overlay span{
+  padding: 2px 8px;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.portfolio .tabs .overlay span:hover{
+  background: #5CC05C;
+  border-color: #5CC05C;
+}
+@keyframes animateTabe{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.classic-list{
+  list-style-type: none;
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <nav class="navbar">
+      <div class="container nav-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/vision2047logomain.png" alt="Vision 2047 Logo" class="logo-img">
+          </a>
+            &nbsp;
+              <hr style="height: 40px ; width: 2px; background: #000; border: 1px solid #000;"> 
+            &nbsp;
+          <a href="index.html">
+            <img src="images/iitalumuniai.png" alt="GLS Vision 2047 Logo" class="logo-img" />
+            <!-- <span class="logo-text">Global Leadership Summit Vision 2047</span> -->
+          </a>
+        </div>
+        <a href="index.html" class="btn btn-outline">Back to Home</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Login Section -->
+  <section class="auth-section">
+    <div class="container">
+      <h1 style="color:#fff;">List of Exhibitors</h1>
+      <div style="margin-bottom: 40px;">
+        <ul style="display: flex; color:#fff; list-style: none;font-size: 1.3rem; font-weight: 500;">
+          <li>
+            <a href="index.html" style="color:#fff;">Home </a>
+          </li> &nbsp;
+          <li>/</li> &nbsp;
+          <li>
+            <a href="#" style="color:#ff3a6b">List of Exhibitors</a>
+          </li>
+        </ul>
+      </div>
+        <div class="portfolio">
+        <!-- <div class="container"> -->
+            <div class="tabs text-center">
+            <input type="radio" value="all" id="all" name="tab" checked/>
+            <label for="all">aLL</label>
+
+            <input type="radio" value="website design" id="websiteDesign" name="tab"/>
+            <label for="websiteDesign">Government</label>
+
+            <input type="radio" value="PHOTOGRAPHY" id="PHOTOGRAPHY" name="tab"/>
+            <label for="PHOTOGRAPHY">Public Sector Units</label>
+
+            <input type="radio" value="GRAPHIC DESIGN" id="graphicDesign" name="tab"/>
+            <label for="graphicDesign">Corporate</label>
+            <div class="content">
+            <div class="row">
+                
+                <div class="all graphicDesign col-sm-6 col-lg-3">
+                <div class="content">
+                    <img class="responsive-img"  src="images/exhibitor/google.png" alt="tab" >
+                    <div class="overlay">
+                      <p></p>
+                    <h3>Google</h3>
+                    </div>
+                </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                <div class="content">
+                    <img class="responsive-img" src="images/exhibitor/apple.jpg" alt="tab" >
+                    <div class="overlay">
+                    <p></p>
+                    <h3>Apple</h3>
+                    </div>
+                </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                    <img class="responsive-img" src="images/exhibitor/meta.png" alt="tab" >
+                    <div class="overlay">
+                    <p></p>
+                    <h3>Meta</h3>
+                  </div>
+                </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                    <img class="responsive-img" src="images/exhibitor/accenture.png" alt="tab" >
+                    <div class="overlay">
+                    <p></p>
+                    <h3>Accenture</h3>
+                  </div>
+                </div>
+                </div>
+                <div class="all graphicDesign col-sm-6 col-lg-3">
+                <div class="content">
+                    <img class="responsive-img" src="images/exhibitor/adobe.png" alt="tab" >
+                    <div class="overlay">
+                    <p></p>
+                    <h3>Adobe</h3>
+                    </div>
+                </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                <div class="content">
+                    <img class="responsive-img" src="images/exhibitor/amazon.png" alt="tab" >
+                    <div class="overlay">
+                    <p></p>
+                    <h3>Amazon</h3>
+                    </div>
+                </div>
+                </div>
+                <div class="all websiteDesign col-sm-6 col-lg-3">
+                <div class="content">
+                    <img class="responsive-img" src="images/exhibitor/amd.png" alt="tab" >
+                    <div class="overlay">
+                    <p></p>
+                    <h3>AMD</h3>
+                    </div>
+                </div>
+                </div>
+                <div class="all websiteDesign col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/cisco.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>Cisco</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all websiteDesign col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/hcl.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>HCLTech</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all websiteDesign col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/ibm.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>IBM</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all websiteDesign col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/infosys.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>Infosys</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all websiteDesign col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/intel.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>Intel</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/microsoft.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>Microsoft</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/nvidia.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>NVIDIA</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/oracle.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>Oracle</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/salesforce.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>Salesforce</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/sap.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>SAP</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/servicenow.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>ServiceNow</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/tcs.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>TCS</h3>
+                      </div>
+                  </div>
+                </div>
+                <div class="all PHOTOGRAPHY col-sm-6 col-lg-3">
+                  <div class="content">
+                      <img class="responsive-img" src="images/exhibitor/wipro.png" alt="tab" >
+                      <div class="overlay">
+                      <p></p>
+                      <h3>Wipro</h3>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            </div>
+            </div>
+        <!-- </div> -->
+        </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="footer-section">
+                  <h4>Global Leadership Summit Vision 2047</h4>
+                  <!--<p>Vision 2047</p>-->
+                  <p class="footer-tagline">Leadership • Innovation • Vision 2047</p>
+                </div> 
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="footer-section">
+                  <h4>Quick Links</h4>
+                  <ul class="footer-links">
+                      <li><a href="#about">About Global Leadership Summit Vision 2047</a></li>
+                      <li><a href="#conference">Conference</a></li>
+                      <li><a href="#sponsorship">Sponsorship</a></li>
+                      <li><a href="#tickets">Register</a></li>
+                  </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="footer-section" style="text-align: center;">
+                  <h4>Legal</h4>
+                  <ul class="footer-links">
+                      <li><a href="privacy.html">Privacy Policy</a></li>
+                      <li><a href="terms.html">Terms & Conditions</a></li>
+                      <li><a href="refund.html">Refund Policy</a></li>
+                  </ul>
+                </div> 
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <div class="footer-section">
+                  <h4 style="text-align: center;">Organised By</h4>
+                  <div style="display: flex;">
+                    <a href="https://iconexglobal.com/" target="_blank" style="width: 50%;padding-top: 5px;">
+                      <img src="images/iCONEX_LOGO.png" style="width: 100%;" />
+                    </a>
+                    <hr style="width: 2px;height: 30px;color: #fff;margin: 5px 10px;">
+                    <a href="https://nextgentechno.in/" target="_blank" style="width: 50%;">
+                      <img src="images/nextgen.jpeg" style="width: 100%;padding-top: 5px;" />
+                    </a>
+                  </div>
+                </div>
+            </div>
+
+          </div>
+          
+            
+           
+          
+        </div>
+        <div class="footer-section">
+          <!-- <h4>Connect</h4> -->
+          <div class="social-links">
+            <a href="https://www.facebook.com/glsvision2047/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.linkedin.com/company/glsvision2047/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+            <a href="https://x.com/glsvision2047" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="https://www.instagram.com/glsvision2047/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a>
+          </div>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Global Leadership Summit Vision 2047. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const loginForm = document.getElementById('loginForm');
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('loginEmail').value.trim();
+    const password = document.getElementById('loginPassword').value;
+
+    if (!email || !password) {
+      alert('Please fill in both fields.');
+      return;
+    }
+
+    try {
+      const response = await fetch('login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password })
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // ✅ save user info
+        localStorage.setItem('auth_logged_in', '1');
+        localStorage.setItem('auth_user_name', result.user.name || 'User');
+
+        alert(`Welcome, ${result.user.name}!`);
+        window.location.href = 'index.html';
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Server error. Please try again.');
+    }
+  });
+});
+</script>
+
+
+</body>
+</html>
+
+

@@ -1,0 +1,101 @@
+/* Hide all pricing information across the site except donation section */
+
+/* Hide ticket pricing */
+.ticket-pricing {
+    display: none !important;
+}
+
+.ticket-price,
+.discounted-price,
+.original-price {
+    display: none !important;
+}
+
+/* Hide sponsorship tier pricing */
+.tier-price {
+    display: none !important;
+}
+
+/* Hide stall pricing (already handled in stalls.css but adding for safety) */
+.stall-price,
+.stall-size + .stall-price {
+    display: none !important;
+}
+
+/* Hide exhibition stall prices */
+.exhibition-stalls .stall-price {
+    display: none !important;
+}
+
+/* Hide product pricing if exists */
+.product-price,
+.product-card .price {
+    display: none !important;
+}
+
+/* Hide agriculture/sector pricing if exists */
+.sector-price,
+.agriculture-price {
+    display: none !important;
+}
+
+/* KEEP DONATION PRICING VISIBLE - Exception */
+#donation .donation-amounts,
+#donation .amount-btn,
+#donation #donationAmount,
+#donationForm .donation-amounts,
+#donationForm .amount-btn,
+#donationForm #donationAmount,
+.donation-section .donation-amounts,
+.donation-section .amount-btn,
+.donation-form .donation-amounts,
+.donation-form .amount-btn,
+.donation-form input[type="number"] {
+    display: inline-block !important;
+    visibility: visible !important;
+}
+
+/* Keep donation amount buttons visible */
+.donation-amounts {
+    display: flex !important;
+}
+
+/* Show prices in checkout page */
+.checkout-section .order-summary .order-value,
+.checkout-section #totalAmount,
+.order-summary .price,
+.checkout-form .price {
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Adjust spacing where prices were removed */
+.ticket-card h3 {
+    margin-bottom: 1.5rem;
+}
+
+.tier-card h4 {
+    margin-bottom: 1.5rem;
+}
+
+/* Add availability text styling for tickets */
+.ticket-availability {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0066cc;
+    margin: 1rem 0;
+    text-align: center;
+    padding: 0.5rem;
+    background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+    border-radius: 8px;
+}
+
+/* Sponsorship tier availability styling */
+.tier-availability {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666;
+    margin: 1rem 0;
+    text-align: center;
+    font-style: italic;
+}

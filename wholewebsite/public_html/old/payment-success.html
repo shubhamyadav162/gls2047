@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - Global Leadership Summit Vision 2047</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="images/PanIITLogo.png">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/PanIITLogo.png" alt="GLS Vision 2047 Logo" class="logo-img">
+                        <span class="logo-text">GLS Vision 2047</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Result Section -->
+    <section class="result-section" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+        <div class="container">
+            <div class="result-container">
+                <div class="result-card result-success">
+                    <div class="result-icon">✅</div>
+                    <h1 class="result-title">Payment Successful!</h1>
+                    <p class="result-message">Thank you for your payment. Your transaction has been completed successfully.</p>
+                    
+                    <div class="result-details" id="paymentDetails">
+                        <p><strong>Transaction ID:</strong> <span id="txnId">Loading...</span></p>
+                        <p><strong>Amount Paid:</strong> ₹<span id="amount">Loading...</span></p>
+                        <p><strong>Status:</strong> <span style="color: #28a745;">Success</span></p>
+                        <p><strong>Date:</strong> <span id="date"></span></p>
+                    </div>
+                    
+                    <div id="ticketInfo" style="display: none;">
+                        <p style="margin-bottom: 20px;">A confirmation email with your ticket details has been sent to your registered email address.</p>
+                    </div>
+                    
+                    <div class="result-actions">
+                        <a href="index.html" class="btn btn-primary">Back to Home</a>
+                        <a href="tickets.html" class="btn btn-outline">View My Tickets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Global Leadership Summit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/payu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle payment response
+            const response = payuIntegration.handlePaymentResponse();
+            
+            if (response) {
+                document.getElementById('txnId').textContent = response.txnid || 'N/A';
+                document.getElementById('amount').textContent = response.amount || 'N/A';
+                document.getElementById('date').textContent = new Date().toLocaleString();
+                
+                // Show ticket info if this was a ticket purchase
+                if (response.transaction && response.transaction.type === 'ticket') {
+                    document.getElementById('ticketInfo').style.display = 'block';
+                }
+                
+                // Send confirmation email (in production)
+                console.log('Payment successful. Sending confirmation email...');
+            } else {
+                // No payment data found
+                document.getElementById('paymentDetails').innerHTML = '<p>No payment information found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

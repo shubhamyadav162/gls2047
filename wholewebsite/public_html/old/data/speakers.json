@@ -1,0 +1,180 @@
+{
+  "speakers": [
+    {
+      "id": "speaker-001",
+      "name": "Dr. Rajesh Gupta",
+      "designation": "CEO & Founder",
+      "organization": "TechCorp India",
+      "category": ["keynote", "founder"],
+      "bio": "Dr. Rajesh Gupta is a visionary entrepreneur and technologist who founded TechCorp India, now valued at over $2 billion. An IIT Delhi alumnus, he has been at the forefront of India's tech revolution for over two decades.",
+      "expertise": ["Technology", "Innovation", "Entrepreneurship"],
+      "session": {
+        "title": "Building India's Tech Unicorns: Lessons from the Trenches",
+        "day": 1,
+        "time": "10:00 - 11:00"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/rajeshgupta",
+        "twitter": "https://twitter.com/rajeshgupta"
+      },
+      "image": "assets/speakers/rajesh-gupta.jpg"
+    },
+    {
+      "id": "speaker-002",
+      "name": "Priya Sharma",
+      "designation": "Managing Partner",
+      "organization": "Venture Capital Partners",
+      "category": ["keynote", "investor"],
+      "bio": "Priya Sharma is a leading voice in India's venture capital ecosystem. With over $500 million in successful investments across 50+ startups, she has helped shape the country's startup landscape.",
+      "expertise": ["Venture Capital", "Investment Strategy", "Startup Scaling"],
+      "session": {
+        "title": "Funding the Future: What VCs Look for in 2026",
+        "day": 1,
+        "time": "11:30 - 12:30"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/priyasharma",
+        "twitter": "https://twitter.com/priyasharma"
+      },
+      "image": "assets/speakers/priya-sharma.jpg"
+    },
+    {
+      "id": "speaker-003",
+      "name": "Hon. Amit Kumar",
+      "designation": "Minister",
+      "organization": "Ministry of Electronics & IT",
+      "category": ["keynote", "government"],
+      "bio": "Hon. Amit Kumar serves as the Minister for Electronics & Information Technology, driving India's digital transformation agenda and policy frameworks for the tech sector.",
+      "expertise": ["Policy Making", "Digital India", "Governance"],
+      "session": {
+        "title": "India's Vision 2047: Policy Roadmap for Digital Economy",
+        "day": 1,
+        "time": "14:00 - 15:00"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/amitkumar"
+      },
+      "image": "assets/speakers/amit-kumar.jpg"
+    },
+    {
+      "id": "speaker-004",
+      "name": "Ananya Reddy",
+      "designation": "CEO",
+      "organization": "GreenTech Solutions",
+      "category": ["panelist", "founder"],
+      "bio": "Ananya Reddy leads GreenTech Solutions, India's fastest-growing clean energy startup. Her company has deployed renewable energy solutions across 15 states.",
+      "expertise": ["Clean Energy", "Sustainability", "Climate Tech"],
+      "session": {
+        "title": "Panel: Sustainability & Climate Action",
+        "day": 2,
+        "time": "09:00 - 10:30"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/ananyareddy",
+        "twitter": "https://twitter.com/ananyareddy"
+      },
+      "image": "assets/speakers/ananya-reddy.jpg"
+    },
+    {
+      "id": "speaker-005",
+      "name": "Vikram Singh",
+      "designation": "CTO",
+      "organization": "AI Innovations Lab",
+      "category": ["panelist", "founder"],
+      "bio": "Vikram Singh is pioneering artificial intelligence research in India. His work on AI-driven healthcare solutions has impacted over 10 million lives.",
+      "expertise": ["Artificial Intelligence", "Machine Learning", "Healthcare Tech"],
+      "session": {
+        "title": "Panel: AI & Deep Tech Revolution",
+        "day": 1,
+        "time": "14:00 - 15:30"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/vikramsingh",
+        "twitter": "https://twitter.com/vikramsingh"
+      },
+      "image": "assets/speakers/vikram-singh.jpg"
+    },
+    {
+      "id": "speaker-006",
+      "name": "Kavita Nair",
+      "designation": "Founder & CEO",
+      "organization": "FinTech Plus",
+      "category": ["panelist", "founder"],
+      "bio": "Kavita Nair revolutionized digital payments in India with FinTech Plus, processing over $10 billion in transactions monthly. IIT Bombay alumna and Forbes 40 under 40.",
+      "expertise": ["FinTech", "Digital Payments", "Financial Inclusion"],
+      "session": {
+        "title": "Panel: Future of FinTech in India",
+        "day": 1,
+        "time": "15:30 - 17:00"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/kavitanair",
+        "twitter": "https://twitter.com/kavitanair"
+      },
+      "image": "assets/speakers/kavita-nair.jpg"
+    },
+    {
+      "id": "speaker-007",
+      "name": "Arjun Malhotra",
+      "designation": "Managing Director",
+      "organization": "Global Investments Inc.",
+      "category": ["investor"],
+      "bio": "Arjun Malhotra manages a $2 billion portfolio focused on Indian tech companies. With 25+ years of experience, he has been instrumental in several IPOs and unicorn exits.",
+      "expertise": ["Investment Banking", "M&A", "Corporate Finance"],
+      "session": {
+        "title": "Investor Roundtable: IPO & Exit Strategies",
+        "day": 2,
+        "time": "14:00 - 15:30"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/arjunmalhotra"
+      },
+      "image": "assets/speakers/arjun-malhotra.jpg"
+    },
+    {
+      "id": "speaker-008",
+      "name": "Dr. Meera Patel",
+      "designation": "Chief Scientist",
+      "organization": "National Research Institute",
+      "category": ["keynote"],
+      "bio": "Dr. Meera Patel is a renowned scientist leading India's quantum computing research. She holds 15 patents and has published over 100 research papers.",
+      "expertise": ["Quantum Computing", "Research", "Innovation"],
+      "session": {
+        "title": "Keynote: The Quantum Leap - India's Next Frontier",
+        "day": 2,
+        "time": "10:30 - 11:30"
+      },
+      "social": {
+        "linkedin": "https://linkedin.com/in/meerapatel"
+      },
+      "image": "assets/speakers/meera-patel.jpg"
+    }
+  ],
+  "categories": [
+    {
+      "id": "keynote",
+      "name": "Keynote Speakers",
+      "description": "Leading voices delivering main stage presentations"
+    },
+    {
+      "id": "panelist",
+      "name": "Panel Discussants",
+      "description": "Experts participating in panel discussions"
+    },
+    {
+      "id": "government",
+      "name": "Government Leaders",
+      "description": "Policymakers and government officials"
+    },
+    {
+      "id": "founder",
+      "name": "Founders & CEOs",
+      "description": "Startup founders and corporate leaders"
+    },
+    {
+      "id": "investor",
+      "name": "Investors",
+      "description": "VCs, PEs, and family office representatives"
+    }
+  ]
+}

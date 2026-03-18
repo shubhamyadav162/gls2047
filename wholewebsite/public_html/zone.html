@@ -1,0 +1,598 @@
+<!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Zone With Us — Global Leadership Summit Vision 2047</title>
+    <meta name="description" content="Partner with Global Leadership Summit Vision 2047 — collaborate with the world’s leading IIT minds, innovators, and global industry leaders.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="icon" type="image/png" href="images/GLS_fevicon.png">
+    <style>
+      :root {
+        --blue: #003399;
+        --lightblue: #f0f5ff;
+        --muted: #6b7280;
+        --white: #fff;
+        --success: #16a34a;
+        --danger: #ef4444;
+        --radius: 12px;
+      }
+      body {
+        font-family: 'Inter', system-ui, sans-serif;
+        background: var(--lightblue);
+        margin: 0;
+        padding: 0;
+        color: #0f172a;
+        box-sizing: border-box;
+        /* overflow: hidden; */
+      }
+      .container {
+        /* max-width: 1200px; */
+        margin: 0 auto;
+        padding: 40px 20px;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      header h1 {
+        font-size: 30px;
+        color: var(--blue);
+        margin-bottom: 10px;
+      }
+      header p {
+        color: var(--muted);
+        font-size: 16px;
+      }
+      section {
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+        padding: 30px;
+        margin-bottom: 30px;
+      }
+      .partners-info h2 {
+        color: var(--blue);
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .partners-info p {
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      .tiers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+      .tier {
+        flex: 1;
+        min-width: 240px;
+        background: #f9fbff;
+        border: 1px solid #e5ecff;
+        border-radius: 12px;
+        padding: 16px;
+      }
+      .tier h3 {
+        color: var(--blue);
+        margin-top: 0;
+      }
+      .tier ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      /* FORM STYLING */
+      /* form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: -10px;
+        gap: 10px 40px;
+        width: 100%;
+        
+      } */
+      /* label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #111;
+        font-size: 14px;
+      }
+      input, select, textarea {
+        width: 100%;
+        padding: 10px 5px;
+        border: 1px solid #d6e0ff;
+        border-radius: 10px;
+        font-size: 14px;
+      }
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+      .full {
+        grid-column: 1 / -1;
+      } */
+      button {
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        padding: 12px 16px;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      button:hover {
+        background: #00297e;
+      }
+      .note {
+        font-size: 13px;
+        color: var(--muted);
+      }
+      .toast {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 30px;
+        padding: 14px 20px;
+        border-radius: 10px;
+        color: #fff;
+        font-weight: 600;
+        box-shadow: 0 8px 30px rgba(2,6,23,0.12);
+        display: none;
+        z-index: 9999;
+      }
+      .toast.success { background: var(--success); }
+      .toast.error { background: var(--danger); }
+      .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+      }
+      .modal-content {
+        background: #fff;
+        padding: 28px;
+        border-radius: 12px;
+        max-width: 520px;
+        text-align: center;
+      }
+      .modal-content h3 { color: var(--blue); }
+      .modal-content p { color: var(--muted); }
+      .modal-content button {
+        margin-top: 20px;
+      }
+      @media (max-width:768px){
+        form { grid-template-columns: 1fr; }
+      }
+      .back-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: #f1f5f9;
+          color: #0b63d6;
+          border: none;
+          padding: 10px 16px;
+          border-radius: 10px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.25s ease;
+          font-size: 14px;
+        }
+        .back-btn:hover {
+          background: #e0ecff;
+          transform: translateY(-2px);
+        }
+        .back-btn svg {
+          width: 18px;
+          height: 18px;
+          stroke: currentColor;
+        }
+        @media (max-width: 720px) {
+          .back-btn {
+            width: 100%;
+            justify-content: center;
+          }
+        }
+    </style>
+    <style>
+      .zone_sec{
+        display: flex;
+        background-color: #ffffff00;
+        /* background-image: url('images/back_zone.jpg'); */
+      }
+      .partners-info{
+        width: 50%;
+        padding: 30px;
+        border-radius: 0px;
+        background:linear-gradient(to left, #0f172a93, #00000094), url('images/backzone2.jpg');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+          
+      }
+      .zone_form{
+        width: 50%;
+        padding: 30px;
+        box-shadow: -2px -2px 5px #7b7979;
+        border-radius: 0px 10px 10px 0px;
+      }
+      .form-check-label{
+        font-size: .9rem;
+      }
+      @media (max-width: 900px){
+        .zone_sec{
+          flex-direction: column;
+        }
+        .partners-info{
+          width: 100%;          
+        }
+        .zone_form{
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+        <!-- 🔙 Back to Home Button -->
+    <button class="back-btn" onclick="goHome()">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      Back to Home
+    </button>
+      <header>
+        <h1>Zone With Us — Global Leadership Summit Vision 2047</h1>
+        <p>Join hands with the GLS Vision 2047 community to shape innovation, entrepreneurship, and leadership for the next decade.</p>
+      </header>
+      
+      <div class="zone_sec" >
+        <section class="partners-info">
+            <h2 style="color:#fddb00;"><b>Zone with GLS Vision 2047?</b></h2>
+            <p style="text-align: justify;color:#fff;">Participating in the global leadership summit places your brand directly in front of a highly curated audience of decision makers, policy leaders, industrialists, family business heads, investors and global institutions -  who actively influence capital flow, partnerships and market expansion, Unlike generic exhibitions. This summit is designed around outcomes and ensuring exhibitors engage with stakeholders, who have authority to buy, invest, collaborate, or recommend at the highest level.</p>
+            <p style="text-align: justify;color:#fff;">The summit offers exhibitors far more than booth visibility through sector focused pavilions, closed door round tables, curated B2B/B2G meetings and live pitching platforms, exhibitors Gain direct access to governments, large Enterprises, global funds and strategic partners. This environment enables meaningful conversations, faster deal making, policy alignment, and long-term relationship building opportunities that are difficult to achieve through traditional marketing or standalone expos.</p>
+            <p style="text-align: justify;color:#fff;">Finally, association with the global leadership Summit strengthen your brand positioning as a future ready, credible and influential organisation. Media coverage, digital amplification, leadership networking, and the prestige of participating alongside global leaders and institutions elevate brand trust and recall. Exhibitors Don’t just showcase products or services they become part of a global dialogue, shaping the future of leadership, industry and economic growth.</p>
+            <div class="tiers">
+        
+            </div>
+            
+        </section>
+
+        <section class="zone_form">  
+          <form id="zoneForm" name="zoneForm" method="POST" action=""  class="row">
+            <!-- enctype="multipart/form-data" novalidate -->
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <label>Full Name*</label>
+              <input type="text" name="name" id="name" class="form-control" required>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <label>Job Title  *</label>
+              <input type="text" name="designation" id="designation" class="form-control" >
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <label>Company Name *</label>
+              <input type="text" name="company" id="company" class="form-control" required>
+            </div>            
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <label>Mobile Number *</label>
+              <input type="tel" name="mobile" id="mobile" class="form-control" maxlength="15" required>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <label>Email Address*</label>
+              <input type="email" name="email" id="email" class="form-control" required>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <label>Country *</label>
+              <input type="text" name="country" id="country" class="form-control" >
+            </div>
+            
+            <div class="mb-3 col-lg-6 col-md-6 col-12" >
+              <input class="form-check-input" type="checkbox" name="zone[]" value="FiDi Financial District Pavilion"/>&nbsp;
+              <label class="form-check-label" for="flexCheckDefault">FiDi Financial District Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12" >
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Entrepreneur Zone"/>&nbsp;
+              <label class="form-check-label" for="flexCheckDefault">Entrepreneur Zone</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="State Pavilion"/>&nbsp;
+              <label class="form-check-label" for="flexCheckDefault">State Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Diplomatic Pavilion"/>&nbsp;
+              <label class="form-check-label" for="flexCheckDefault">Diplomatic Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Ministerial / Governance Zone" />&nbsp;
+              <label class="form-check-label" for="flexCheckDefault">Ministerial / Governance Zone</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Technology / AI Pavilion" />
+              <label class="form-check-label" for="flexCheckDefault">Technology / AI Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Energy Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Energy Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Med Tech Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Med Tech Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Food Park Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Food Park Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Defence Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Defence Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Fintech Impact Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Fintech Impact Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Supply Chain & Logistics Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Supply Chain & Logistics Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Smart Manufacturing Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Smart Manufacturing Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Consumer Tech PavilionConsumer Tech Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Consumer Tech Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Infrastructure Pavilion" >
+              <label class="form-check-label" for="flexCheckDefault">Infrastructure Pavilion</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Brand Equity Launch Pad" >
+              <label class="form-check-label" for="flexCheckDefault">Brand Equity Launch Pad</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Global Leaders’ Club" >
+              <label class="form-check-label" for="flexCheckDefault">Global Leaders’ Club</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Women Leaders’ Forum" >
+              <label class="form-check-label" for="flexCheckDefault">Women Leaders’ Forum</label>
+            </div>
+            <div class="mb-3 col-lg-6 col-md-6 col-12">
+              <input class="form-check-input" type="checkbox" name="zone[]" value="Global Leaders TV" >
+              <label class="form-check-label" for="flexCheckDefault">Global Leaders TV</label>
+            </div>
+            <div class="full">
+              <!-- <textarea class="form-control" name="message" id="message" value="" readonly></textarea><br/> -->
+              <button id="submitBtn" type="submit" name="submit">Submit Request</button>
+            </div>
+          </form>
+          <script>
+            (() => {
+              const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuLN1Q2saDLJpppDdds5hbEp4WwXujDayr3yyvAMpPAxQHkS9P9wFYBwhFT4Wx9JK2/exec";
+              const form = document.getElementById("zoneForm");
+              const submitBtn = document.getElementById("submitBtn");
+              form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                if (!form.name.value || !form.company.value || !form.email.value || !form.mobile.value) {
+                  alert("Please fill all required fields");
+                  return;
+                }
+                submitBtn.disabled = true;
+                const zones = [...document.querySelectorAll('input[name="zone[]"]:checked')]
+                  .map(cb => cb.value)
+                  .join(" - ");
+                if (!zones) {
+                  alert("Please select at least one zone");
+                  submitBtn.disabled = false;
+                  return;
+                }
+                try {
+                  const data = new FormData();
+                  data.append("name", form.name.value);
+                  data.append("designation", form.designation?.value || "");
+                  data.append("company", form.company.value);
+                  data.append("mobile", form.mobile.value);
+                  data.append("email", form.email.value);
+                  data.append("country", form.country?.value || "");
+                  data.append("zones", zones); // ✅ MUST MATCH Apps Script
+                  const res = await fetch(SCRIPT_URL, {
+                    method: "POST",
+                    body: data
+                  });
+                  const json = await res.json();
+                  if (json.status === "success") {
+                    alert("Form submitted successfully!");
+                    form.reset();
+                  } else {
+                    alert("Submission failed");
+                  }
+
+                } catch (err) {
+                  console.error(err);
+                  alert("Server error");
+                } finally {
+                  submitBtn.disabled = false;
+                }
+              });
+            })();
+            </script>
+          <script>
+            // (() => {
+            //   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuLN1Q2saDLJpppDdds5hbEp4WwXujDayr3yyvAMpPAxQHkS9P9wFYBwhFT4Wx9JK2/exec";
+            //   const form = document.getElementById("zoneForm");
+            //   const submitBtn = document.getElementById("submitBtn");
+            //   form.addEventListener("submit", async (e) => {
+            //     e.preventDefault();
+            //     // basic validation
+            //     if (!form.name.value || !form.company.value || !form.email.value || !form.mobile.value) {
+            //       alert("Please fill all required fields");
+            //       return;
+            //     }
+            //     submitBtn.disabled = true;
+            //     const fd = new FormData(form);
+            //     const zones = Array.from(
+            //       document.querySelectorAll('input[name="zone[]"]:checked')
+            //     )
+            //     .map(cb => cb.value)
+            //     .join(" - "); // separator
+            //     // document.getElementById("message").value = zones;
+            //     if (!zones) {
+            //       alert("Please select at least one zone");
+            //       submitBtn.disabled = false;
+            //       return;
+            //     }
+            //     try {
+            //       const compact_data = new FormData();
+            //       compact_data.append("name", document.getElementById("name").value);
+            //       compact_data.append("designation", document.getElementById("designation").value);
+            //       compact_data.append("company", document.getElementById("company").value);
+            //       compact_data.append("mobile", document.getElementById("mobile").value);
+            //       compact_data.append("email", document.getElementById("email").value);
+            //       compact_data.append("country", document.getElementById("country").value);
+            //       // compact_data.append("message", document.getElementById("message").value); 
+            //       compact_data.append("zones", zones);   // send array directly
+            //       const res = await fetch(SCRIPT_URL, {method: "POST", body: compact_data});
+            //       const json = await res.json();
+            //       if (json.status === "success") {
+            //         alert("Form submitted successfully!");
+            //         form.reset();
+            //       } else {
+            //         alert("Submission failed");
+            //       }
+            //     } catch (err) {
+            //       console.error(err);
+            //       alert("Server error");
+            //     } finally {
+            //       submitBtn.disabled = false;
+            //     }
+            //   });
+            // })();
+          </script>
+        </section>
+      </div>
+      
+
+      
+    </div>
+
+    <!-- Toasts -->
+    <div id="toastSuccess" class="toast success">✅ Thank you! We’ve received your partnership request.</div>
+    <div id="toastError" class="toast error">❌ Error submitting form. Please try again.</div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <h3>Partnership Request Submitted</h3>
+        <p>Thank you for showing interest in partnering with GLS Vision 2047.<br>Our partnerships team will connect with you shortly.</p>
+        <button id="closeModal">Close</button>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
+
+    
+
+
+    <script>
+      // 🔙 Go back to Home Page
+      function goHome() {
+        window.location.href = "index.html"; // change this to your actual homepage path
+      }
+
+      // (() => {
+      //   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzuLN1Q2saDLJpppDdds5hbEp4WwXujDayr3yyvAMpPAxQHkS9P9wFYBwhFT4Wx9JK2/exec"; 
+      //   const form = document.getElementById("zoneForm");
+      //   const toastSuccess = document.getElementById("toastSuccess");
+      //   const toastError = document.getElementById("toastError");
+      //   const modal = document.getElementById("modal");
+      //   const closeModal = document.getElementById("closeModal");
+      //   const submitBtn = document.getElementById("submitBtn");
+
+      //   function showToast(el, ms=2500){
+      //     el.style.display = "block";
+      //     setTimeout(()=>el.style.display="none", ms);
+      //   }
+
+      //   form.addEventListener("submit", async e => {
+      //     e.preventDefault();
+      //     const data = Object.fromEntries(new FormData(form).entries());
+      //     if(!data.name || !data.designation || !data.company || !data.country || !data.email || !data.mobile){
+      //       alert("Please fill all required fields marked with *");
+      //       return;
+      //     }
+
+      //     submitBtn.disabled = true;
+          
+      //     if(!SCRIPT_URL){
+      //       showToast(toastSuccess, 2500);
+      //       modal.style.display = "flex";
+      //       form.reset();
+      //       submitBtn.disabled = false;
+      //       return;
+      //     }
+      //     const data2 = {
+      //       name: document.getElementById("name").value,
+      //       designation: document.getElementById("designation").value,
+      //       company: document.getElementById("company").value,
+      //       country: document.getElementById("country").value,
+      //       mobile: document.getElementById("mobile").value,
+      //       email: document.getElementById("email").value,
+      //       // collect multiple checkbox values
+      //       zones: Array.from(document.querySelectorAll('input[name="zone[]"]:checked')).map(z => zones.value)
+      //     };
+      //     const fd = new FormData(data2);
+      //     alert(fd);
+
+      //     try{
+      //       const res = await fetch(SCRIPT_URL, { method:"POST", body:fd });
+      //       const txt = await res.text();
+      //       const json = JSON.parse(txt);
+      //       if(json.status === "success"){
+      //         showToast(toastSuccess, 2500);
+      //         modal.style.display = "flex";
+      //         form.reset();
+      //       } else {
+      //         showToast(toastError, 2500);
+      //       }
+      //     }catch(err){
+      //       console.error(err);
+      //       showToast(toastError, 2500);
+      //     }finally{
+      //       submitBtn.disabled = false;
+      //     }
+      //   });
+
+      //   closeModal.addEventListener("click", ()=> modal.style.display="none");
+      //   window.addEventListener("keydown", e=>{ if(e.key==="Escape") modal.style.display="none"; });
+      // })();
+      
+
+      // Deployment successfully updated.
+      // Version 5 on Jan 10, 2026, 12:19 PM
+      // Deployment ID
+      // AKfycbzuLN1Q2saDLJpppDdds5hbEp4WwXujDayr3yyvAMpPAxQHkS9P9wFYBwhFT4Wx9JK2
+      // Web app
+      // URL
+      // https://script.google.com/macros/s/AKfycbzuLN1Q2saDLJpppDdds5hbEp4WwXujDayr3yyvAMpPAxQHkS9P9wFYBwhFT4Wx9JK2/exec
+
+    </script>
+    <footer>
+      <section style="text-align:center;background:#003399;color:#fff;margin: 0px; border-radius: 0px;">
+        <h2>Have Questions?</h2>
+        <p>Email us at <a href="mailto:secretariat@glsvision2047.com" style="color:#fff;text-decoration:underline;">secretariat@glsvision2047.com</a><br>
+        or WhatsApp us at <a href="https://wa.me/91 7291907708" style="color:#fff;">+91 7291907708</a></p>
+      </section>
+    </footer>
+  </body>
+</html>

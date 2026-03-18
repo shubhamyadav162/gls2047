@@ -1,0 +1,212 @@
+{
+  "sponsorshipTiers": [
+    {
+      "id": "presenting",
+      "name": "Presenting Sponsor",
+      "badge": "PRESENTING",
+      "price": "",
+      "priceValue": null,
+      "benefits": [
+        "Event naming rights",
+        "100+ delegate passes",
+        "Premium exhibition stall (96 sqm)",
+        "All venue branding",
+        "Keynote speaking slot",
+        "VIP dinner hosting rights",
+        "Media & PR prominence"
+      ],
+      "color": "platinum"
+    },
+    {
+      "id": "title",
+      "name": "Title Sponsor",
+      "badge": "TITLE",
+      "price": "",
+      "priceValue": null,
+      "benefits": [
+        "Track naming rights",
+        "50+ delegate passes",
+        "Premium exhibition stall (48 sqm)",
+        "Major branding presence",
+        "Panel moderation opportunity",
+        "VIP dinner access"
+      ],
+      "color": "gold"
+    },
+    {
+      "id": "platinum",
+      "name": "Platinum Sponsor",
+      "badge": "PLATINUM",
+      "price": "",
+      "priceValue": null,
+      "benefits": [
+        "25 delegate passes",
+        "Exhibition stall (48 sqm)",
+        "Stage branding",
+        "Logo on marketing collateral",
+        "Speaking opportunity",
+        "VIP dinner access"
+      ],
+      "color": "platinum"
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond Sponsor",
+      "badge": "DIAMOND",
+      "price": "",
+      "priceValue": null,
+      "benefits": [
+        "15 delegate passes",
+        "Exhibition stall (48 sqm)",
+        "Digital branding",
+        "Logo prominence",
+        "Networking sessions access"
+      ],
+      "color": "diamond"
+    },
+    {
+      "id": "gold",
+      "name": "Gold Sponsor",
+      "badge": "GOLD",
+      "price": "",
+      "priceValue": null,
+      "benefits": [
+        "10 delegate passes",
+        "Exhibition stall (24 sqm)",
+        "Logo on website & materials",
+        "Social media mentions"
+      ],
+      "color": "gold"
+    },
+    {
+      "id": "silver",
+      "name": "Silver Sponsor",
+      "badge": "SILVER",
+      "price": "",
+      "priceValue": null,
+      "benefits": [
+        "5 delegate passes",
+        "Exhibition stall (24 sqm)",
+        "Logo on website",
+        "Digital visibility"
+      ],
+      "color": "silver"
+    }
+  ],
+  "exhibitionStalls": [
+    {
+      "id": "platinum-stall",
+      "name": "Platinum Stall",
+      "size": "8×6 meters (48 sqm)",
+      "price": "Custom Pricing",
+      "priceValue": null,
+      "features": [
+        "Premium location",
+        "Complete setup included",
+        "10 exhibitor passes"
+      ]
+    },
+    {
+      "id": "diamond-stall",
+      "name": "Diamond Stall",
+      "size": "8×6 meters (48 sqm)",
+      "price": "Custom Pricing",
+      "priceValue": null,
+      "features": [
+        "Prime location",
+        "Complete setup included",
+        "8 exhibitor passes"
+      ]
+    },
+    {
+      "id": "gold-stall",
+      "name": "Gold Stall",
+      "size": "8×3 meters (24 sqm)",
+      "price": "",
+      "priceValue": null,
+      "features": [
+        "Strategic location",
+        "Standard setup included",
+        "6 exhibitor passes"
+      ],
+      "highlight": true
+    },
+    {
+      "id": "silver-stall",
+      "name": "Silver Stall",
+      "size": "8×3 meters (24 sqm)",
+      "price": "",
+      "priceValue": null,
+      "features": [
+        "Good visibility",
+        "Basic setup included",
+        "4 exhibitor passes"
+      ]
+    },
+    {
+      "id": "standard-stall",
+      "name": "Standard Stall",
+      "size": "4×3 meters (12 sqm)",
+      "price": "",
+      "priceValue": null,
+      "features": [
+        "Exhibition floor access",
+        "Basic infrastructure",
+        "2 exhibitor passes"
+      ]
+    }
+  ],
+  "partners": {
+    "strategic": [
+      {
+        "name": "GLS Vision 2047",
+        "logo": "images/partners/PANIIT.png",
+        "website": "https://www.paniit.org"
+      },
+      {
+        "name": "NextGen Ventures",
+        "logo": "images/partners/Logo-NextGen.jpeg",
+        "website": "#"
+      }
+    ],
+    "media": [
+      {
+        "name": "Jagran Events",
+        "logo": "images/partners/Jagran.png",
+        "website": "#"
+      },
+      {
+        "name": "Bright Media Ltd",
+        "logo": "images/partners/BrightMedia.png",
+        "website": "#"
+      },
+      {
+        "name": "Zomoto Events",
+        "logo": "images/partners/Zomoto.png",
+        "website": "#"
+      },
+      {
+        "name": "EV Expo",
+        "logo": "images/partners/ev-expo-logo.png",
+        "website": "#"
+      }
+    ],
+    "technology": [
+      {
+        "name": "Meta",
+        "logo": "images/partners/Meta.png",
+        "website": "https://meta.com"
+      },
+      {
+        "name": "Google",
+        "logo": "images/partners/Google.png",
+        "website": "https://google.com"
+      },
+      {
+        "name": "AWS",
+        "logo": "images/partners/aws.png",
+        "website": "https://aws.amazon.com"
+      }
+    ]
+  }
+}

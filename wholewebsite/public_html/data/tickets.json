@@ -1,0 +1,125 @@
+{
+  "tickets": [
+    {
+      "id": "platinum",
+      "name": "Platinum Pass",
+      "category": "Premium",
+      "price": 50000,
+      "currency": "INR",
+      "originalPrice": null,
+      "discount": null,
+      "status": "available",
+      "quantity": {
+        "total": 100,
+        "sold": 0,
+        "available": 100
+      },
+      "benefits": [
+        "Unicorn Lounge Access",
+        "Investor Lounge Access",
+        "All Conference Sessions",
+        "Gala Dinner",
+        "Exhibition Access",
+        "Team Pass (Up to 5 members)",
+        "Front Row Seating",
+        "Exclusive Souvenir Kit",
+        "Complimentary Food & Beverages"
+      ],
+      "description": "Ultimate VIP experience with all premium amenities"
+    },
+    {
+      "id": "gold",
+      "name": "Gold Pass",
+      "category": "Standard",
+      "price": 25000,
+      "currency": "INR",
+      "originalPrice": null,
+      "discount": null,
+      "status": "available",
+      "quantity": {
+        "total": 500,
+        "sold": 0,
+        "available": 500
+      },
+      "benefits": [
+        "All Conference Sessions",
+        "Exhibition Access",
+        "Networking Lunch",
+        "Food Coupons",
+        "Digital Delegate Kit"
+      ],
+      "description": "Complete conference access with networking opportunities"
+    },
+    {
+      "id": "standard",
+      "name": "Standard Pass",
+      "category": "Basic",
+      "price": 10000,
+      "currency": "INR",
+      "originalPrice": null,
+      "discount": null,
+      "status": "available",
+      "quantity": {
+        "total": 1000,
+        "sold": 0,
+        "available": 1000
+      },
+      "benefits": [
+        "Conference Access",
+        "Exhibition Access",
+        "Networking Sessions",
+        "Refreshments"
+      ],
+      "description": "Essential access to summit activities"
+    }
+  ],
+  "addons": [
+    {
+      "id": "gala-dinner",
+      "name": "Gala Dinner Add-on",
+      "price": 5000,
+      "currency": "INR",
+      "description": "Join the exclusive gala dinner and awards ceremony"
+    },
+    {
+      "id": "workshop-pass",
+      "name": "Pre-Summit Workshop",
+      "price": 3000,
+      "currency": "INR",
+      "description": "Access to specialized workshops on Day 0"
+    }
+  ],
+  "groupDiscounts": [
+    {
+      "minQuantity": 5,
+      "maxQuantity": 9,
+      "discountPercent": 10
+    },
+    {
+      "minQuantity": 10,
+      "maxQuantity": 19,
+      "discountPercent": 15
+    },
+    {
+      "minQuantity": 20,
+      "maxQuantity": null,
+      "discountPercent": 20
+    }
+  ],
+  "promoCodes": [
+    {
+      "code": "EARLYBIRD",
+      "discount": 15,
+      "type": "percentage",
+      "validUntil": "2026-09-30",
+      "description": "Early bird discount"
+    },
+    {
+      "code": "IIT2026",
+      "discount": 2000,
+      "type": "flat",
+      "validUntil": "2026-11-14",
+      "description": "IIT Alumni special discount"
+    }
+  ]
+}

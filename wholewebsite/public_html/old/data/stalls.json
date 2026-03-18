@@ -1,0 +1,99 @@
+{
+  "stalls": [
+    {
+      "id": "silver",
+      "name": "Silver Stall",
+      "category": "SILVER",
+      "size": "4x3 meters",
+      "sqm": "12 sqm",
+      "duration": "2 Days",
+      "price": 150000,
+      "currency": "INR",
+      "icon": "💠",
+      "features": [
+        "2 Days Stall (4x3)",
+        "7 Silver Passes",
+        "3 Gold Passes",
+        "Logo Mention on All Digital Media Related to Event",
+        "Logo Mention on Event Banners",
+        "2 Conference Logo Mentions",
+        "1 VIP Pass"
+      ],
+      "available": true,
+      "priority": 4
+    },
+    {
+      "id": "gold",
+      "name": "Gold Stall",
+      "category": "GOLD",
+      "size": "6x3 meters",
+      "sqm": "18 sqm",
+      "duration": "2 Days",
+      "price": 300000,
+      "currency": "INR",
+      "icon": "🟡",
+      "features": [
+        "2 Days Stall (6x3)",
+        "15 Silver Passes",
+        "7 Gold Passes",
+        "Logo Mention on All Digital Media Related to Event",
+        "Logo Mention on Event Banners",
+        "3 Conference Logo Mentions",
+        "2 VIP Passes",
+        "Felicitation by Chief Guest of the Conference"
+      ],
+      "available": true,
+      "priority": 3
+    },
+    {
+      "id": "diamond",
+      "name": "Diamond Stall",
+      "category": "DIAMOND",
+      "size": "8x5 meters",
+      "sqm": "40 sqm",
+      "duration": "2 Days",
+      "price": 500000,
+      "currency": "INR",
+      "icon": "💎",
+      "features": [
+        "2 Days Stall (8x5)",
+        "15 Silver Passes",
+        "7 Gold Passes",
+        "Logo Mention on All Digital Media Related to Event",
+        "Logo Mention on Event Banners",
+        "5 Conference Logo Mentions",
+        "3 VIP Passes",
+        "Felicitation by Chief Guest of the Conference",
+        "Radio FM Mention",
+        "Outdoor Hoardings Logo Mention"
+      ],
+      "available": true,
+      "priority": 2
+    },
+    {
+      "id": "platinum",
+      "name": "Platinum Stall",
+      "category": "PLATINUM",
+      "size": "10x5 meters",
+      "sqm": "50 sqm",
+      "duration": "2 Days",
+      "price": 750000,
+      "currency": "INR",
+      "icon": "🏆",
+      "features": [
+        "2 Days Stall (10x5)",
+        "20 Silver Passes",
+        "10 Gold Passes",
+        "Logo Mention on All Digital Media Related to Event",
+        "Logo Mention on Event Banners",
+        "10 Conference Logo Mentions",
+        "5 VIP Passes",
+        "Felicitation by Chief Guest of the Conference",
+        "Radio FM Mention",
+        "Outdoor Hoardings Logo Mention"
+      ],
+      "available": true,
+      "priority": 1
+    }
+  ]
+}

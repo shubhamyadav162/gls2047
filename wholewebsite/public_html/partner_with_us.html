@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Partner With Us — Global Leadership Summit Vision 2047</title>
+<meta name="description" content="Partner with Global Leadership Summit Vision 2047 — collaborate with the world’s leading IIT minds, innovators, and global industry leaders.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/GLS_fevicon.png">
+<style>
+:root {
+  --blue: #003399;
+  --lightblue: #f0f5ff;
+  --muted: #6b7280;
+  --white: #fff;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --radius: 12px;
+}
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--lightblue);
+  margin: 0;
+  padding: 0;
+  color: #0f172a;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+header h1 {
+  font-size: 30px;
+  color: var(--blue);
+  margin-bottom: 10px;
+}
+header p {
+  color: var(--muted);
+  font-size: 16px;
+}
+section {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.06);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+.partners-info h2 {
+  color: var(--blue);
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.partners-info p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.tiers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.tier {
+  flex: 1;
+  min-width: 240px;
+  background: #f9fbff;
+  border: 1px solid #e5ecff;
+  border-radius: 12px;
+  padding: 16px;
+}
+.tier h3 {
+  color: var(--blue);
+  margin-top: 0;
+}
+.tier ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* FORM STYLING */
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: -10px;
+  gap: 10px 40px;
+  width: 100%;
+  
+}
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111;
+  font-size: 14px;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d6e0ff;
+  border-radius: 10px;
+  font-size: 14px;
+}
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+.full {
+  grid-column: 1 / -1;
+}
+button {
+  background: var(--blue);
+  color: #fff;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+button:hover {
+  background: #00297e;
+}
+.note {
+  font-size: 13px;
+  color: var(--muted);
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.12);
+  display: none;
+  z-index: 9999;
+}
+.toast.success { background: var(--success); }
+.toast.error { background: var(--danger); }
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.modal-content {
+  background: #fff;
+  padding: 28px;
+  border-radius: 12px;
+  max-width: 520px;
+  text-align: center;
+}
+.modal-content h3 { color: var(--blue); }
+.modal-content p { color: var(--muted); }
+.modal-content button {
+  margin-top: 20px;
+}
+@media (max-width:768px){
+  form { grid-template-columns: 1fr; }
+}
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f5f9;
+    color: #0b63d6;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-size: 14px;
+  }
+  .back-btn:hover {
+    background: #e0ecff;
+    transform: translateY(-2px);
+  }
+  .back-btn svg {
+    width: 18px;
+    height: 18px;
+    stroke: currentColor;
+  }
+  @media (max-width: 720px) {
+    .back-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <!-- 🔙 Back to Home Button -->
+<button class="back-btn" onclick="goHome()">
+  <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+    <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+  Back to Home
+</button>
+  <header>
+    <h1>Partner With Us — Global Leadership Summit Vision 2047</h1>
+    <p>Join hands with the GLS Vision 2047 community to shape innovation, entrepreneurship, and leadership for the next decade.</p>
+  </header>
+
+  <section class="partners-info">
+    <h2>Why Partner with GLS Vision 2047?</h2>
+    <p>Be part of one of the most prestigious gatherings of IIT alumni, industry pioneers, policymakers, and innovators from around the world. GLS Vision 2047 offers unparalleled networking, branding, and collaboration opportunities for global leaders and organizations.</p>
+
+    <div class="tiers">
+      <div class="tier">
+        <h3>🏆 Title Partner</h3>
+        <ul>
+          <li>Exclusive global visibility at GLS Vision 2047</li>
+          <li>Prominent logo on all media & digital platforms</li>
+          <li>Access to all VIP networking events</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>💼 Corporate Partner</h3>
+        <ul>
+          <li>Panel participation & thought leadership slots</li>
+          <li>Brand visibility at all GLS sessions</li>
+          <li>Premium exhibition space</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>🚀 Startup Partner</h3>
+        <ul>
+          <li>Access to investor networking</li>
+          <li>Showcase at Innovation Pavilion</li>
+          <li>Mentorship from IIT ecosystem experts</li>
+        </ul>
+      </div>
+      <div class="tier">
+        <h3>🤝 Academic / Technology Partner</h3>
+        <ul>
+          <li>Collaborative research & joint programs</li>
+          <li>Co-branding on education initiatives</li>
+          <li>Special inclusion in global academic reports</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 style="color:var(--blue)">Partner Inquiry Form</h2>
+    <p class="note">Please fill in your details — our Partnerships team will contact you within 2 business days.</p>
+
+    <form id="partnerForm" novalidate>
+      <div>
+        <label>Organization / Company *</label>
+        <input name="company" required>
+      </div>
+      <div>
+        <label>Website</label>
+        <input name="website" type="url" placeholder="https://yourcompany.com">
+      </div>
+      <div>
+        <label>Contact Person *</label>
+        <input name="contact" required>
+      </div>
+      <div>
+        <label>Designation</label>
+        <input name="designation">
+      </div>
+      <div>
+        <label>Email *</label>
+        <input name="email" type="email" required>
+      </div>
+      <div>
+        <label>Phone *</label>
+        <input name="phone" type="tel" maxlength="15" required>
+      </div>
+      <div class="full">
+        <label>Type of Partnership *</label>
+        <select name="type" required>
+          <option value="">-- Select Partnership Type --</option>
+          <option>Title Partner</option>
+          <option>Corporate Partner</option>
+          <option>Startup Partner</option>
+          <option>Academic Partner</option>
+          <option>Technology Partner</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="full">
+        <label>Message / Proposal *</label>
+        <textarea name="message" required placeholder="Briefly describe your partnership idea or proposal"></textarea>
+      </div>
+      <div class="full">
+        <label><input type="checkbox" name="consent" required> I agree to be contacted by the GLS Vision 2047 team.</label>
+      </div>
+      <div class="full">
+        <button id="submitBtn" type="submit">Submit Partnership Request</button>
+      </div>
+    </form>
+  </section>
+
+  <section style="text-align:center;background:#003399;color:#fff;padding:30px;border-radius:12px;">
+    <h2>Have Questions?</h2>
+    <p>Email us at <a href="mailto:secretariat@glsvision2047.com" style="color:#fff;text-decoration:underline;">secretariat@glsvision2047.com</a><br>
+    or WhatsApp us at <a href="https://wa.me/91 7291907708" style="color:#fff;">+91 7291907708</a></p>
+  </section>
+</div>
+
+<!-- Toasts -->
+<div id="toastSuccess" class="toast success">✅ Thank you! We’ve received your partnership request.</div>
+<div id="toastError" class="toast error">❌ Error submitting form. Please try again.</div>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <h3>Partnership Request Submitted</h3>
+    <p>Thank you for showing interest in partnering with GLS Vision 2047.<br>Our partnerships team will connect with you shortly.</p>
+    <button id="closeModal">Close</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const FORM_ACTION = "https://script.google.com/macros/s/AKfycbzdjYPwvW4K5x77sdrEinAdmE-HdpIktwZG-aKvY8xmkj5ZybdBDYeFY8AI5M6z_LLYcw/exec"; // Replace with your Google Apps Script /exec URL when ready
+  const form = document.getElementById("partnerForm");
+  const toastSuccess = document.getElementById("toastSuccess");
+  const toastError = document.getElementById("toastError");
+  const modal = document.getElementById("modal");
+  const closeModal = document.getElementById("closeModal");
+  const submitBtn = document.getElementById("submitBtn");
+
+  function showToast(el, ms=2500){
+    el.style.display = "block";
+    setTimeout(()=>el.style.display="none", ms);
+  }
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(form).entries());
+    if(!data.company || !data.contact || !data.email || !data.phone || !data.type || !data.message){
+      alert("Please fill all required fields marked with *");
+      return;
+    }
+
+    submitBtn.disabled = true;
+    const fd = new FormData(form);
+
+    if(!FORM_ACTION){
+      showToast(toastSuccess, 2500);
+      modal.style.display = "flex";
+      form.reset();
+      submitBtn.disabled = false;
+      return;
+    }
+
+    try{
+      const res = await fetch(FORM_ACTION, { method:"POST", body:fd });
+      const txt = await res.text();
+      const json = JSON.parse(txt);
+      if(json.status === "success"){
+        showToast(toastSuccess, 2500);
+        modal.style.display = "flex";
+        form.reset();
+      } else {
+        showToast(toastError, 2500);
+      }
+    }catch(err){
+      console.error(err);
+      showToast(toastError, 2500);
+    }finally{
+      submitBtn.disabled = false;
+    }
+  });
+
+  closeModal.addEventListener("click", ()=> modal.style.display="none");
+  window.addEventListener("keydown", e=>{ if(e.key==="Escape") modal.style.display="none"; });
+})();
+  // 🔙 Go back to Home Page
+  function goHome() {
+    window.location.href = "index.html"; // change this to your actual homepage path
+  }
+</script>
+
+</body>
+</html>

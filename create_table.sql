@@ -1,0 +1,48 @@
+USE u364184455_paniit;
+CREATE TABLE IF NOT EXISTS exhibition_bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    client_type VARCHAR(50),
+    selected_size INT,
+    name VARCHAR(100),
+    company VARCHAR(100),
+    designation VARCHAR(100),
+    industry VARCHAR(100),
+    email VARCHAR(100),
+    phone VARCHAR(20),
+    city_country VARCHAR(100),
+    website VARCHAR(255),
+    description TEXT,
+    payable_amount DECIMAL(10,2),
+    currency VARCHAR(10),
+    status VARCHAR(20) DEFAULT 'pending',
+    payment_verified TINYINT(1) NOT NULL DEFAULT 0,
+    payment_verified_at DATETIME NULL,
+    verification_note VARCHAR(255) NULL,
+    callback_count INT NOT NULL DEFAULT 0,
+    last_callback_at DATETIME NULL,
+    mail_sent TINYINT(1) NOT NULL DEFAULT 0,
+    mail_sent_at DATETIME NULL,
+    mail_last_error TEXT NULL,
+    last_payu_status VARCHAR(50) NULL,
+    last_payu_mihpayid VARCHAR(100) NULL,
+    txnid VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS exhibition_payment_audit (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    booking_id INT NULL,
+    txnid VARCHAR(100) NOT NULL,
+    event_type VARCHAR(50) NOT NULL,
+    event_status VARCHAR(30) NOT NULL,
+    payu_status VARCHAR(50) NULL,
+    message VARCHAR(255) NULL,
+    payload_json LONGTEXT NULL,
+    ip_address VARCHAR(45) NULL,
+    user_agent VARCHAR(255) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    KEY idx_txnid (txnid),
+    KEY idx_booking_id (booking_id),
+    KEY idx_event_type (event_type),
+    KEY idx_created_at (created_at)
+);

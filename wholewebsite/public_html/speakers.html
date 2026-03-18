@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the visionary speakers at Global Leadership Summit Vision 2047 organized by GLS Vision 2047 - Industry leaders, unicorn founders, policymakers, and innovation pioneers.">
+    <meta name="keywords" content="GLS Vision 2047 Speakers, Leadership Summit Speakers, IIT Alumni Speakers, Innovation Leaders, GLS Vision 2047">
+    
+    <meta property="og:title" content="Speakers - Global Leadership Summit Vision 2047 | Organized by GLS Vision 2047">
+    <meta property="og:description" content="GLS Vision 2047 presents visionary speakers at GLS Vision 2047 - Industry leaders, unicorn founders, and policymakers.">
+    <meta property="og:image" content="assets/og-image.jpg">
+    <meta property="og:url" content="https://glsvision2047.com/speakers">
+    
+    <title>Speakers - Global Leadership Summit Vision 2047 | Organized by GLS Vision 2047</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <link rel="icon" type="image/png" href="images/GLS_Favicon.png">
+</head>
+<body>
+    <header id="header">
+      <div class="container"> 
+        <div class="header_logo">
+          <a href="index.html" class="log" style="display: flex; justify-items: center;justify-content: center;height: 100%;">
+            <img src="images/vision2047logomain.png" alt="Vision 2047 Logo" class="logo-img">
+          </a>
+          <a href="https://nextgentechno.in/" target="_blank" class="logo">
+            <img src="images/iitalumuniai.png" alt="IIT Alumni Logo" class="logo-img">
+          </a>
+        </div>  
+      </div>
+      <nav class="navbar">
+        <div class="container nav-container">
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+              <span></span>
+              <span></span>
+              <span></span>
+          </button>
+          <ul class="nav-menu">
+              <li><a href="index.html#home" class="nav-link">Home</a></li>
+              <li><a href="index.html#about" class="nav-link">About</a></li>
+              <li><a href="index.html#vision2047" class="nav-link">GLS Vision 2047</a></li>
+              <li><a href="index.html#theme" class="nav-link">Theme</a></li>
+              <li><a href="speakers.html" class="nav-link active">Speakers</a></li>
+              <li><a href="index.html#conference" class="nav-link">Conference</a></li>
+               <li><a href="index.html#zone" class="nav-link">Zones</a></li>
+              <li><a href="index.html#investors" class="nav-link">Investors</a></li>
+              <li><a href="index.html#awards" class="nav-link">Awards</a></li>
+              <li><a href="index.html#partners" class="nav-link">Partners</a></li>
+              <li><a href="/exhibition/" class="nav-link">Exhibition</a></li>
+              <li><a href="/exhibition/" class="nav-link">Shop</a></li>
+              <li><a href="tickets.html" class="nav-link">Tickets</a></li>
+              <li><a href="contact.html" class="nav-link">Contact</a></li>
+
+              <!-- Auth Buttons -->
+              <li id="authButtons" class="auth-nav-items">
+                  <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                  <a href="signup.html" class="btn btn-primary btn-sm">SignUp</a>
+              </li>
+
+              <!-- User Profile -->
+              <li id="userProfile" class="user-profile-nav" style="display:none;">
+                  <span id="welcomeText" class="user-name"></span>
+                  <button id="logoutBtn" class="btn btn-outline btn-sm">Logout</button>
+              </li>
+          </ul> 
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <h1 class="page-title">Keynote Speakers & Panelists</h1>
+            <p class="page-subtitle">Meet the visionary leaders shaping India's future</p>
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Speakers</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Speakers Categories -->
+    <section class="speakers-section section-padding">
+        <div class="container">
+            <!-- Filter Buttons -->
+            <div class="speaker-filters">
+                <button class="filter-btn active" data-filter="all">All Speakers</button>
+                <button class="filter-btn" data-filter="keynote">Keynote</button>
+                <button class="filter-btn" data-filter="panelist">Panelists</button>
+                <button class="filter-btn" data-filter="government">Government</button>
+                <button class="filter-btn" data-filter="founder">Founders</button>
+                <button class="filter-btn" data-filter="investor">Investors</button>
+            </div>
+
+            <!-- Speakers Grid (Will be populated dynamically) -->
+            <div class="speakers-grid" id="speakersGrid">
+                <!-- Speaker cards will be loaded from JSON -->
+                <div class="loading-state">
+                    <p>Loading speakers...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section bg-dark">
+        <div class="container text-center">
+            <h2>Want to Hear These Leaders Live?</h2>
+            <p>Register your interest and get exclusive access to all sessions</p>
+            <a href="tickets.html" class="btn btn-primary btn-large">Request Information</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Global Leadership Summit Vision 2047</h4>
+                    <p>Organized by GLS Vision 2047</p>
+                    <p class="footer-tagline">Leadership • Innovation • Vision 2047</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="speakers.html">Speakers</a></li>
+                        <li><a href="agenda.html">Agenda</a></li>
+                        <li><a href="tickets.html">Register</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>Email: care@glsvision2047.com</p>
+                    <p>Phone: +91 9026181492</p>
+                    <div class="social-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Twitter</a>
+                        <a href="#">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Global Leadership Summit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919026181492" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <span class="whatsapp-icon">💬</span>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">↑</button>
+
+    <script src="script.js"></script>
+    <script src="js/speakers.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,40 @@
+/* 
+ * TESTING STYLESHEET - REMOVE BEFORE PRODUCTION
+ * This highlights what's visible vs hidden for QA testing
+ */
+
+/* Mark hidden price elements with red background (for testing only) */
+.stall-price:not([style*="display: none"]),
+.ticket-pricing:not([style*="display: none"]),
+.tier-price:not([style*="display: none"]) {
+    background: rgba(255, 0, 0, 0.2) !important;
+    border: 2px dashed red !important;
+}
+
+/* Mark visible donation elements with green background (for testing only) */
+#donation .donation-amounts,
+#donation .amount-btn,
+.donation-form .donation-amounts,
+.donation-form .amount-btn {
+    background: rgba(0, 255, 0, 0.1) !important;
+    border: 2px dashed green !important;
+}
+
+/* Add testing labels */
+.stall-availability::after,
+.ticket-availability::after {
+    content: " ✓ VISIBLE";
+    color: green;
+    font-size: 0.7rem;
+    margin-left: 0.5rem;
+}
+
+/* 
+ * TO USE THIS FILE:
+ * 1. Temporarily add to index.html: <link rel="stylesheet" href="css/pricing-visibility-test.css">
+ * 2. View the page
+ * 3. Verify: 
+ *    - No red boxes (all prices hidden)
+ *    - Green boxes around donation amounts (visible)
+ * 4. Remove the link before going to production
+ */

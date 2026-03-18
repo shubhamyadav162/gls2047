@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - Global Leadership Summit Vision 2047</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="images/PanIITLogo.png">
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/PanIITLogo.png" alt="GLS Vision 2047 Logo" class="logo-img">
+                        <span class="logo-text">GLS Vision 2047</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Result Section -->
+    <section class="result-section" style="background: linear-gradient(135deg, #dc3545 0%, #e83e4f 100%);">
+        <div class="container">
+            <div class="result-container">
+                <div class="result-card result-failure">
+                    <div class="result-icon">❌</div>
+                    <h1 class="result-title">Payment Failed</h1>
+                    <p class="result-message">We're sorry, but your payment could not be processed.</p>
+                    
+                    <div class="result-details" id="paymentDetails">
+                        <p><strong>Transaction ID:</strong> <span id="txnId">Loading...</span></p>
+                        <p><strong>Status:</strong> <span style="color: #dc3545;">Failed</span></p>
+                        <p><strong>Date:</strong> <span id="date"></span></p>
+                    </div>
+                    
+                    <div style="background: #fff3cd; padding: 20px; border-radius: 8px; margin: 20px 0; border-left: 4px solid #ffc107;">
+                        <h4 style="color: #856404; margin-bottom: 10px;">Possible Reasons:</h4>
+                        <ul style="text-align: left; color: #856404; margin-left: 20px;">
+                            <li>Insufficient balance in your account</li>
+                            <li>Incorrect payment details entered</li>
+                            <li>Payment gateway timeout</li>
+                            <li>Transaction cancelled by user</li>
+                        </ul>
+                    </div>
+                    
+                    <p style="margin-bottom: 30px;">No amount has been deducted from your account. Please try again.</p>
+                    
+                    <div class="result-actions">
+                        <a href="tickets.html" class="btn btn-primary">Try Again</a>
+                        <a href="index.html" class="btn btn-outline">Back to Home</a>
+                        <a href="#contact" class="btn btn-outline">Contact Support</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Global Leadership Summit. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/payu.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle payment response
+            const response = payuIntegration.handlePaymentResponse();
+            
+            if (response) {
+                document.getElementById('txnId').textContent = response.txnid || 'N/A';
+                document.getElementById('date').textContent = new Date().toLocaleString();
+            } else {
+                // No payment data found
+                document.getElementById('paymentDetails').innerHTML = '<p>No payment information found.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

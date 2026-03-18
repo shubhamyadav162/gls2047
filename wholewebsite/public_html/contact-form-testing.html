@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contact Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+    body { max-width:600px; margin:40px auto; font-family:Arial }
+    button { margin-top:10px }
+  </style>
+</head>
+<body>
+
+<h3>Contact Form</h3>
+
+<form id="contactForm" name="contactForm" method="POST" enctype="multipart/form-data">
+  <input class="form-control" name="name" placeholder="Name" required><br>
+  <input class="form-control" name="company" placeholder="Company" required><br>
+  <input class="form-control" name="designation" placeholder="Designation" required><br>
+  <input class="form-control" name="email" type="email" placeholder="Email" required><br>
+  <input class="form-control" name="mobile" placeholder="Mobile" required><br>
+
+  <select class="form-control" name="subject" required>
+    <option value="">--Select Subject--</option>
+    <option value="Call me back">Call me back</option>
+    <option value="Contact Enquiry">Contact Enquiry</option>
+    <option value="Delegate Registration">Delegate Registration</option>
+    <option value="Exhibitor Registration">Exhibitor Registration</option>
+    <option value="Sponsorship Registration">Sponsorship Registration</option>
+    <option value="Other">Other</option>
+  </select><br>
+
+  <textarea class="form-control" name="message" rows="4" placeholder="Message" required></textarea><br>
+
+  <input type="file" id="attachment" accept=".pdf,.doc,.docx,.ppt,.pptx,.png,.jpg"><br>
+
+  <button class="btn btn-primary" type="submit" name="submit">Submit</button>
+</form>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLnQOTtFDUqdNuOWejZcalw9dicMTPgASOnR0hchTWZ_QfhMwkuQqHYCg-iTjPhhZE/exec";
+
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const btn = form.querySelector("button");
+  btn.disabled = true;
+  btn.textContent = "Sending...";
+
+  const data = new FormData(form);
+
+  /* ========= BASE64 FILE HANDLING ========= */
+  const fileInput = document.getElementById("attachment");
+  if (fileInput.files.length > 0) {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = async () => {
+      data.append("file_base64", reader.result);
+      data.append("file_name", file.name);
+      data.append("file_type", file.type);
+      await sendData(data);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    await sendData(data);
+  }
+
+  async function sendData(data) {
+    try {
+      const res = await fetch(SCRIPT_URL, {
+        method: "POST",
+        body: data
+      });
+
+      const result = await res.json();
+
+      if (result.status === "success") {
+        alert("✅ Message sent successfully");
+        form.reset();
+      } else {
+        alert("❌ Error: " + result.message);
+      }
+    } catch (err) {
+      alert("⚠️ Network error");
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = "Submit";
+    }
+  }
+});
+</script>
+
+</body>
+</html>
+
+<!--
+Deployment successfully updated.
+Version 1 on Jan 9, 2026, 10:55 AM
+Deployment ID
+AKfycbwLnQOTtFDUqdNuOWejZcalw9dicMTPgASOnR0hchTWZ_QfhMwkuQqHYCg-iTjPhhZE
+Web app
+URL
+https://script.google.com/macros/s/AKfycbwLnQOTtFDUqdNuOWejZcalw9dicMTPgASOnR0hchTWZ_QfhMwkuQqHYCg-iTjPhhZE/exec
+
+-->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact Form Testing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT" async defer></script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT"></script>
+    <!-- 
+    Site Key: 6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT
+    Secret Key: 6Lcs4kEsAAAAAJLSrbycP7-w2cyhI7FkTiZxO2P_
+    -->
+      <!-- <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input, textarea {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+      button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>This site is under maintainance.</h1>
+    <h3>Contact Form</h3>
+
+    <form class="contact-form" id="contactForm" method="POST" enctype="multipart/form-data">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="" required>
+      
+      <label for="company">Company:</label>
+      <input type="text" id="company" name="company" value="" required>
+
+      <label for="company">Designation:</label>
+      <input type="text" id="designation" name="designation" value="" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="" required>
+
+      <label for="email">Mobile:</label>
+      <input type="text" id="mobile" name="mobile" value="" required>
+
+      <label for="email">Subject:</label>
+      <select class="form-control" id="subject" name="subject" id="subject" required style="height:34px;">
+        <option value="">--Select Subject--</option>
+        <option value="Call me back">Call me back</option>
+        <option value="Contact Enquiry">Contact Enquiry</option>
+        <option value="Delegate Registration">Delegate Registration</option>
+        <option value="Exhibitor Registration">Exhibitor Registration</option>
+        <option value="Sponsorship Registration">Sponsorship Registration</option>
+        <option value="Other">Other</option>
+      </select>
+      <!-- <input type="text" id="subject" name="subject" value="" required> -->
+      
+      <!-- <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+      
+      <!-- Optional File Upload -->
+      <!-- <input type="file" name="attachment" accept=".ppt,.pptx,.pdf,.doc,.docx,.png,.jpg">
+      
+      <input type="text" id="cdate" name="cdate" value="" required readonly>
+      <button type="submit" name="submit" >Submit</button>
+      <!-- class="g-recaptcha" data-sitekey="6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT" data-callback='onSubmit' data-action='submit' -->
+    <!-- </form>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+    async defer></script>
+    <script>
+      function getCurrentDateTime() {
+        const now = new Date();
+        const year   = now.getFullYear();
+        const month  = String(now.getMonth() + 1).padStart(2, '0');
+        const day    = String(now.getDate()).padStart(2, '0');
+        const hours  = String(now.getHours()).padStart(2, '0');
+        const minutes= String(now.getMinutes()).padStart(2, '0');
+        const seconds= String(now.getSeconds()).padStart(2, '0');
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      }
+      const cd = getCurrentDateTime();
+      document.getElementById('cdate').value = getCurrentDateTime();
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.enterprise.ready(async () => {
+          const token = await grecaptcha.enterprise.execute('6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT', {action: 'LOGIN'});
+        });
+      }
+      function onSubmit(token) {
+        document.getElementById("contactForm").submit();
+      }
+    </script>
+    <script> 
+      document.getElementById("contactForm").addEventListener("submit", async function(e){ 
+        e.preventDefault(); 
+        const form = e.target; 
+        const data = new FormData(form); 
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzNM_x6eSCILJlGAG0xtyYrnCVpkIzL04oxT7JDQcWtV3YAMIqh0s8_QdNn78hTdFum/exechttps://script.google.com/macros/s/AKfycbxjfkn6gBsRS2ITXgvRA12bFr7o7qAYmXOaa-dSRVHEe8IIoVGq1akm10jVy3gvuZDi/exec"; 
+        // const scriptURL2 = "https://script.google.com/macros/s/AKfycbwfi3HUliNxoluP6EsuviDFXUDExL3WTOiO0HOzCUwMbnaOhPGdI7rSenmurLJsJuvofQ/exec";
+        // ✅ your live Apps Script URL 
+        const submitBtn = form.querySelector("button[type=submit]"); 
+        const originalText = submitBtn.textContent; 
+        submitBtn.disabled = true; 
+        submitBtn.textContent = "Sending..."; 
+        // const reCAPTCHA_site_key = "6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT";
+        try { 
+          const res = await fetch(scriptURL, { method: "POST", body: data }); 
+          // const res2 = await fetch(scriptURL2, { method: "POST", body: data }); 
+          const resultText = await res.text(); 
+          let result; 
+          try { result = JSON.parse(resultText); } 
+          catch { result = { status: "error", message: "Invalid response from server" }; } 
+          if (result.status === "success") { 
+            alert("✅ Thank you! Your message has been sent successfully."); form.reset(); 
+          } else { 
+            alert("❌ Error: " + (result.message || "Please try again later.")); 
+          } 
+        } 
+        catch (err) { 
+          console.error("Network error:", err); 
+          alert("⚠️ Network error — please try again later."); 
+        } finally { 
+          submitBtn.disabled = false; submitBtn.textContent = originalText; 
+        } 
+      });
+    </script>
+  </body>
+</html>-->
+
+
+      <!-- reCAPTCHA -->
+      <!-- <div class="g-recaptcha" id="reCaptcha" data-sitekey="6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT" data-theme="dark" data-size="normal"></div> -->
+      <!-- <button class="g-recaptcha"
+          data-sitekey="6Lcs4kEsAAAAAPfuNaoY_2xt_TKMV06rLrXfByaT"
+          data-callback='onSubmit'
+          data-action='submit'>
+        Submit
+      </button> -->
+    <!-- <script>
+      // var onloadCallback = function() {
+      //   alert("grecaptcha is ready!");
+      // };
+      document.getElementById("contactForm").addEventListener("submit", async function(e){
+        const data = new FormData(form);
+        const scriptURL = "https://script.google.com/macros/s/CV9BjYfSzZELXX0pvOFdA0hbX76loTAl5wBVRzyBTQ/exec";
+
+        // name = Narendra Chandel
+        // company = iCONEX
+        // designation= Developer
+        // email = narendra@iconex.in
+        // company = 8923962012
+        // subject = Delegate Registration
+        // message = Hello
+        e.preventDefault();
+        const response = await fetch(scriptURL, 
+          { method: "POST", body: data }
+        );
+        
+      }
+
+      
+          // grecaptcha.ready(function() {
+          //   grecaptcha.execute('reCAPTCHA_site_key', {action: 'submit'}).then(function(token) {
+          //     const RECAPTCHA_SECRET = "6Lcs4kEsAAAAAJLSrbycP7-w2cyhI7FkTiZxO2P_";
+          //     const recaptchaResponse = e.parameter["g-recaptcha-response"];
+          //     if (!recaptchaResponse) {
+          //       return error("reCAPTCHA missing");
+          //     }
+          //     const verifyUrl =
+          //       "https://www.google.com/recaptcha/api/siteverify" + "?secret=" + RECAPTCHA_SECRET + "&response=" + recaptchaResponse;
+          //     const verifyRes = UrlFetchApp.fetch(verifyUrl);
+          //     const verifyData = JSON.parse(verifyRes.getContentText());
+          //     if (!verifyData.success) {
+          //       return error("reCAPTCHA verification failed");
+          //     }
+          //   });
+          // });
+
+      // document.getElementById("reCaptcha").addEventListener("click", async function(e){ 
+      //   const RECAPTCHA_SECRET = "6Lcs4kEsAAAAAJLSrbycP7-w2cyhI7FkTiZxO2P_";
+      //   const recaptchaResponse = e.parameter["g-recaptcha-response"];
+      //   if (!recaptchaResponse) {
+      //     return error("reCAPTCHA missing");
+      //   }
+      //   const verifyUrl =
+      //     "https://www.google.com/recaptcha/api/siteverify" + "?secret=" + RECAPTCHA_SECRET + "&response=" + recaptchaResponse;
+      //   const verifyRes = UrlFetchApp.fetch(verifyUrl);
+      //   const verifyData = JSON.parse(verifyRes.getContentText());
+      //   if (!verifyData.success) {
+      //     return error("reCAPTCHA verification failed");
+      //   }
+      // });
+    </script> -->
+<!-- 
+Deployment successfully updated.
+Version 1 on Jan 6, 2026, 12:24 PM
+Deployment ID
+AKfycbxAbFSPX9RQHQ1erfGie8sgu2vihPl5qEq0FbJgtoObRN7JVxJwkUzBmNfNRNBR4icJ
+
+Web app
+URL
+https://script.google.com/macros/s/AKfycbxAbFSPX9RQHQ1erfGie8sgu2vihPl5qEq0FbJgtoObRN7JVxJwkUzBmNfNRNBR4icJ/exec
+
+Deployment successfully updated.
+Version 2 on Jan 6, 2026, 12:29 PM
+Deployment ID
+AKfycbxAbFSPX9RQHQ1erfGie8sgu2vihPl5qEq0FbJgtoObRN7JVxJwkUzBmNfNRNBR4icJ
+Web app
+URL
+https://script.google.com/macros/s/AKfycbxAbFSPX9RQHQ1erfGie8sgu2vihPl5qEq0FbJgtoObRN7JVxJwkUzBmNfNRNBR4icJ/exec
+Library
+URL
+https://script.google.com/macros/library/d/19_ND4on8A8yN-44RmpNi1vjS3UmXfdKEX8E4DxkE8cHYnqH0MpUsBUvd/2
+To let other people and groups to use this project as a library, share this project with them.
+
+
+function doPost(e) {
+  try {
+    const SHEET_ID = "1X0urHNYRFPAfnRedanafPVub6OUQNmT4ujj7R0ZTAQI";
+    const ADMIN_EMAIL = "skicsolutions@gmail.com";
+    const RECAPTCHA_SECRET = "YOUR_SECRET_KEY";
+
+    const sheet = SpreadsheetApp.openById(SHEET_ID).getSheetByName("ContactForm");
+    const data = e.parameter;
+
+    /* =========================
+       1. VERIFY reCAPTCHA
+    ========================== */
+    const recaptchaResponse = data["g-recaptcha-response"];
+    if (!recaptchaResponse) {
+      return error("reCAPTCHA missing");
+    }
+
+    const verifyUrl =
+      "https://www.google.com/recaptcha/api/siteverify" +
+      "?secret=" + RECAPTCHA_SECRET +
+      "&response=" + recaptchaResponse;
+
+    const verifyRes = UrlFetchApp.fetch(verifyUrl);
+    const verifyData = JSON.parse(verifyRes.getContentText());
+
+    if (!verifyData.success) {
+      return error("reCAPTCHA verification failed");
+    }
+
+    /* =========================
+       2. PREVENT DUPLICATES
+    ========================== */
+    const emails = sheet.getRange(2, 3, sheet.getLastRow()).getValues().flat();
+    if (emails.includes(data.email)) {
+      return error("This email has already submitted the form.");
+    }
+
+    /* =========================
+       3. FILE UPLOAD (OPTIONAL)
+    ========================== */
+    let fileUrl = "";
+
+    if (e.postData && e.postData.type.includes("multipart")) {
+      const blob = Utilities.newBlob(e.postData.contents);
+      const folder = DriveApp.getFolderById("140AQstNilD7oDlwnXdn4w6VhS1q1bRMz");
+      const file = folder.createFile(blob);
+      fileUrl = file.getUrl();
+    }
+
+    /* =========================
+       4. SAVE TO SHEET
+    ========================== */
+  
+    // Save to Google Sheet
+    sheet.appendRow([
+      new Date('Y-m-d H:i:s'),
+      data.name || "",
+      data.designation || "",
+      data.company || "",
+      data.mobile || "",
+      data.email || "",
+      data.subject || "",
+      data.message || "",
+      data.fileUrl || "",
+      e?.postData?.length ? "Web" : ""
+    ]);
+
+    // ===== SEND EMAIL TO ADMIN =====
+    const adminEmail = "skicsolutions@gmail.com";
+    const subject = "📩 New Contact Form Submission";
+
+    /* =========================
+       5. SEND STYLED EMAIL
+    ========================== */
+    const logo = "https://yourdomain.com/logo.png";
+
+    const body =
+      `New enquiry received:\n\n` +
+      `Name: ${data.name}\n` +
+      `Company: ${data.company}\n` +
+      `Designation: ${data.designation}\n` +
+      `Mobile: ${data.mobile}\n` +
+      `Email: ${data.email}\n` +
+      `Subject: ${data.subject}\n` +
+      `Message:\n${data.message}` +
+      `Attatchment: ${data.fileUrl}`;
+
+    const htmlBody = `
+      <div style="font-family:Arial;max-width:600px">
+        <img src="${logo}" width="150"><br><br>
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Company:</strong> ${data.company}</p>
+        <p><strong>Designation:</strong> ${data.designation}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Mobile:</strong> ${data.mobile}</p>
+        <p><strong>Subject:</strong> ${data.subject}</p>
+        <p><strong>Message:</strong><br>${data.message}</p>
+        ${fileUrl ? `<p><strong>Attachment:</strong> <a href="${fileUrl}">View File</a></p>` : ""}
+        <hr>
+        <small>This email was generated automatically.</small>
+      </div>
+    `;
+
+    MailApp.sendEmail({
+      to: ADMIN_EMAIL,
+      subject: "📩 New Website Enquiry",
+      htmlBody: htmlBody
+    });
+
+    /* =========================
+       6. AUTO-REPLY USER
+    ========================== */
+    // ===== AUTO-REPLY TO USER =====
+    if (data.email) {
+      MailApp.sendEmail({
+        to: data.email,
+        subject: "Thank you for contacting us",
+        htmlBody: `
+          <p>Hi ${data.name},</p>
+          <p>Thank you for reaching out. We have received your message and will contact you shortly.</p>
+          <p><strong>Your Subject: ${data.message}</strong></p>
+          <p><strong>Your Message:</strong></p>
+          <p>${data.message}</p>
+          <br>
+          <p>Best Regards,<br>Support Team<br/><strong>Top10 Business</strong><br/>WhatsApp: +918923962012</p>
+        `
+      });
+    }
+
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        status: "success"
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+
+  } catch (error) {
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        status: "error",
+        message: error.message
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
+  }
+} --> 

@@ -1,0 +1,452 @@
+/* Stalls Section Styling */
+.exhibition-stalls {
+    margin-top: 4rem;
+}
+
+.stalls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.stall-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.stall-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0066cc, #004999);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.stall-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 102, 204, 0.15);
+    border-color: #0066cc;
+}
+
+.stall-card:hover::before {
+    transform: scaleX(1);
+}
+
+.stall-card.highlight {
+    border-color: #ffd700;
+    background: linear-gradient(135deg, #fff9e6 0%, #ffffff 100%);
+}
+
+.stall-card.highlight::before {
+    background: linear-gradient(90deg, #ffd700, #ffed4e);
+}
+
+.stall-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+}
+
+.stall-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.stall-badge.silver {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    color: #333;
+}
+
+.stall-badge.gold {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #333;
+}
+
+.stall-badge.diamond {
+    background: linear-gradient(135deg, #b9f2ff, #e0f7ff);
+    color: #0066cc;
+}
+
+.stall-badge.platinum {
+    background: linear-gradient(135deg, #e5e4e2, #f5f5f5);
+    color: #1a1a1a;
+    border: 1px solid #999;
+}
+
+.stall-card h4 {
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.stall-size {
+    color: #666;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+
+.stall-duration {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.stall-price {
+    display: none; /* Hidden as per requirements */
+}
+
+.stall-price .currency {
+    display: none; /* Hidden as per requirements */
+}
+
+.stall-availability {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #0066cc;
+    margin: 1rem 0;
+    text-align: center;
+    padding: 0.5rem;
+    background: linear-gradient(135deg, #e3f2fd, #f8f9fa);
+    border-radius: 8px;
+}
+
+.availability-highlight {
+    color: #0066cc;
+    font-weight: 600;
+}
+
+.stall-features {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.stall-features li {
+    padding: 0.5rem 0;
+    color: #444;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.stall-features li::before {
+    content: '✓';
+    color: #0066cc;
+    font-weight: bold;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+.stall-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.stall-actions .btn {
+    flex: 1;
+    min-width: 120px;
+    text-align: center;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+}
+
+.btn-read-more {
+    background: #f8f9fa;
+    color: #0066cc;
+    border: 1px solid #0066cc;
+}
+
+.btn-read-more:hover {
+    background: #e9ecef;
+}
+
+.btn-book-now {
+    background: linear-gradient(135deg, #0066cc, #004999);
+    color: white;
+    border: none;
+}
+
+.btn-book-now:hover {
+    background: linear-gradient(135deg, #004999, #003366);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+/* Checkout Page Styling */
+.checkout-section {
+    background: #f8f9fa;
+    min-height: calc(100vh - 400px);
+}
+
+.checkout-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.order-summary {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.order-summary h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.order-value {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.order-divider {
+    height: 1px;
+    background: #dee2e6;
+    margin: 1rem 0;
+}
+
+.order-total {
+    font-size: 1.25rem;
+    padding-top: 1rem;
+}
+
+.order-total .order-value {
+    color: #0066cc;
+}
+
+.features-included {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e9ecef;
+}
+
+.features-included h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.features-included ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features-included li {
+    padding: 0.5rem 0;
+    color: #444;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.features-included li::before {
+    content: '✓';
+    color: #0066cc;
+    font-weight: bold;
+    margin-right: 0.75rem;
+}
+
+.billing-form-wrapper {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.checkout-form h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a1a;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-top: 0.25rem;
+    width: auto;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.payment-note {
+    text-align: center;
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 1rem;
+}
+
+.payment-note .icon {
+    color: #28a745;
+    margin-right: 0.5rem;
+}
+
+.btn-lg {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .checkout-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .order-summary {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .stalls-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stall-actions {
+        flex-direction: column;
+    }
+
+    .stall-actions .btn {
+        width: 100%;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .checkout-grid {
+        gap: 2rem;
+    }
+}
+
+/* Modal Styling for Stall Details */
+.stall-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.stall-modal.active {
+    display: flex;
+}
+
+.stall-modal-content {
+    background: white;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stall-modal-header {
+    padding: 2rem;
+    border-bottom: 1px solid #e9ecef;
+    position: relative;
+}
+
+.stall-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #999;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.stall-modal-close:hover {
+    background: #f8f9fa;
+    color: #333;
+}
+
+.stall-modal-body {
+    padding: 2rem;
+}

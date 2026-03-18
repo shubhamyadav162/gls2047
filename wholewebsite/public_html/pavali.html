@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Apply — Startup Pavilion & Hackathon | GLS Vision 2047</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      :root{
+        --brand-1: #003399;
+        --brand-2: #0066ff;
+        --muted: #6b7280;
+        --bg: #eef4ff;
+        --card: #fff;
+        --accent: #0b63d6;
+        --success: #16a34a;
+        --danger: #ef4444;
+        --radius: 12px;
+        --maxw: 1000px;
+      }
+      *{box-sizing:border-box}
+      body{font-family:Inter,system-ui,Segoe UI,Arial; background:var(--bg); margin:0; padding:36px; color:#0f172a}
+      .wrap{max-width:var(--maxw); margin:0 auto}
+      .panel{background:var(--card); border-radius:var(--radius); padding:28px; box-shadow:0 18px 50px rgba(2,6,23,0.06)}
+      .header{display:flex; gap:18px; align-items:center; margin-bottom:12px}
+      .brand-mark{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,var(--brand-1),var(--brand-2));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
+      h1{margin:0;font-size:20px}
+      p.lead{color:var(--muted); margin:6px 0 14px}
+      form .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+      label{display:block;font-weight:600;margin-bottom:6px;color:#0b1220}
+      input[type=text], input[type=email], input[type=url], input[type=tel], select, textarea {
+        width:100%; padding:11px 12px; border:1px solid #e9f0ff; background:#fbfdff; border-radius:10px; font-size:14px; color:#0b1220;
+      }
+      textarea{min-height:110px; resize:vertical}
+      .full{grid-column:1/-1}
+      .actions{display:flex; gap:12px; margin-top:18px; align-items:center}
+      .btn{background:var(--accent); color:#fff; border:none; padding:12px 16px; border-radius:10px; font-weight:700; cursor:pointer}
+      .btn.secondary{background:#f1f5f9; color:#0b1220}
+      .hint{font-size:13px;color:var(--muted); margin-top:8px}
+      .small{font-size:13px; color:var(--muted)}
+      .required{color:var(--danger); margin-left:6px}
+      .file-preview{display:flex; gap:10px; align-items:center; margin-top:8px; flex-wrap:wrap}
+      .file-chip{background:#f1f5ff;padding:6px 10px;border-radius:999px;font-size:13px;color:var(--accent);border:1px solid #e6eefc}
+      .success-popup, .error-popup {
+        position:fixed; left:50%; transform:translateX(-50%); bottom:30px; padding:14px 20px; border-radius:10px;
+        color:#fff; font-weight:700; box-shadow:0 8px 30px rgba(2,6,23,0.12); display:none; z-index:9999;
+      }
+      .success-popup{background:var(--success)}
+      .error-popup{background:var(--danger)}
+      .spinner{width:18px;height:18px;border:3px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;display:inline-block;margin-left:10px;vertical-align:middle;animation:spin .9s linear infinite}
+      @keyframes spin{to{transform:rotate(360deg)}}
+      @media (max-width:760px){ .grid{grid-template-columns:1fr} .header{gap:12px} }
+      .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      color: #0b63d6;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-size: 14px;
+    }
+    .back-btn:hover {
+      background: #e0ecff;
+      transform: translateY(-2px);
+    }
+    .back-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+    }
+    @media (max-width: 720px) {
+      .back-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <button class="back-btn" onclick="goHome()">
+      <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      Back to Home
+    </button>
+    <div class="wrap">
+      <div class="panel" role="region" aria-label="Startup Pavilion and Hackathon application">
+        <div class="header">
+          <div class="brand-mark">GLS</div>
+          <div>
+            <h1>Apply — Startup Pavilion & Hackathon</h1>
+            <p class="lead">Apply to showcase your startup in the Pavilion or compete in the Hackathon at Global Leadership Summit Vision 2047. Fill required fields and attach a pitch deck (optional).</p>
+            
+          </div>
+        </div>
+
+        <div style="margin-bottom:14px">
+          <button id="openBtn" class="btn">Apply Now</button>
+        </div>
+
+        <!-- FORM (hidden until user clicks Apply Now) -->
+        <div id="formWrap" style="display:none;">
+          <form  id="appForm" method="POST" enctype="multipart/form-data">
+            <!-- novalidate -->
+            <div class="grid" role="group" aria-labelledby="applyTitle">
+
+              <!-- Track -->
+              <div class="full">
+                <label for="apply_for">Apply For <span class="required">*</span></label>
+                <select id="apply_for" name="apply_for" required>
+                  <option value="">-- Select --</option>
+                  <option value="startup_pavilion">Startup Pavilion</option>
+                  <option value="hackathon_team">Hackathon Team</option>
+                  <option value="both">Both (Pavilion + Hackathon)</option>
+                </select>
+              </div>
+
+              <!-- Startup / Team Name -->
+              <div>
+                <label for="startup_name">Startup / Team Name <span class="required">*</span></label>
+                <input id="startup_name" name="startup_name" type="text" placeholder="Your startup or team name" required>
+              </div>
+
+              <!-- Founder / Contact Person -->
+              <div>
+                <label for="founder_name">Founder / Contact Person <span class="required">*</span></label>
+                <input id="founder_name" name="founder_name" type="text" placeholder="Full name" required>
+              </div>
+
+              <!-- Official Email -->
+              <div>
+                <label for="email">Official Email <span class="required">*</span></label>
+                <input id="email" name="email" type="email" placeholder="name@company.com" required>
+              </div>
+
+              <!-- Mobile -->
+              <div>
+                <label for="mobile">Mobile Number <span class="required">*</span></label>
+                <input id="mobile" name="mobile" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit mobile" required>
+              </div>
+
+              <!-- Company / Website -->
+              <div>
+                <label for="website">Website / Demo URL</label>
+                <input id="website" name="website" type="url" placeholder="https://">
+              </div>
+
+              <!-- LinkedIn -->
+              <div>
+                <label for="linkedin">Founder LinkedIn</label>
+                <input id="linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/...">
+              </div>
+
+              <!-- Sector -->
+              <div>
+                <label for="sector">Sector / Vertical <span class="required">*</span></label>
+                <input id="sector" name="sector" type="text" placeholder="Fintech, HealthTech, SaaS..." required>
+              </div>
+
+              <!-- Stage -->
+              <div>
+                <label for="stage">Stage <span class="required">*</span></label>
+                <select id="stage" name="stage" required>
+                  <option value="">-- Select --</option>
+                  <option>Idea / Prototype</option>
+                  <option>Pre-seed</option>
+                  <option>Seed</option>
+                  <option>Series A+</option>
+                  <option>Revenue Stage</option>
+                </select>
+              </div>
+
+              <!-- Team size -->
+              <div>
+                <label for="team">Team Size</label>
+                <input id="team" name="team" type="text" placeholder="e.g. 4">
+              </div>
+
+              <!-- Funding -->
+              <div>
+                <label for="funding">Funding Raised (optional)</label>
+                <input id="funding" name="funding" type="text" placeholder="e.g. ₹25L or $50k">
+              </div>
+
+              <!-- Pitch summary -->
+              <div class="full">
+                <label for="pitch_summary">Pitch Summary (one paragraph) <span class="required">*</span></label>
+                <textarea id="pitch_summary" name="pitch_summary" placeholder="Describe product, traction & why this matters" required></textarea>
+              </div>
+
+              <!-- Tech stack -->
+              <div>
+                <label for="tech_stack">Primary Tech Stack</label>
+                <input id="tech_stack" name="tech_stack" type="text" placeholder="React, Node, Python, ML...">
+              </div>
+
+              <!-- Accolades -->
+              <div>
+                <label for="accolades">Past Awards / Accolades</label>
+                <input id="accolades" name="accolades" type="text" placeholder="Hackathons, grants, awards">
+              </div>
+
+              <!-- Pitch deck upload -->
+              <div class="full">
+                <label for="attachment">Pitch Deck (PDF, optional)</label>
+                <input id="attachment" name="attachment" type="file" accept=".pdf,.ppt,.pptx,.doc,.docx,.png,.jpg" />
+                <div id="filePreview" class="file-preview"></div>
+                <div class="hint">Max 10MB. If uploading to Drive, paste a share link into Website / Demo URL instead.</div>
+              </div>
+
+              <!-- Extra info -->
+              <div class="full">
+                <label for="extra_info">Additional Information</label>
+                <textarea id="extra_info" name="extra_info" placeholder="Anything else you'd like the jury to know"></textarea>
+              </div>
+
+              <!-- Consent -->
+              <div>
+                <label for="consent">Consent to be contacted <span class="required">*</span></label>
+                <select id="consent" name="consent" required>
+                  <option value="">-- Select --</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+
+              <!-- Referral / origin -->
+              <div>
+                <label for="origin">How did you hear about GLS Vision 2047?</label>
+                <select id="origin" name="origin">
+                  <option value="">-- Select --</option>
+                  <option>Website</option>
+                  <option>Social Media</option>
+                  <option>Email</option>
+                  <option>Referral</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <!-- Hidden fields expected by your Apps Script -->
+              <input type="hidden" name="name" id="hidden_name" value="">
+              <input type="hidden" name="startup" id="hidden_startup" value="">
+              <input type="hidden" name="category" id="hidden_category" value="">
+              <input type="hidden" name="reason" id="hidden_reason" value="">
+              <input type="hidden" name="cdate" id="cdate" value="">
+              <input type="hidden" name="secret" id="secret" value="GLS-NOM-SECRET-XXXXX"> 
+              <!-- REPLACE to match Apps Script -->
+            </div>
+
+            <div class="actions">
+              <button id="submitBtn" class="btn" type="submit" name="submit">Submit Application</button>
+              <button id="cancelBtn" type="button" class="btn secondary">Cancel</button>
+              <div style="flex:1"></div>
+              <div class="small">Required fields marked <span class="required">*</span></div>
+            </div>
+
+            <p class="hint">You will receive an automated confirmation email from <strong>noreply@glsvision2047.com</strong> after successful submission. Please allow a few minutes.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- popups -->
+    <div id="successPop" class="success-popup" role="status" aria-live="polite">✅ Application submitted — check your email (closing in 2s)</div>
+    <div id="errorPop" class="error-popup" role="alert" aria-live="assertive">❌ Error — please try again later</div>
+
+    <script>
+      function getCurrentDateTime() {
+        const now = new Date();
+        const year   = now.getFullYear();
+        const month  = String(now.getMonth() + 1).padStart(2, '0');
+        const day    = String(now.getDate()).padStart(2, '0');
+        const hours  = String(now.getHours()).padStart(2, '0');
+        const minutes= String(now.getMinutes()).padStart(2, '0');
+        const seconds= String(now.getSeconds()).padStart(2, '0');
+        return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+      }
+      const cd = getCurrentDateTime();
+      document.getElementById('cdate').value = getCurrentDateTime();
+      (function(){
+        'use strict';
+
+        /* ============================
+          CONFIG - update these values
+          ============================ */
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzXFGdF24vtiyruC64M2sryx9AnA9dkF-3Q1lviq0iXrAn6E4S-sygGw1KIu3XN-7ZE/exec";
+        // Replace secret with what your Apps Script expects
+        const SECURITY_TOKEN = 'GLS-NOM-SECRET-XXXXX';
+
+        /* DOM */
+        const openBtn = document.getElementById('openBtn');
+        const formWrap = document.getElementById('formWrap');
+        const form = document.getElementById('appForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const successPop = document.getElementById('successPop');
+        const errorPop = document.getElementById('errorPop');
+        const fileInput = document.getElementById('attachment');
+        const filePreview = document.getElementById('filePreview');
+        const cdate = getCurrentDateTime();
+        // set token
+        // document.getElementById('secret').value = SECURITY_TOKEN;
+
+        // show form
+        openBtn.addEventListener('click', function(){
+          formWrap.style.display = 'block';
+          openBtn.style.display = 'none';
+          window.scrollTo({top: formWrap.offsetTop - 20, behavior: 'smooth'});
+        });
+
+        cancelBtn.addEventListener('click', function(){
+          formWrap.style.display = 'none';
+          openBtn.style.display = 'inline-block';
+        });
+
+        // file preview
+        fileInput.addEventListener('change', function(){
+          filePreview.innerHTML = '';
+          const f = fileInput.files[0];
+          if (!f) return;
+          const chip = document.createElement('div');
+          chip.className = 'file-chip';
+          const sizeKB = Math.round(f.size/1024);
+          chip.textContent = `${f.name} • ${sizeKB} KB`;
+          filePreview.appendChild(chip);
+        });
+
+        // validation helpers
+        function isValidEmail(em){
+          const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          return re.test(String(em||'').toLowerCase());
+        }
+        function isValidPhone(ph){
+          return /^\d{10}$/.test(String(ph||'').trim());
+        }
+
+        // popup helper
+        function showPopup(el, ms=2000){
+          el.style.display = 'block';
+          setTimeout(()=> { el.style.display = 'none'; }, ms);
+        }
+
+        // fill hidden fields expected by Apps Script (name, category, reason)
+        function prepareHiddenFields(values){
+          document.getElementById('hidden_name').value     = values.founder_name || values.startup_name || '';
+          document.getElementById('hidden_startup').value  = values.startup_name || '';
+          document.getElementById('hidden_category').value = values.apply_for || '';
+          document.getElementById('hidden_reason').value   = values.pitch_summary || values.extra_info || '';
+        }
+
+        // submit handler
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          
+
+          const current_date = getCurrentDateTime();
+          // collect values
+          const values = {
+            cdate: form.cdate.value.trim(),
+            founder_name: form.founder_name.value.trim(),
+            mobile: form.mobile.value.trim(),
+            email: form.email.value.trim(),
+            website: form.website.value.trim(),
+            linkedin: form.linkedin.value.trim(),
+            startup_name: form.startup_name.value.trim(),
+            sector: form.sector.value.trim(),
+            stage: form.stage.value.trim(),
+            team: form.team.value.trim(),
+            funding: form.funding.value.trim(),
+            pitch_summary: form.pitch_summary.value.trim(),
+            tech_stack: form.tech_stack.value.trim(),
+            accolades: form.accolades.value.trim(),
+            extra_info: form.extra_info.value.trim(),
+            consent: form.consent.value.trim(),
+            apply_for: form.apply_for.value.trim(),
+            origin: form.origin.value.trim()
+          };
+
+          // client validation
+          if (!values.apply_for){ alert('Please select which track you are applying for.'); return; }
+          if (!values.startup_name){ alert('Please enter startup / team name.'); form.startup_name.focus(); return; }
+          if (!values.founder_name){ alert('Please enter founder / contact name.'); form.founder_name.focus(); return; }
+          if (!isValidEmail(values.email)){ alert('Please enter a valid official email (e.g. name@company.com).'); form.email.focus(); return; }
+          if (!isValidPhone(values.mobile)){ alert('Please enter a valid 10-digit mobile number.'); form.mobile.focus(); return; }
+          if (!values.sector){ alert('Please specify your sector / vertical.'); form.sector.focus(); return; }
+          if (!values.stage){ alert('Please select your stage.'); form.stage.focus(); return; }
+          if (!values.pitch_summary){ alert('Please provide a short pitch summary.'); form.pitch_summary.focus(); return; }
+          if (!values.consent){ alert('Please confirm whether you agree to be contacted.'); form.consent.focus(); return; }
+
+          // prepare hidden fields
+          prepareHiddenFields(values);
+          // secreat = "https://script.google.com/macros/s/AKfycbxROPYDjeCS9e_KJe4Hkd1mp1Fyd5BH2_GjT8dNOhyIamm6KQRHpRQDVfMDOIIczOZP/exec";
+          // build FormData (files included)
+          const fd = new FormData(form);
+          // ensure secret (already set), but overwrite if needed
+          // fd.set('secret', SECURITY_TOKEN);
+
+          // disable submit button + spinner
+          submitBtn.disabled = true;
+          const spinner = document.createElement('span'); spinner.className='spinner'; submitBtn.appendChild(spinner);
+
+          // POST to Apps Script
+          fetch(scriptURL, {
+            method: 'POST',
+            mode: 'cors',
+            body: fd
+          })
+          .then(res => res.json ? res.json() : res.text())
+          .then(result => {
+            if (typeof result === 'string'){
+              try { result = JSON.parse(result); } catch (err) { result = { status:'error', message: 'Unexpected server response' }; }
+            }
+
+            if (result && result.status === 'success'){
+              showPopup(successPop, 2000);
+              // reset form and UI
+              form.reset();
+              filePreview.innerHTML = '';
+              setTimeout(()=> {
+                formWrap.style.display = 'none';
+                openBtn.style.display = 'inline-block';
+              }, 2100);
+            } else {
+              console.error('Server error', result);
+              showPopup(errorPop, 3500);
+              alert(result && result.message ? result.message : 'Server error: Could not submit. Please try again later.');
+            }
+          })
+          .catch(err => {
+            console.error('Network / fetch error', err);
+            showPopup(errorPop, 3500);
+            alert('Network error: please check connection and try again.');
+          })
+          .finally(() => {
+            submitBtn.disabled = false;
+            spinner.remove();
+          });
+
+        }); // end submit
+
+      })();
+        // 🔙 Go back to Home Page
+      function goHome() {
+        window.location.href = "index.html"; // change this to your actual homepage path
+      }
+    </script>
+  </body>
+</html>

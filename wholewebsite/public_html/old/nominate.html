@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Global Leadership Summit Vision 2047 — Awards Nomination</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue:#0b63d6;
+      --muted:#6b7280;
+      --card:#fff;
+      --bg:#eef4ff;
+      --success:#16a34a;
+      --danger:#ef4444;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      margin: 0;
+      padding: 40px;
+      color: #0f172a;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .panel {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(11, 99, 214, 0.08);
+      position: relative;
+    }
+
+    /* ---- BACK BUTTON ---- */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #f1f5f9;
+      color: var(--blue);
+      border: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      font-size: 14px;
+    }
+
+    .back-btn:hover {
+      background: #e0ecff;
+      transform: translateY(-2px);
+    }
+
+    .back-btn svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+    }
+
+    /* ---- HEADER ---- */
+    .header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 60px; /* give space for back button */
+    }
+
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #003399, #0066ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    p.lead {
+      color: var(--muted);
+      margin: 6px 0 18px;
+    }
+
+    /* ---- FORM ---- */
+    form .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 6px;
+      font-size: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #dbeafe;
+      background: #fbfdff;
+      border-radius: 10px;
+      font-size: 14px;
+      color: #0b1220;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    /* ---- BUTTONS ---- */
+    .actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: var(--blue);
+      color: #fff;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn:hover {
+      background: #094fb0;
+    }
+
+    .btn.secondary {
+      background: #f1f5f9;
+      color: #0b1220;
+    }
+
+    .btn[disabled] {
+      opacity: 0.6;
+      cursor: default;
+    }
+
+    .note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    /* ---- POPUPS ---- */
+    .success-popup,
+    .error-popup {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 30px;
+      padding: 14px 20px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 600;
+      box-shadow: 0 8px 30px rgba(2, 6, 23, 0.12);
+      display: none;
+      z-index: 9999;
+      animation: fadeUp 0.4s ease;
+    }
+
+    .success-popup {
+      background: var(--success);
+    }
+
+    .error-popup {
+      background: var(--danger);
+    }
+
+    @keyframes fadeUp {
+      from { transform: translate(-50%, 20px); opacity: 0; }
+      to { transform: translate(-50%, 0); opacity: 1; }
+    }
+
+    .spinner {
+      width: 18px;
+      height: 18px;
+      border: 3px solid rgba(255, 255, 255, 0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+      animation: spin 0.9s linear infinite;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .header { flex-direction: column; align-items: flex-start; }
+      body { padding: 20px; }
+      .panel { padding: 20px; }
+      .back-btn { position: static; margin-bottom: 10px; width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="panel">
+
+      <!-- 🔙 Back Button -->
+      <button class="back-btn" onclick="goHome()">
+        <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        Back to Home
+      </button>
+
+      <div class="header">
+        <div class="logo">GLS</div>
+        <div>
+          <h1>Global Leadership Summit Vision 2047 — Awards Nomination</h1>
+          <p class="lead">Nominate yourself or someone else for the GLS Vision 2047 Awards.</p>
+        </div>
+      </div>
+
+      <!-- 📝 Form -->
+      <form id="nominationForm" novalidate>
+        <div class="grid">
+          <div><label>Full Name *</label><input name="name" type="text" required></div>
+          <div><label>Mobile Number *</label><input name="phone" type="text" maxlength="15" inputmode="numeric" required></div>
+          <div><label>Official Email *</label><input name="email" type="email" required></div>
+          <div><label>Company / Organization</label><input name="company" type="text"></div>
+          <div><label>Your Designation</label><input name="designation" type="text"></div>
+          <div>
+            <label>Are You IIT Alumni? *</label>
+            <select name="iit_alumni" required>
+              <option value="">-- Select --</option>
+              <option>Yes</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div>
+            <label>Award Category *</label>
+            <select name="category" required>
+              <option value="">-- Choose Category --</option>
+              <option>Innovator of the Year</option>
+              <option>Sustainability Leadership</option>
+              <option>Tech Disruptor</option>
+              <option>Startup Excellence</option>
+              <option>CSR Award</option>
+              <option>Women in Leadership</option>
+            </select>
+          </div>
+          <div><label>LinkedIn Profile URL</label><input name="linkedin" type="url"></div>
+          <div class="full"><label>Why Nominate? *</label>
+            <textarea name="reason" required></textarea>
+          </div>
+          <input type="hidden" name="origin" value="website:gls2026">
+        </div>
+
+        <div class="actions">
+          <button id="submitBtn" class="btn" type="submit">Submit Nomination</button>
+          <div class="note">You’ll receive a confirmation email.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ✅ Popups -->
+  <div id="successPop" class="success-popup">✅ Nomination received — thank you!</div>
+  <div id="errorPop" class="error-popup">❌ Error! Please try again later.</div>
+
+  <script>
+    // 🔙 Go to Home Page
+    function goHome() {
+      window.location.href = "index.html"; // Change this to your actual home page path
+    }
+
+    // 🔄 Form Handler
+    (() => {
+      const scriptURL = "https://script.google.com/macros/s/AKfycbw3b-DMw2gUg036bYoCFtFMVvbSLI6EdsZJNwlXMj-b5es5-q8ZJdTIIMQZEv4mS_pY/exec";
+      const form = document.getElementById("nominationForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const successPop = document.getElementById("successPop");
+      const errorPop = document.getElementById("errorPop");
+
+      function showPopup(el, ms = 2500) {
+        el.style.display = "block";
+        setTimeout(() => el.style.display = "none", ms);
+      }
+
+      function isEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+      }
+
+      function isPhone(v) {
+        return /^(?:\+?91)?\d{10}$/.test(v.replace(/\s+/g, ""));
+      }
+
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form).entries());
+        data.phone = data.phone.replace(/\s+/g, "");
+
+        if (!data.name.trim()) return alert("Enter full name");
+        if (!isPhone(data.phone)) return alert("Enter valid 10-digit phone (with or without +91)");
+        if (!isEmail(data.email)) return alert("Enter valid email");
+        if (!data.iit_alumni) return alert("Select IIT Alumni option");
+        if (!data.category) return alert("Select award category");
+        if (!data.reason.trim()) return alert("Enter reason for nomination");
+
+        submitBtn.disabled = true;
+        const spinner = document.createElement("span");
+        spinner.className = "spinner";
+        submitBtn.appendChild(spinner);
+
+        try {
+          const response = await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+          const text = await response.text();
+          let result;
+          try { result = JSON.parse(text); } catch { result = { status: "error" }; }
+
+          if (result.status === "success") {
+            form.reset();
+            showPopup(successPop, 2500);
+          } else {
+            console.error("Response error:", text);
+            showPopup(errorPop, 3000);
+          }
+        } catch (err) {
+          console.error("Network Error:", err);
+          showPopup(errorPop, 3000);
+        } finally {
+          submitBtn.disabled = false;
+          spinner.remove();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

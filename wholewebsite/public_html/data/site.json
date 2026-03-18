@@ -1,0 +1,54 @@
+{
+  "event": {
+    "name": "Global Leadership Summit Vision 2047",
+    "shortName": "GLS Vision 2047",
+    "tagline": "India's Premier Leadership & Industry Platform",
+    "organizer": "GLS Vision 2047 Leaders",
+    "venue": {
+      "name": "Bharat Mandapam",
+      "city": "Delhi",
+      "address": "Pragati Maidan, New Delhi, India 110001",
+      "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0826688766965!2d77.24251631508045!3d28.625160382423987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd0683919c85%3A0x5d58f323e8ad0566!2sBharat%20Mandapam!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+    },
+    "date": {
+      "start": "2026-11-15",
+      "end": "2026-11-16",
+      "displayText": "November 15-16, 2026"
+    },
+    "stats": {
+      "delegates": 5000,
+      "cxos": 500,
+      "investors": 200,
+      "speakers": 100
+    }
+  },
+  "branding": {
+    "colors": {
+      "primary": "#0B3D91",
+      "secondary": "#FFB300",
+      "white": "#FFFFFF",
+      "dark": "#111111"
+    },
+    "fonts": {
+      "heading": "Montserrat, Inter, Arial, sans-serif",
+      "body": "Montserrat, Inter, Arial, sans-serif"
+    },
+    "logo": "images/GLS_Favicon.png"
+  },
+  "contact": {
+    "email": "care@glsvision2047.com",
+    "phone": "+919026181492",
+    "whatsapp": "919026181492",
+    "social": {
+      "facebook": "https://www.facebook.com/profile.php?id=61583186907824",
+      "linkedin": "https://www.linkedin.com/in/global-leadership-a94456395/",
+      "twitter": "https://x.com/2026Global",
+      "instagram": "https://www.instagram.com/glsvision2047/"
+    }
+  },
+  "seo": {
+    "title": "Global Leadership Summit Vision 2047",
+    "description": "GLS Vision 2047 presents Global Leadership Summit Vision 2047 - India's most prestigious leadership & industry platform uniting IIT alumni, unicorn founders, VCs, and policymakers at Bharat Mandapam, Delhi",
+    "keywords": "GLS Vision 2047, Global Leadership Summit, GLS Vision 2047, Leadership Conference, Innovation Summit, IIT Alumni"
+  }
+}
