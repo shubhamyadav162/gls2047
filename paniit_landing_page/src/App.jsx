@@ -951,12 +951,8 @@ export default function App() {
             <div className="footer-section">
                 <h4 style={{textAlign: 'center'}}>Organised By</h4>
                  <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px'}}>
-                   <a href="https://iconexglobal.com/" target="_blank" style={{width: '120px'}}>
-                     <img src="/images/iCONEX_LOGO.png" style={{width: '100%'}} alt="iCONEX" />
-                   </a>
-                   <div style={{width: '1px', height: '40px', backgroundColor: 'rgba(255,255,255,0.3)'}}></div>
                    <div style={{width: '120px'}}>
-                     <img src="assets/molog-logo.png" style={{width: '100%'}} alt="Partner" />
+                     <img src="/images/molog-logo.png" style={{width: '100%'}} alt="MOLOG" />
                    </div>
                  </div>
             </div>
