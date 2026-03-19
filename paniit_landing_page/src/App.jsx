@@ -345,7 +345,27 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 relative">
+      <style dangerouslySetInnerHTML={{ __html: `
+        #header {
+          background-color: #0B3D91 !important;
+          background: #0B3D91 !important;
+          border-bottom: 3px solid #FF8C00 !important;
+          width: 100% !important;
+          left: 0 !important;
+        }
+        #header a {
+          color: white !important;
+        }
+        #header a:hover {
+          color: #FF8C00 !important;
+        }
+        /* Fix the white div problem mentioned by user */
+        #header .container, #header div {
+          background: transparent !important;
+        }
+      `}} />
       <header id="header" className="fixed top-0 shadow-md z-[1000]" style={{ background: '#0B3D91', borderBottom: '3px solid #FF8C00', width: '100%', left: 0 }}>
+        {/* Force refresh: 842 */}
         <div className="container flex justify-between items-center py-3 px-4 md:px-8 max-w-[1400px] mx-auto" style={{ background: 'transparent' }}>
           
           <div className="flex items-center gap-4" style={{ background: 'transparent' }}>
