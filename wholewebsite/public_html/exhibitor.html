@@ -131,25 +131,29 @@
 </head>
 <body>
   <!-- Header -->
-  <header id="header">
-    <nav class="navbar">
-      <div class="container nav-container">
-        <div class="logo">
-          <a href="index.html">
-            <img src="images/vision2047logomain.png" alt="Vision 2047 Logo" class="logo-img">
-          </a>
-            &nbsp;
-              <hr style="height: 40px ; width: 2px; background: #000; border: 1px solid #000;"> 
-            &nbsp;
-          <a href="index.html">
-            <img src="images/iitalumuniai.png" alt="GLS Vision 2047 Logo" class="logo-img" />
-            <!-- <span class="logo-text">Global Leadership Summit Vision 2047</span> -->
-          </a>
-        </div>
-        <a href="index.html" class="btn btn-outline">Back to Home</a>
+    <header id="header">
+      <div class="container nav-container" style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="index.html" class="logo" style="margin-right: 30px;">
+          <img src="images/vision2047logomain.png" alt="Vision 2047 Logo" class="logo-img" style="height: 45px; width: auto;">
+        </a>
+        <nav class="navbar" style="flex-grow: 1;">
+          <button class="mobile-menu-toggle" id="mobile-toggle" style="display: none; color: white; background: none; border: none; font-size: 1.5rem;">
+            ☰
+          </button>
+          <ul class="nav-menu" id="nav-list" style="display: flex; list-style: none; gap: 20px; align-items: center; margin: 0; padding: 0;">
+              <li><a href="index.html#home" class="nav-link" style="color: white !important;">Home</a></li>
+              <li><a href="index.html#about" class="nav-link" style="color: white !important;">About</a></li>
+              <li><a href="index.html#vision2047" class="nav-link" style="color: white !important;">GLS 2047</a></li>
+              <li><a href="index.html#theme" class="nav-link" style="color: white !important;">Theme</a></li>
+              <li><a href="speakers.html" class="nav-link" style="color: white !important;">Speakers</a></li>
+              <li><a href="index.html#partners" class="nav-link" style="color: white !important;">Partners</a></li>
+              <li><a href="/exhibition/" class="nav-link" style="color: white !important;">Exhibition</a></li>
+              <li><a href="tickets.html" class="nav-link" style="color: white !important;">Tickets</a></li>
+              <li><a href="index.html#contact" class="nav-link" style="color: white !important;">Contact</a></li>
+          </ul>
+        </nav>
       </div>
-    </nav>
-  </header>
+    </header>
 
   <!-- Login Section -->
   <section class="auth-section">

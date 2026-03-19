@@ -45,27 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ==========================================
-    // Sticky Header on Scroll
-    // ==========================================
-    const header = document.getElementById('header');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        if (scrollTop > 100) {
-            header.style.padding = '10px 0px';
-            // header.style.background = '#fff';
-            header.style.background = 'rgba(255, 255, 255, 1)';
-        } else {
-            header.style.padding = '5px 0px';
-            // header.style.background = '#fff';
-            header.style.background = 'rgba(255, 255, 255, 1)';
-        }
-        
-        lastScrollTop = scrollTop;
-    });
+    // Removed header scroll effects per user request to keep it simple and static
     
     // ==========================================
     // Active Navigation Link on Scroll (Scroll Spy)
@@ -343,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (scrolled < window.innerHeight) {
                 const heroBg = document.querySelector('.hero-bg');
                 if (heroBg) {
-                    heroBg.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+                    heroBg.style.transform = `translateY(-${scrolled * parallaxSpeed}px)`;
                 }
             }
         });

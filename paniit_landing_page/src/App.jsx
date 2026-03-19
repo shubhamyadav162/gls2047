@@ -345,26 +345,62 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 relative">
-      <header id="header" className="sticky top-0 bg-white shadow-md z-[1000]">
-        <div className="container flex justify-between items-center py-2 px-4 md:px-8 max-w-[1400px] mx-auto">
+      <header id="header" className="sticky top-0 bg-[#0B3D91] border-b-2 border-[#FF8C00] shadow-md z-[1000]">
+        <div className="container flex justify-between items-center py-3 px-4 md:px-8 max-w-[1400px] mx-auto">
           
           <div className="flex items-center gap-4">
-            <a href="/" className="flex items-center border-r border-gray-200 pr-4">
-              <img src="assets/vision2047logomain.png" alt="GLS Vision 2047" className="gls-logo h-12 md:h-14 w-auto transition-all" />
+            <a href="/" className="flex items-center">
+              <img src="assets/vision2047logomain.png" alt="GLS Vision 2047" className="gls-logo h-[45px] w-auto transition-all" />
             </a>
-            <img src="assets/iitalumuniai.png" alt="PanIIT Alumni India" className="h-8 md:h-10 w-auto" />
           </div>
 
-          <div>
+          <nav className="hidden md:flex flex-grow justify-center">
+            <ul className="flex gap-6 items-center m-0 p-0 list-none text-white text-sm font-semibold">
+              <li><a href="/index.html#home" className="hover:text-[#FF8C00] transition-colors">Home</a></li>
+              <li><a href="/index.html#about" className="hover:text-[#FF8C00] transition-colors">About</a></li>
+              <li><a href="/index.html#vision2047" className="hover:text-[#FF8C00] transition-colors">GLS 2047</a></li>
+              <li><a href="/index.html#theme" className="hover:text-[#FF8C00] transition-colors">Theme</a></li>
+              <li><a href="/index.html#partners" className="hover:text-[#FF8C00] transition-colors">Partners</a></li>
+              <li><a href="/exhibition/" className="text-[#FF8C00] font-bold">Exhibition</a></li>
+              <li><a href="/tickets.html" className="hover:text-[#FF8C00] transition-colors">Tickets</a></li>
+              <li><a href="/contact.html" className="hover:text-[#FF8C00] transition-colors">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div className="flex items-center gap-3">
             <button 
-              onClick={() => handleBookSpace('corporate')}
-              className="book-btn bg-[#D4AF37] hover:bg-[#B8962E] text-[#002D62] font-bold py-2.5 px-6 md:py-3 md:px-8 rounded-full shadow-lg transition-all text-xs md:text-sm uppercase tracking-wider active:scale-95"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-white p-2 text-2xl font-bold"
             >
-              Book Now
+              ☰
             </button>
           </div>
-
         </div>
+        
+        {/* Mobile menu dropdown */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div 
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="md:hidden bg-[#0B1E3F] w-full overflow-hidden border-b border-[#FF8C00] shadow-lg absolute top-full left-0 z-50"
+            >
+              <div className="py-6 flex flex-col gap-4">
+                <ul className="flex flex-col gap-4 text-white text-sm font-semibold text-center">
+                  <li><a href="/index.html#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
+                  <li><a href="/index.html#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
+                  <li><a href="/index.html#vision2047" onClick={() => setIsMobileMenuOpen(false)}>GLS 2047</a></li>
+                  <li><a href="/index.html#theme" onClick={() => setIsMobileMenuOpen(false)}>Theme</a></li>
+                  <li><a href="/index.html#partners" onClick={() => setIsMobileMenuOpen(false)}>Partners</a></li>
+                  <li><a href="/exhibition/" className="text-[#FF8C00]" onClick={() => setIsMobileMenuOpen(false)}>Exhibition</a></li>
+                  <li><a href="/tickets.html" onClick={() => setIsMobileMenuOpen(false)}>Tickets</a></li>
+                  <li><a href="/contact.html" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
+                </ul>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </header>
 
       {/* FULL-SCREEN IMMERSIVE HERO SECTION */}
