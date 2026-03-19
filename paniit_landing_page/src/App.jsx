@@ -346,16 +346,16 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 relative">
       <header id="header" className="fixed top-0 shadow-md z-[1000]" style={{ background: '#0B3D91', borderBottom: '3px solid #FF8C00', width: '100%', left: 0 }}>
-        <div className="container flex justify-between items-center py-3 px-4 md:px-8 max-w-[1400px] mx-auto">
+        <div className="container flex justify-between items-center py-3 px-4 md:px-8 max-w-[1400px] mx-auto" style={{ background: 'transparent' }}>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4" style={{ background: 'transparent' }}>
             <a href="/index.html" className="flex items-center">
-              <img src="/images/vision2047logomain.png" alt="GLS Vision 2047" className="gls-logo h-[50px] w-auto transition-all" />
+              <img src="/images/vision2047logomain.png" alt="GLS Vision Summit 2026" className="gls-logo h-[50px] w-auto transition-all" />
             </a>
           </div>
 
-          <nav className="hidden md:flex flex-grow justify-center">
-            <ul className="flex gap-6 items-center m-0 p-0 list-none text-white text-sm font-semibold">
+          <nav className="hidden md:flex flex-grow justify-center" style={{ background: 'transparent' }}>
+            <ul className="flex gap-6 items-center m-0 p-0 list-none text-white text-sm font-semibold" style={{ background: 'transparent' }}>
               <li><a href="/index.html#home" className="hover:text-[#FF8C00] transition-colors">Home</a></li>
               <li><a href="/index.html#about" className="hover:text-[#FF8C00] transition-colors">About</a></li>
               <li><a href="/index.html#vision2047" className="hover:text-[#FF8C00] transition-colors">GLS Vision</a></li>
@@ -367,10 +367,11 @@ export default function App() {
             </ul>
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3" style={{ background: 'transparent' }}>
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden text-white p-2 text-2xl font-bold"
+              style={{ background: 'transparent' }}
             >
               ☰
             </button>
