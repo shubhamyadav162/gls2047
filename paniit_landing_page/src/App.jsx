@@ -345,12 +345,12 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 relative">
-      <header id="header" className="sticky top-0 bg-[#0B3D91] border-b-2 border-[#FF8C00] shadow-md z-[1000]">
+      <header id="header" className="sticky top-0 bg-[#0B3D91] border-b-3 border-[#FF8C00] shadow-md z-[1000]">
         <div className="container flex justify-between items-center py-3 px-4 md:px-8 max-w-[1400px] mx-auto">
           
           <div className="flex items-center gap-4">
-            <a href="/" className="flex items-center">
-              <img src="assets/vision2047logomain.png" alt="GLS Vision 2047" className="gls-logo h-[45px] w-auto transition-all" />
+            <a href="/index.html" className="flex items-center">
+              <img src="/images/vision2047logomain.png" alt="GLS Vision 2047" className="gls-logo h-[50px] w-auto transition-all" />
             </a>
           </div>
 
@@ -363,7 +363,7 @@ export default function App() {
               <li><a href="/index.html#partners" className="hover:text-[#FF8C00] transition-colors">Partners</a></li>
               <li><a href="/exhibition/" className="text-[#FF8C00] font-bold">Exhibition</a></li>
               <li><a href="/tickets.html" className="hover:text-[#FF8C00] transition-colors">Tickets</a></li>
-              <li><a href="/contact.html" className="hover:text-[#FF8C00] transition-colors">Contact</a></li>
+              <li><a href="/index.html#contact" className="hover:text-[#FF8C00] transition-colors">Contact</a></li>
             </ul>
           </nav>
 
@@ -395,7 +395,7 @@ export default function App() {
                   <li><a href="/index.html#partners" onClick={() => setIsMobileMenuOpen(false)}>Partners</a></li>
                   <li><a href="/exhibition/" className="text-[#FF8C00]" onClick={() => setIsMobileMenuOpen(false)}>Exhibition</a></li>
                   <li><a href="/tickets.html" onClick={() => setIsMobileMenuOpen(false)}>Tickets</a></li>
-                  <li><a href="/contact.html" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
+                  <li><a href="/index.html#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
                 </ul>
               </div>
             </motion.div>
