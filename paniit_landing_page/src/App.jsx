@@ -345,7 +345,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 relative">
-      <header id="header" className="sticky top-0 bg-[#0B3D91] border-b-3 border-[#FF8C00] shadow-md z-[1000]">
+      <header id="header" className="fixed top-0 shadow-md z-[1000]" style={{ background: '#0B3D91', borderBottom: '3px solid #FF8C00', width: '100%', left: 0 }}>
         <div className="container flex justify-between items-center py-3 px-4 md:px-8 max-w-[1400px] mx-auto">
           
           <div className="flex items-center gap-4">
@@ -358,7 +358,7 @@ export default function App() {
             <ul className="flex gap-6 items-center m-0 p-0 list-none text-white text-sm font-semibold">
               <li><a href="/index.html#home" className="hover:text-[#FF8C00] transition-colors">Home</a></li>
               <li><a href="/index.html#about" className="hover:text-[#FF8C00] transition-colors">About</a></li>
-              <li><a href="/index.html#vision2047" className="hover:text-[#FF8C00] transition-colors">GLS 2047</a></li>
+              <li><a href="/index.html#vision2047" className="hover:text-[#FF8C00] transition-colors">GLS Vision</a></li>
               <li><a href="/index.html#theme" className="hover:text-[#FF8C00] transition-colors">Theme</a></li>
               <li><a href="/index.html#partners" className="hover:text-[#FF8C00] transition-colors">Partners</a></li>
               <li><a href="/exhibition/" className="text-[#FF8C00] font-bold">Exhibition</a></li>
@@ -390,7 +390,7 @@ export default function App() {
                 <ul className="flex flex-col gap-4 text-white text-sm font-semibold text-center">
                   <li><a href="/index.html#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
                   <li><a href="/index.html#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
-                  <li><a href="/index.html#vision2047" onClick={() => setIsMobileMenuOpen(false)}>GLS 2047</a></li>
+                  <li><a href="/index.html#vision2047" onClick={() => setIsMobileMenuOpen(false)}>GLS Vision</a></li>
                   <li><a href="/index.html#theme" onClick={() => setIsMobileMenuOpen(false)}>Theme</a></li>
                   <li><a href="/index.html#partners" onClick={() => setIsMobileMenuOpen(false)}>Partners</a></li>
                   <li><a href="/exhibition/" className="text-[#FF8C00]" onClick={() => setIsMobileMenuOpen(false)}>Exhibition</a></li>

@@ -6,7 +6,8 @@
 <title>Partner With Us — Global Leadership Summit Vision 2047</title>
 <meta name="description" content="Partner with Global Leadership Summit Vision 2047 — collaborate with the world’s leading IIT minds, innovators, and global industry leaders.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="images/GLS_fevicon.png">
+<link rel="stylesheet" href="styles.css?v=1.2">
+<link rel="icon" type="image/png" href="images/GLS_Favicon.png">
 <style>
 :root {
   --blue: #003399;
@@ -200,19 +201,40 @@ button:hover {
   }
 </style>
 </head>
-<body>
+<body style="padding-top: 80px;">
+
+    <!-- Header -->
+    <header id="header" style="background: #0B3D91 !important; border-bottom: 3px solid #FF8C00 !important; position: fixed; width: 100% !important; z-index: 1000 !important; top: 0; left: 0;">
+      <div class="container-nav" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 20px; max-width: 1200px; margin: 0 auto;">
+        <a href="index.html" class="logo" style="margin-right: 30px; display: flex; align-items: center; text-decoration: none;">
+          <img src="images/vision2047logomain.png" alt="Vision 2047 Logo" class="logo-img" style="height: 45px; width: auto;">
+        </a>
+        <nav class="navbar" style="flex-grow: 1;">
+          <ul class="nav-menu" id="nav-list" style="display: flex; list-style: none; gap: 20px; align-items: center; margin: 0; padding: 0;">
+              <li><a href="index.html#home" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">Home</a></li>
+              <li><a href="index.html#about" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">About</a></li>
+              <li><a href="index.html#vision2047" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">GLS Vision</a></li>
+              <li><a href="index.html#theme" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">Theme</a></li>
+              <li><a href="index.html#partners" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">Partners</a></li>
+              <li><a href="/exhibition/" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">Exhibition</a></li>
+              <li><a href="tickets.html" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">Tickets</a></li>
+              <li><a href="index.html#contact" class="nav-link" style="color: white !important; text-decoration: none; font-size: 14px; font-weight: 600;">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
 <div class="container">
     <!-- 🔙 Back to Home Button -->
-<button class="back-btn" onclick="goHome()">
-  <svg fill="none" stroke-width="2" viewBox="0 0 24 24">
+<button class="back-btn" onclick="goHome()" style="margin-bottom: 20px;">
+  <svg fill="none" stroke-width="2" viewBox="0 0 24 24" style="width: 18px; height: 18px;">
     <path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
   </svg>
   Back to Home
 </button>
-  <header>
-    <h1>Partner With Us — Global Leadership Summit Vision 2047</h1>
-    <p>Join hands with the GLS Vision 2047 community to shape innovation, entrepreneurship, and leadership for the next decade.</p>
+  <header style="text-align: center; margin-bottom: 40px;">
+    <h1 style="font-size: 32px; color: #003399; margin-bottom: 10px;">Partner With Us — Global Leadership Summit 2026</h1>
+    <p style="color: #6b7280; font-size: 16px;">Join hands with the global leadership community to shape innovation, entrepreneurship, and leadership for the next decade.</p>
   </header>
 
   <section class="partners-info">
@@ -311,7 +333,7 @@ button:hover {
 
   <section style="text-align:center;background:#003399;color:#fff;padding:30px;border-radius:12px;">
     <h2>Have Questions?</h2>
-    <p>Email us at <a href="mailto:secretariat@glsvision2047.com" style="color:#fff;text-decoration:underline;">secretariat@glsvision2047.com</a><br>
+    <p>Email us              <li><a href="index.html#vision2047" class="nav-link" style="color: white !important; text-decoration: none;">GLS Vision</a></li>ne;">secretariat@glsvision2047.com</a><br>
     or WhatsApp us at <a href="https://wa.me/91 7291907708" style="color:#fff;">+91 7291907708</a></p>
   </section>
 </div>
