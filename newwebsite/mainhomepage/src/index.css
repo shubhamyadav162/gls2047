@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 97%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 210 65% 14%;
+    --primary-foreground: 36 33% 97%;
+
+    --secondary: 36 33% 97%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 36 20% 93%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 24 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 24 100% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom GLS tokens */
+    --navy: 210 65% 14%;
+    --navy-light: 210 50% 20%;
+    --saffron: 24 100% 45%;
+    --saffron-light: 24 90% 55%;
+    --gold: 38 45% 60%;
+    --gold-muted: 38 30% 75%;
+    --ivory: 36 33% 97%;
+    --ivory-warm: 36 40% 95%;
+    --slate-text: 215 16% 47%;
+    --charcoal: 222 47% 11%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(210 65% 14%), hsl(210 50% 20%), hsl(210 65% 14%));
+    --gradient-saffron: linear-gradient(135deg, hsl(24 100% 45%), hsl(24 90% 55%));
+    --gradient-gold: linear-gradient(135deg, hsl(38 45% 60%), hsl(38 30% 75%));
+
+    --shadow-card: 0 4px 24px -4px hsla(210, 65%, 14%, 0.08);
+    --shadow-card-hover: 0 12px 40px -8px hsla(210, 65%, 14%, 0.15);
+    --shadow-elegant: 0 20px 60px -15px hsla(210, 65%, 14%, 0.12);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-12 md:py-28 px-4 md:px-8;
+  }
+
+  .container-gls {
+    @apply max-w-[1200px] mx-auto px-4 md:px-0;
+  }
+
+  .heading-display {
+    font-family: 'Sora', sans-serif;
+    @apply text-4xl md:text-6xl font-bold leading-tight;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-section {
+    font-family: 'Sora', sans-serif;
+    @apply text-3xl md:text-[40px] font-bold leading-tight;
+    letter-spacing: -0.02em;
+  }
+
+  .heading-card {
+    font-family: 'Sora', sans-serif;
+    @apply text-xl md:text-2xl font-semibold;
+  }
+
+  .body-large {
+    @apply text-lg md:text-xl leading-relaxed;
+  }
+
+  .label-upper {
+    @apply text-xs md:text-sm font-semibold uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .card-premium {
+    @apply rounded-xl border border-border bg-card p-6 md:p-8 transition-all duration-500;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-premium:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .card-dark {
+    @apply rounded-xl p-6 md:p-8 transition-all duration-500;
+    background: hsl(var(--navy));
+    color: hsl(var(--ivory));
+  }
+
+  .card-dark:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px -8px hsla(210, 65%, 14%, 0.4);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-sm md:text-base transition-all duration-300;
+    background: hsl(var(--saffron));
+    color: white;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary:hover {
+    background: hsl(var(--saffron-light));
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px -8px hsla(24, 100%, 45%, 0.4);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 border-2;
+    border-color: hsl(var(--navy));
+    color: hsl(var(--navy));
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--navy));
+    color: hsl(var(--ivory));
+    transform: scale(1.03);
+  }
+
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-sm md:text-base transition-all duration-300 border-2;
+    border-color: hsla(36, 33%, 97%, 0.4);
+    color: hsl(var(--ivory));
+  }
+
+  .btn-outline-light:hover {
+    background: hsla(36, 33%, 97%, 0.1);
+    border-color: hsl(var(--ivory));
+    transform: scale(1.03);
+  }
+
+  .gold-divider {
+    @apply w-16 h-0.5 mx-auto my-6;
+    background: var(--gradient-gold);
+  }
+
+  .section-dark {
+    background: hsl(var(--navy));
+    color: hsl(var(--ivory));
+  }
+
+  .section-ivory {
+    background: hsl(var(--ivory));
+  }
+
+  .section-warm {
+    background: hsl(var(--ivory-warm));
+  }
+
+  /* Fade in animation */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-1 { transition-delay: 0.08s; }
+  .stagger-2 { transition-delay: 0.16s; }
+  .stagger-3 { transition-delay: 0.24s; }
+  .stagger-4 { transition-delay: 0.32s; }
+  .stagger-5 { transition-delay: 0.4s; }
+  .stagger-6 { transition-delay: 0.48s; }
+  .stagger-7 { transition-delay: 0.56s; }
+  .stagger-8 { transition-delay: 0.64s; }
+  .stagger-9 { transition-delay: 0.72s; }
+  .stagger-10 { transition-delay: 0.8s; }
+}
