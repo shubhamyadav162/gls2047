@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Check, X, Building2, Rocket, Map, CreditCard, Zap, Calendar, MapPin, Users, ArrowRight, BookOpen, Shield,
+  Check, CheckCircle, X, Building2, Rocket, Map, CreditCard, Zap, Calendar, MapPin, Users, ArrowRight, BookOpen, Shield,
   Cpu, Factory, Smartphone, Building, Truck, Heart, Banknote, ShoppingBag, Sun, Globe, Landmark, ChevronRight, TrendingUp
 } from 'lucide-react';
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [headerScrolled, setHeaderScrolled] = useState(false);
+  const [headerMobileOpen, setHeaderMobileOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setHeaderScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
   
   // Single page form state
   const [clientType, setClientType] = useState('corporate'); // 'corporate', 'startup', 'government', 'academia'
@@ -99,6 +107,8 @@ export default function App() {
       { label: '500 sqm', subLabel: 'Large Pavilion', sqm: 500 }
     ],
     startup: [
+      { label: 'Startup POD', subLabel: '2x2 (4 sqm)', sqm: 4 },
+      { label: 'Startup POD+', subLabel: '3x2 (6 sqm)', sqm: 6 },
       { label: 'Startup POD PRO', subLabel: '3x3 (9 sqm)', sqm: 9 }
     ],
     psu: [
@@ -179,7 +189,9 @@ export default function App() {
       500: { vip: 20, delegate: 40, exhibitor: 40 }
     },
     startup: {
-      9: { vip: 2, delegate: 4, exhibitor: 4 }
+      4: { vip: 0, delegate: 2, exhibitor: 2 }, // POD (2x2)
+      6: { vip: 1, delegate: 2, exhibitor: 2 }, // POD+ (3x2)
+      9: { vip: 2, delegate: 2, exhibitor: 2 }  // POD PRO (3x3)
     },
     country: {
       50: { vip: 4, delegate: 8, exhibitor: 8 },
@@ -230,9 +242,16 @@ export default function App() {
     }
 
     if (clientType === 'startup') {
-      const total = fixedPrice;
-      const bookingToken = 9000;
-      const gst = 0;
+      let total = 25000;
+      let bookingToken = 10000;
+      if (selectedSize === 6) {
+        total = 50000;
+        bookingToken = 20000;
+      } else if (selectedSize === 9) {
+        total = 100000;
+        bookingToken = 30000;
+      }
+      const gst = 0; // The user said "₹XX,000 + GST" but also "Book Now amount (₹10k / ₹20k / ₹30k)". I'll follow the price logic.
       const payable = bookingToken;
       return {
         total,
@@ -241,10 +260,11 @@ export default function App() {
         payable,
         currency,
         isFull: false,
-        gstIncluded: true,
+        gstIncluded: false, // Changed to false because user said "+ GST"
         bookingLabel: 'Booking Amount',
         tagLabel: 'Token',
-        baseLabel: 'Booking Base:',
+        baseLabel: 'Total Price:',
+        note: '+ GST applicable'
       };
     } else {
       const total = selectedSize * pricePerSqm;
@@ -274,10 +294,10 @@ export default function App() {
       rate: '₹20,000 / sq.m'
     },
     startup: {
-      desc: 'Exclusive "Startup Growth Pod" for high-impact investor matchmaking and networking.',
-      features: ['Premium 3x3 Startup POD PRO at ₹25,000 (GST included)', 'Booking amount: ₹9,000 only', 'High-impact investor matchmaking and pitching sessions', '2 VIP + 4 Delegate + 4 Exhibitor passes included'],
-      passes: '2 VIP + 4 Delegate + 4 Exhibitor',
-      rate: '₹25,000 Flat Fee (GST included)'
+      desc: 'Exclusive Startup Hub designed for high-impact investor matchmaking and professional networking.',
+      features: ['Book Your Startup Pod from ₹10,000', 'Limited Slots Available', 'POD PRO: Most Popular Choice', 'Complimentary VIP & Delegate passes'],
+      passes: 'Passes included per plan type',
+      rate: 'Starting ₹25,000 + GST'
     },
     psu: {
       desc: 'Demonstrate nation-building initiatives and large-scale infrastructure projects to a global audience.',
@@ -335,16 +355,124 @@ export default function App() {
   ];
 
   const oppCards = [
-    { id: 'corporate', title: 'Corporate (Domestic & Intl)', price: '₹20,000 / sq.m', img: 'assets/hero.png', featureLead: 'Enterprise Market Leadership', features: ['Engagement with 500+ global CXOs', 'Platform for multi-sector innovation', 'Strategic branding to IIT leadership', 'Complimentary VIP & Delegate passes'] },
-    { id: 'startup', title: 'Startup Growth Pods', price: '₹25,000 Flat (GST Included)', img: 'assets/hero.png', featureLead: 'Investor Access & Dealmaking', features: ['Premium 3x3 Startup POD PRO', 'Booking amount only ₹9,000', '2 VIP + 4 Delegate + 4 Exhibitor passes', 'Pitch opportunities to global funds'] },
-    { id: 'psu', title: 'Public Sector Undertaking', price: '₹18,000 / sq.m', img: 'assets/hero.png', featureLead: 'Nation Building & Infrastructure', features: ['Showcase Vision 2047 initiatives', 'Govt-Industry synergy platform', 'Ministerial showcase opportunity', 'Complimentary VIP branding & passes'] },
-    { id: 'government', title: 'Government (Ministries/States)', price: '₹18,000 / sq.m', img: 'assets/government.jpg', featureLead: 'Policy & Governance Excellence', features: ['Investment promotion platform', 'Bilateral & Diplomatic engagement', 'State-level innovation showcase', 'Elite networking with global leaders'] },
-    { id: 'academia', title: 'Academia & Institutions', price: '₹10,000 / sq.m', img: 'assets/academia.jpg', featureLead: 'Research & Talent Pathways', features: ['Collaborate with industry R&D', 'Talent exposure to global corporates', 'Showcase academic breakthroughs', 'Complimentary Delegate passes'] },
-    { id: 'country', title: 'Country Representation', price: '$200 / sq.m', img: 'assets/corporate.jpg', featureLead: 'Trade Diplomacy & Global Trade', features: ['Cross-border investment gateway', 'Diplomatic branding & networking', 'National capability positioning', 'Elite access to Indian leadership'] }
+    { id: 'corporate', title: 'Corporate (Domestic & Intl)', price: '₹20,000 / sq.m', img: 'assets/corporate.jpg', featureLead: 'Enterprise Market Leadership', features: ['Engagement with 500+ global CXOs', 'Platform for multi-sector innovation', 'Strategic branding to IIT leadership', 'Complimentary VIP & Delegate passes'] },
+    { id: 'startup',   title: 'Startup Growth Pods',       price: 'From ₹25,000 + GST', img: 'assets/pavilions/startup.jpg', featureLead: '3 Flexible Space Options', features: ['POD 2x2m | POD+ 3x2m | PRO 3x3m', 'TV Screen + Table + Chairs included', 'VIP & Delegate Passes included', 'Low booking amount – balance later'], badge: 'Limited Slots' },
+    { id: 'psu',       title: 'Public Sector Undertaking',  price: '₹18,000 / sq.m', img: 'assets/hero.png',                featureLead: 'Nation Building & Infrastructure', features: ['Showcase Vision 2047 initiatives', 'Govt-Industry synergy platform', 'Ministerial showcase opportunity', 'Complimentary VIP branding & passes'] },
+    { id: 'government',title: 'Government (Ministries/States)', price: '₹18,000 / sq.m', img: 'assets/govt.jpg',            featureLead: 'Policy & Governance Excellence', features: ['Investment promotion platform', 'Bilateral & Diplomatic engagement', 'State-level innovation showcase', 'Elite networking with global leaders'] },
+    { id: 'academia',  title: 'Academia & Institutions',   price: '₹10,000 / sq.m', img: 'assets/academia.jpg',            featureLead: 'Research & Talent Pathways', features: ['Collaborate with industry R&D', 'Talent exposure to global corporates', 'Showcase academic breakthroughs', 'Complimentary Delegate passes'] },
+    { id: 'country',   title: 'Country Representation',    price: '$200 / sq.m',    img: 'assets/navigating.jpg',           featureLead: 'Trade Diplomacy & Global Trade', features: ['Cross-border investment gateway', 'Diplomatic branding & networking', 'National capability positioning', 'Elite access to Indian leadership'] }
   ];
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900 relative">
+
+      {/* ═══════════════════ HEADER ═══════════════════ */}
+      <header
+        style={{
+          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+          transition: 'all 0.4s ease',
+          background: headerScrolled
+            ? 'rgba(0,45,98,0.97)'
+            : 'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%)',
+          backdropFilter: headerScrolled ? 'blur(20px)' : 'none',
+          WebkitBackdropFilter: headerScrolled ? 'blur(20px)' : 'none',
+          boxShadow: headerScrolled ? '0 2px 24px rgba(0,45,98,0.18)' : 'none',
+          borderBottom: headerScrolled ? '1px solid rgba(255,255,255,0.08)' : 'none',
+        }}
+      >
+        <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: 72 }}>
+          
+          {/* Logo */}
+          <a href="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', flexShrink: 0 }}>
+            <div style={{ background: 'rgba(255,255,255,0.95)', borderRadius: '50%', padding: 8, boxShadow: '0 4px 16px rgba(0,0,0,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <img src="assets/vision2047logomain.png" alt="GLS Vision 2047" style={{ height: 36, width: 'auto', objectFit: 'contain' }} />
+            </div>
+            <span style={{ color: '#fff', fontWeight: 800, fontSize: 16, letterSpacing: '-0.01em', lineHeight: 1.2, display: 'none' }} className="nav-brand-text">GLS Vision 2047</span>
+          </a>
+
+          {/* Desktop Nav */}
+          <nav style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="desktop-nav">
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'About', href: '/#about' },
+              { label: 'Agenda', href: '/#agenda' },
+              { label: 'Zones', href: '/#zones' },
+              { label: 'Contact', href: '/#contact' },
+            ].map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                style={{ color: 'rgba(255,255,255,0.85)', fontSize: 14, fontWeight: 600, textDecoration: 'none', letterSpacing: '0.01em', transition: 'color 0.2s' }}
+                onMouseEnter={e => e.target.style.color = '#D4AF37'}
+                onMouseLeave={e => e.target.style.color = 'rgba(255,255,255,0.85)'}
+              >
+                {link.label}
+              </a>
+            ))}
+            <button
+              onClick={() => { setIsBookingOpen(true); setClientAndSize('startup'); }}
+              style={{ background: '#D4AF37', color: '#002D62', fontWeight: 800, fontSize: 14, padding: '10px 22px', borderRadius: 30, border: 'none', cursor: 'pointer', letterSpacing: '0.02em', boxShadow: '0 4px 16px rgba(212,175,55,0.35)', transition: 'all 0.2s', whiteSpace: 'nowrap' }}
+              onMouseEnter={e => { e.target.style.background = '#c3a033'; e.target.style.transform = 'scale(1.05)'; }}
+              onMouseLeave={e => { e.target.style.background = '#D4AF37'; e.target.style.transform = 'scale(1)'; }}
+            >
+              Book Now
+            </button>
+          </nav>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setHeaderMobileOpen(!headerMobileOpen)}
+            aria-label="Toggle menu"
+            style={{ display: 'none', flexDirection: 'column', gap: 5, padding: '10px', background: 'rgba(255,255,255,0.12)', borderRadius: 10, border: 'none', cursor: 'pointer', backdropFilter: 'blur(10px)' }}
+            className="mobile-hamburger"
+          >
+            <span style={{ display: 'block', width: 24, height: 2.5, background: '#fff', borderRadius: 2, transition: 'all 0.3s', transform: headerMobileOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+            <span style={{ display: 'block', width: 24, height: 2.5, background: '#fff', borderRadius: 2, transition: 'all 0.3s', opacity: headerMobileOpen ? 0 : 1 }} />
+            <span style={{ display: 'block', width: 24, height: 2.5, background: '#fff', borderRadius: 2, transition: 'all 0.3s', transform: headerMobileOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
+          </button>
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        {headerMobileOpen && (
+          <div style={{ position: 'fixed', top: 72, left: 0, right: 0, bottom: 0, background: 'rgba(0,45,98,0.98)', backdropFilter: 'blur(20px)', zIndex: 99, display: 'flex', flexDirection: 'column', padding: '32px 24px', gap: 0, overflowY: 'auto' }}>
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'About', href: '/#about' },
+              { label: 'Agenda', href: '/#agenda' },
+              { label: 'Zones', href: '/#zones' },
+              { label: 'Contact', href: '/#contact' },
+            ].map(link => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setHeaderMobileOpen(false)}
+                style={{ color: '#fff', fontSize: 26, fontWeight: 800, textDecoration: 'none', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.08)', letterSpacing: '-0.01em', display: 'block' }}
+              >
+                {link.label}
+              </a>
+            ))}
+            <button
+              onClick={() => { setIsBookingOpen(true); setClientAndSize('startup'); setHeaderMobileOpen(false); }}
+              style={{ marginTop: 32, background: '#D4AF37', color: '#002D62', fontWeight: 900, fontSize: 18, padding: '18px 24px', borderRadius: 16, border: 'none', cursor: 'pointer', letterSpacing: '0.02em', boxShadow: '0 8px 30px rgba(212,175,55,0.4)', width: '100%' }}
+            >
+              Book Now
+            </button>
+          </div>
+        )}
+
+        {/* Responsive CSS for header */}
+        <style>{`
+          @media (min-width: 1024px) {
+            .desktop-nav { display: flex !important; }
+            .mobile-hamburger { display: none !important; }
+          }
+          @media (max-width: 1023px) {
+            .desktop-nav { display: none !important; }
+            .mobile-hamburger { display: flex !important; }
+          }
+        `}</style>
+      </header>
+
       {/* FULL-SCREEN IMMERSIVE HERO SECTION */}
       <section className="w-full">
         <img src="assets/hero.png" alt="GLS Vision 2047 Hero" className="w-full h-auto block" />
@@ -363,11 +491,32 @@ export default function App() {
           .marquee-container:hover .animate-marquee-left {
             animation-play-state: paused;
           }
+          /* MOBILE OPTIMIZATIONS (CRITICAL FIXES) */
           @media (max-width: 640px) {
             .gls-logo { height: 35px !important; }
             .partner-logo { height: 28px !important; }
             .header-sep { height: 20px !important; margin: 0 10px !important; }
-            .book-btn { padding: 6px 14px !important; font-size: 10px !important; }
+            .book-btn { padding: 8px 16px !important; font-size: 12px !important; min-height: 48px !important; width: 100% !important; }
+            
+            /* Typography */
+            h1 { font-size: 24px !important; }
+            h2 { font-size: 20px !important; line-height: 1.3 !important; }
+            h3 { font-size: 18px !important; }
+            .card-title { font-size: 16px !important; }
+            .price-text { font-size: 20px !important; line-height: 1.2 !important; }
+            .desc-text { font-size: 13px !important; }
+            .detail-text { font-size: 12px !important; word-wrap: break-word; overflow-wrap: break-word; }
+            
+            /* Layout */
+            .grid-container { padding: 10px !important; }
+            .plan-card { width: 100% !important; margin-bottom: 20px !important; padding: 15px !important; }
+            .modal-content { flex-direction: column !important; }
+            .modal-side-panel { display: none !important; }
+            .full-width-mobile { width: 100% !important; display: block !important; }
+            .line-break-format { display: block !important; }
+            
+            /* Button tap targets */
+            button, a { min-height: 44px; display: flex; align-items: center; justify-content: center; }
           }
         `}} />
         
@@ -484,14 +633,7 @@ export default function App() {
              </div>
            </div>
            
-           <div className="mt-16 text-center">
-             <button 
-               onClick={() => handleBookSpace('corporate')}
-               className="bg-[#002D62] hover:bg-[#001f42] text-white font-bold px-10 py-5 rounded-full shadow-xl transition-all hover:scale-105 active:scale-95 flex items-center gap-3 mx-auto text-lg"
-             >
-               Secure Your Investment <ArrowRight size={20} className="text-[#D4AF37]" />
-             </button>
-           </div>
+           {/* Removed "Secure Your Investment" button */}
         </div>
       </section>
 
@@ -505,35 +647,43 @@ export default function App() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {oppCards.map(card => (
-              <div key={card.id} className="bg-white rounded-[1.5rem] shadow-lg border border-gray-100 overflow-hidden flex flex-col flex-1 hover:-translate-y-1 transition-transform duration-300">
+              <div key={card.id} className="bg-white rounded-[1.5rem] shadow-lg border border-gray-100 overflow-hidden flex flex-col hover:-translate-y-1 transition-transform duration-300 relative group">
                 {/* Image */}
-                <div className="h-48 relative">
-                   <img src={card.img} alt={card.title} className="w-full h-full object-cover" />
+                <div className="h-48 relative overflow-hidden">
+                   <img src={card.img} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                   {card.badge && (
+                     <div className="absolute top-4 right-4 bg-[#D4AF37] text-[#002D62] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">
+                       {card.badge}
+                     </div>
+                   )}
                 </div>
                 {/* Title Bar */}
                 <div className="bg-[#002D62] text-white px-6 py-4">
-                   <h3 className="font-bold text-lg">{card.title}</h3>
+                   <h3 className="font-bold text-lg card-title">{card.title}</h3>
                 </div>
                 
                 {/* Content */}
                 <div className="p-6 flex-1 flex flex-col">
-                   <div className="text-2xl font-black text-[#002D62] mb-1">{card.price}</div>
-                   <p className="text-[#D4AF37] text-xs font-bold uppercase tracking-wider mb-6">{card.featureLead}</p>
+                   <div className="flex flex-col mb-4">
+                     <span className="text-3xl font-black text-[#002D62] price-text leading-none">{card.price}</span>
+                   </div>
                    
-                   <ul className="space-y-3 mb-8 flex-1">
+                   <p className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-wider mb-4">{card.featureLead}</p>
+                   
+                   <ul className="space-y-3 mb-6 flex-1">
                      {card.features.map((f, i) => (
-                       <li key={i} className="flex gap-3 text-sm text-gray-600">
+                       <li key={i} className="flex gap-3 text-sm text-gray-600 detail-text">
                          <Check size={16} className="text-[#002D62] shrink-0 mt-0.5" /> 
-                         <span className="leading-tight">{f}</span>
+                         <span className="leading-tight break-words">{f}</span>
                        </li>
                      ))}
                    </ul>
 
                    <button 
                      onClick={() => handleBookSpace(card.id)}
-                     className="w-full py-3.5 rounded-xl border-2 border-[#002D62] text-[#002D62] font-bold hover:bg-[#002D62] hover:text-white transition-colors"
+                     className="w-full py-4 rounded-xl bg-[#002D62] text-white font-bold hover:bg-[#003d82] transition-all active:scale-95 book-btn flex items-center justify-center gap-2"
                    >
-                     Book Space
+                     Book Now
                    </button>
                 </div>
               </div>
@@ -542,24 +692,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#002D62] text-white py-12 border-t-4 border-[#D4AF37]">
-        <div className="max-w-[1400px] mx-auto px-4 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
-           <div>
-             <div className="flex items-center gap-4 mb-4 bg-white p-2 rounded-xl">
-               <img src="assets/vision2047logomain.png" className="h-10 w-auto" alt="GLS" />
-               <div className="w-px h-8 bg-gray-200"></div>
-               <img src="assets/iitalumuniai.png" className="h-8 w-auto" alt="PanIIT" />
-             </div>
-             <p className="text-blue-200 text-sm">© 2026 GLS Vision 2047 Alumni India. All Rights Reserved.</p>
-           </div>
-           <div className="flex gap-6 text-sm font-semibold text-blue-200">
-             <a href="#" className="hover:text-white transition-colors">Contact Us</a>
-             <a href="#" className="hover:text-white transition-colors">Sponsorships</a>
-             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-           </div>
-        </div>
-      </footer>
+
 
       {/* UNIFIED MODAL (Premium Style - Kept Intact) */}
       <AnimatePresence>
@@ -585,13 +718,13 @@ export default function App() {
                      <button onClick={closeModal} className="mb-8 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors w-fit md:hidden">
                        <X size={20} />
                      </button>
-                     <div className="flex items-center gap-4 mb-8 bg-white p-3 rounded-2xl shadow-lg w-fit">
-                       <img src="assets/vision2047logomain.png" alt="GLS" className="h-12 w-auto" />
-                       <div className="w-px h-10 bg-gray-200"></div>
-                       <img src="assets/iitalumuniai.png" alt="PanIIT" className="h-10 w-auto" />
-                     </div>
-                     <h2 className="text-4xl font-bold text-white mb-4 leading-tight">Secure Your <br/><span className="text-[#D4AF37]">Pavilion Space</span></h2>
-                     <p className="text-blue-100 text-lg leading-relaxed">Connect with 200+ global investors, government bodies, and 500+ CXOs under one roof.</p>
+                     <div className="flex items-center gap-4 mb-6">
+                       <div className="bg-white/95 p-2.5 rounded-full shadow-lg">
+                         <img src="assets/vision2047logomain.png" alt="GLS" className="h-[40px] w-auto" />
+                       </div>
+                    </div>
+                     <h2 className="text-3xl font-bold text-white mb-3">Secure Your Pavilion Space</h2>
+                     <p className="text-blue-100 text-base leading-relaxed">Connect with 200+ global investors, government bodies, and 500+ CXOs under one roof.</p>
                    </div>
 
                    <div className="mt-12 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
@@ -599,7 +732,7 @@ export default function App() {
                        <div className="bg-[#D4AF37]/20 p-3 rounded-full h-fit text-[#D4AF37]"><MapPin size={24} /></div>
                        <div>
                          <h4 className="font-bold text-lg text-[#D4AF37] mb-1">Venue</h4>
-                         <p className="text-blue-50 text-sm">Yashobhoomi Convention Centre, New Delhi, India</p>
+                          <p className="text-blue-50 text-sm">Yashobhoomi Convention Centre, New Delhi, India</p>
                        </div>
                      </div>
                    </div>
@@ -691,53 +824,98 @@ export default function App() {
                         {/* Startup Options */}
                         {clientType === 'startup' && (
                           <div className="animate-in fade-in duration-300">
-                            <p className="text-sm text-gray-500 mb-4 font-medium">Startup Category (Fixed):</p>
+                            <p className="text-sm text-gray-500 mb-4 font-medium uppercase tracking-tight">Startup Category Plans:</p>
                             <div className="grid grid-cols-1 gap-4">
-                              <button
-                                onClick={() => setSelectedSize(9)}
-                                className="p-4 border-2 rounded-xl text-left transition-all flex flex-col gap-2 border-[#002D62] bg-[#002D62]/5 ring-1 ring-[#002D62]"
-                              >
-                                  <div className="flex justify-between items-start">
-                                    <span className="font-bold text-[#002D62]">Startup POD PRO</span>
-                                    <Check className="text-[#002D62]" size={16} />
+                              {[
+                                { id: 4, name: 'Startup POD', size: '2x2 M', price: '₹25,000', book: '₹10,000', color: 'blue' },
+                                { id: 6, name: 'Startup POD+', size: '3x2 M', price: '₹50,000', book: '₹20,000', color: 'indigo' },
+                                { id: 9, name: 'Startup POD PRO', size: '3x3 M', price: '₹1,00,000', book: '₹30,000', color: 'gold', featured: true }
+                              ].map(plan => (
+                                <button
+                                  key={plan.id}
+                                  onClick={() => setSelectedSize(plan.id)}
+                                  className={`p-5 border-2 rounded-2xl text-left transition-all flex flex-col gap-1 relative ${selectedSize === plan.id ? 'border-[#002D62] bg-[#002D62]/5 ring-1 ring-[#002D62] shadow-md' : 'border-gray-100 hover:border-gray-300 hover:bg-gray-50'}`}
+                                >
+                                  {plan.featured && <span className="absolute top-4 right-4 bg-[#D4AF37] text-[#002D62] text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-tighter shadow-sm">Featured</span>}
+                                  <div className="flex justify-between items-center">
+                                    <span className={`font-bold text-lg ${selectedSize === plan.id ? 'text-[#002D62]' : 'text-gray-700'}`}>{plan.name}</span>
+                                    {selectedSize === plan.id && <Check className="text-[#002D62]" size={20} />}
                                   </div>
-                                  <p className="text-xs text-gray-500">3x3 Meters (9 SQM)</p>
-                                  <p className="text-lg font-black text-[#002D62]">₹25,000</p>
-                                  <p className="text-[11px] text-[#002D62] font-semibold">Booking Now: ₹9,000</p>
-                                  <span className="text-[10px] bg-[#D4AF37]/20 text-[#002D62] px-2 py-0.5 rounded-md font-bold w-fit">Value: ₹2,45,000</span>
-                              </button>
+                                  <p className="text-xs text-gray-500 font-medium">{plan.size}eters Space</p>
+                                  <div className="flex items-baseline gap-2 mt-2">
+                                    <p className="text-2xl font-black text-[#002D62]">{plan.price}</p>
+                                    <span className="text-[10px] text-gray-400 font-bold uppercase">+ GST</span>
+                                  </div>
+                                  <p className="text-xs sm:text-sm font-bold text-[#D4AF37] mt-1 bg-[#D4AF37]/5 px-2 py-1 sm:px-3 sm:py-1 rounded-lg border border-[#D4AF37]/10 w-fit">Booking Amt: {plan.book}</p>
+                                </button>
+                              ))}
                             </div>
                           </div>
                         )}
-
                       </div>
 
                       {/* EXCLUSIVE BENEFITS AREA */}
                       <div className="bg-[#002D62]/5 border border-[#002D62]/10 rounded-2xl p-6">
-                        <h4 className="font-bold text-[#002D62] mb-3 text-lg leading-snug">
+                        <h4 className="text-sm font-bold text-gray-800 uppercase tracking-widest flex items-center gap-2">
+                          <CheckCircle size={18} className="text-[#D4AF37]" /> 
                           {clientType === 'startup' 
-                            ? (selectedSize === 9 ? 'Startup POD PRO Benefits' : 'Startup POD Benefits') 
+                            ? (selectedSize === 4 ? 'Startup POD Benefits' : (selectedSize === 6 ? 'Startup POD+ Benefits' : 'Startup POD PRO Benefits')) 
                             : benefits[clientType].desc}
                         </h4>
-                        <ul className="space-y-3 mt-4">
-                          {clientType === 'startup' && selectedSize === 9 ? (
-                            <>
-                              <li className="flex gap-3 text-sm text-gray-700">
-                                 <Check size={18} className="text-[#002D62] shrink-0 mt-0.5 font-bold" /> <span className="leading-tight">2 VIP Passes (Value ₹35,000)</span>
+                        {clientType === 'startup' ? (
+                          <div className="mt-4 animate-in fade-in duration-300">
+                            {selectedSize === 4 && (
+                              <div className="space-y-3">
+                                <ul className="space-y-2 text-gray-700 text-sm">
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">4 sqm Area (2 mtr x2 mtr, <span className="font-bold">worth 80,000 Rs</span>)</span></li>
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">2 Delegate Passes (<span className="font-bold">worth 5k</span>)</span></li>
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">TV Screen + Table + Chairs Included (<span className="font-bold">worth 10k</span>)</span></li>
+                                </ul>
+                                <div className="mt-4 p-3 bg-white rounded-xl border border-gray-200">
+                                  <p className="text-xs text-gray-400 line-through">Actual Value: 95,000 + taxes</p>
+                                  <p className="text-base font-bold text-[#002D62]">Early Bird: 25,000 + taxes</p>
+                                  <p className="text-[#D4AF37] font-bold text-xs mt-1 border-t border-gray-100 pt-1">Pay Booking Amount 10,000 + taxes to secure</p>
+                                </div>
+                              </div>
+                            )}
+                            {selectedSize === 6 && (
+                              <div className="space-y-3">
+                                <ul className="space-y-2 text-gray-700 text-sm">
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">6 sqm Area (3 mtr x2 mtr, <span className="font-bold">worth 1.2 lakh Rs</span>)</span></li>
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">1 VIP + 2 Delegate Passes (<span className="font-bold">worth 25k+5k</span>)</span></li>
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">TV Screen + Table + Chairs Included (<span className="font-bold">worth 10k</span>)</span></li>
+                                </ul>
+                                <div className="mt-4 p-3 bg-white rounded-xl border border-gray-200">
+                                  <p className="text-xs text-gray-400 line-through">Actual Value: 1.6 lakh + taxes</p>
+                                  <p className="text-base font-bold text-[#002D62]">Early Bird: 50,000 + taxes</p>
+                                  <p className="text-[#D4AF37] font-bold text-xs mt-1 border-t border-gray-100 pt-1">Pay Booking Amount 20,000 + taxes to secure</p>
+                                </div>
+                              </div>
+                            )}
+                            {selectedSize === 9 && (
+                              <div className="space-y-3">
+                                <ul className="space-y-2 text-gray-700 text-sm">
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">9 sqm Area (3 mtr x3 mtr, <span className="font-bold">worth 1.8 lakh Rs</span>)</span></li>
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">2 VIP + 2 Delegate Passes (<span className="font-bold">worth 50k+5k</span>)</span></li>
+                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">TV Screen + Table + Chairs Included (<span className="font-bold">worth 10k</span>)</span></li>
+                                </ul>
+                                <div className="mt-4 p-3 bg-white rounded-xl border border-gray-200">
+                                  <p className="text-xs text-gray-400 line-through">Actual Value: 2.45 lakh + taxes</p>
+                                  <p className="text-base font-bold text-[#002D62]">Early Bird: 1 lakh + taxes</p>
+                                  <p className="text-[#D4AF37] font-bold text-xs mt-1 border-t border-gray-100 pt-1">Pay Booking Amount 30,000 + taxes to secure</p>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        ) : (
+                          <ul className="space-y-3 mt-4">
+                            {benefits[clientType].features.map((f, i) => (
+                              <li key={i} className="flex gap-3 text-sm text-gray-700">
+                                 <Check size={18} className="text-[#002D62] shrink-0 mt-0.5 font-bold" /> <span className="leading-tight">{f}</span>
                               </li>
-                              <li className="flex gap-3 text-sm text-gray-700">
-                                 <Check size={18} className="text-[#002D62] shrink-0 mt-0.5 font-bold" /> <span className="leading-tight">4 Delegate Passes (Value ₹30,000)</span>
-                              </li>
-                              <li className="flex gap-3 text-sm text-gray-700">
-                                 <Check size={18} className="text-[#002D62] shrink-0 mt-0.5 font-bold" /> <span className="leading-tight">Premium 3x3 Space with full tech support</span>
-                              </li>
-                            </>
-                          ) : benefits[clientType].features.map((f, i) => (
-                            <li key={i} className="flex gap-3 text-sm text-gray-700">
-                               <Check size={18} className="text-[#002D62] shrink-0 mt-0.5 font-bold" /> <span className="leading-tight">{f}</span>
-                            </li>
-                          ))}
-                        </ul>
+                            ))}
+                          </ul>
+                        )}
                       </div>
                       {benefits[clientType].passes && (
                         <div className="mt-6 inline-block bg-white text-[#002D62] text-xs font-bold px-4 py-3 rounded-lg border border-[#002D62]/10 shadow-sm">
@@ -803,29 +981,32 @@ export default function App() {
                         <div className="flex flex-col">
                           <p className="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mb-0.5">{vals.bookingLabel || (vals.isFull ? 'Package Amount (100%)' : 'Booking Amount (10%)')}</p>
                           <div className="flex items-end gap-2">
-                            <div className="text-4xl font-black text-[#002D62] tracking-tighter">
+                            <div className="text-4xl font-black text-[#002D62] tracking-tighter shrink-0">
                               {vals.currency}{vals.payable.toLocaleString('en-IN')}
                             </div>
-                            <span className="text-[10px] text-gray-400 font-bold translate-y-[-8px] uppercase">{vals.tagLabel || (vals.isFull ? 'Full' : 'Token')}</span>
+                            <div className="flex flex-col justify-end pb-1">
+                               <span className="text-[10px] text-gray-400 font-bold uppercase block">{vals.tagLabel || (vals.isFull ? 'Full' : 'Booking Amount')}</span>
+                               <span className="text-[10px] text-[#002D62] font-black uppercase tracking-widest">+ GST</span>
+                             </div>
                           </div>
                           
-                          <div className="mt-2 pt-2 border-t border-gray-100">
+                          <div className="mt-2 pt-2 border-t border-gray-100 flex flex-wrap items-center gap-y-1 gap-x-3">
                              <div className="flex items-center gap-1.5">
-                               <span className="text-[10px] text-gray-400 font-bold uppercase">Total Stall Investment:</span>
-                               <span className="text-[12px] font-bold text-gray-700">{vals.currency}{vals.total.toLocaleString('en-IN')}</span>
-                               {vals.total >= 100000 && vals.currency === '₹' && (
-                                 <span className="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded text-gray-500 font-bold">≈ {(vals.total / 100000).toFixed(2)} Lakhs</span>
-                               )}
+                               <span className="text-[10px] text-gray-400 font-bold uppercase">Total Level:</span>
+                               <span className="text-[12px] font-bold text-gray-700">{vals.currency}{vals.total.toLocaleString('en-IN')} + GST</span>
                              </div>
-                             {selectedPassText && (
-                               <p className="text-[10px] text-[#002D62] font-bold mt-1">Included Passes: {selectedPassText}</p>
+                             {clientType === 'startup' && (
+                               <span className="text-[10px] bg-blue-50 text-[#002D62] px-2 py-0.5 rounded font-bold uppercase tracking-tight">Balance payable later</span>
+                             )}
+                             {vals.total >= 100000 && vals.currency === '₹' && (
+                               <span className="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded text-gray-500 font-bold">≈ {(vals.total / 100000).toFixed(2)} Lakhs</span>
                              )}
                            </div>
                          </div>
                         
                         <div className="text-right sm:text-left text-xs text-gray-500 leading-tight border-l border-gray-200 pl-4 ml-4 flex flex-col justify-center gap-1">
                           <div className="flex justify-between w-40">
-                             <span className="opacity-70 text-[10px] font-bold">{vals.baseLabel || (vals.isFull ? 'Package Base:' : 'Token Base:')}</span>
+                             <span className="opacity-70 text-[10px] font-bold">{vals.baseLabel || (vals.isFull ? 'Package Base:' : 'Booking Base:')}</span>
                              <span className="font-bold text-gray-800">{vals.currency}{(!vals.isFull ? vals.bookingToken : vals.total).toLocaleString('en-IN')}</span>
                           </div>
                           {!vals.isFull && !vals.gstIncluded && (
@@ -852,7 +1033,7 @@ export default function App() {
                      <button 
                         onClick={handlePayment}
                         disabled={isProcessing}
-                        className={`w-full sm:w-auto bg-[#D4AF37] hover:bg-[#c3a033] text-[#002D62] font-black px-10 py-4 rounded-xl shadow-lg shadow-[#D4AF37]/30 transition-transform active:scale-95 flex items-center justify-center gap-2 text-lg uppercase tracking-wide ${isProcessing ? 'opacity-70 cursor-not-allowed' : ''}`}
+                        className={`w-full sm:w-auto bg-[#D4AF37] hover:bg-[#c3a033] text-[#002D62] font-black px-6 py-3 sm:px-10 sm:py-4 rounded-xl shadow-lg shadow-[#D4AF37]/30 transition-transform active:scale-95 flex items-center justify-center gap-2 text-base sm:text-lg uppercase tracking-wide ${isProcessing ? 'opacity-70 cursor-not-allowed' : ''}`}
                      >
                        {isProcessing ? 'Processing...' : 'Pay Now'} <ArrowRight size={20} />
                      </button>
@@ -865,51 +1046,72 @@ export default function App() {
         )}
       </AnimatePresence>
       {/* OFFICIAL FOOTER */}
-      <footer className="footer">
-        <div className="container">
-          <div className="footer-content">
-            <div className="footer-section">
-                <h4>Global Leadership Summit Vision 2047</h4>
-                <p className="footer-tagline">Leadership • Innovation • Vision 2047</p>
-            </div> 
-            <div className="footer-section">
-                <h4>Quick Links</h4>
-                <ul className="footer-links">
-                    <li><a href="/#about">About Global Leadership Summit Vision 2047</a></li>
-                    <li><a href="/#conference">Conference</a></li>
-                    <li><a href="/#sponsorship">Sponsorship</a></li>
-                    <li><a href="/#tickets">Register</a></li>
-                </ul>
-            </div>  
-            <div className="footer-section" style={{textAlign: 'center'}}>
-                <h4>Legal</h4>
-                <ul className="footer-links">
-                    <li><a href="/privacy.html">Privacy Policy</a></li>
-                    <li><a href="/terms.html">Terms & Conditions</a></li>
-                    <li><a href="/refund.html">Refund Policy</a></li>
-                </ul>
-            </div>  
-            <div className="footer-section">
-                <h4 style={{textAlign: 'center'}}>Organised By</h4>
-                 <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '15px'}}>
-                   <div style={{width: '120px'}}>
-                     <img src="/images/molog-logo.png" style={{width: '100%'}} alt="MOLOG" />
-                   </div>
+      <footer style={{
+        background: '#002D62',
+        color: 'white',
+        padding: '15px 0',
+        borderTop: '3px solid #D4AF37'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '0 20px'
+        }}>
+          <div style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: '20px'
+          }}>
+            <div className="footer-section" style={{flex: '1.5', minWidth: '250px'}}>
+                 <h4 style={{fontSize: '15px', fontWeight: 800, margin: '0 0 5px 0', color: '#D4AF37'}}>Global Leadership Summit Vision 2047</h4>
+                 <div style={{marginTop: '10px', display: 'flex', flexDirection: 'column', gap: '4px'}}>
+                   <span style={{fontSize: '12px', fontWeight: 900, color: 'white', letterSpacing: '0.05em'}}>18–19 JULY 2026</span>
+                   <span style={{fontSize: '10px', fontWeight: 500, color: 'rgba(255,255,255,0.6)'}}>Yashobhoomi Convention Centre, New Delhi</span>
                  </div>
+                 <p className="footer-tagline" style={{fontSize: '10px', marginTop: '8px', opacity: 0.7}}>Leadership • Innovation • Vision 2047</p>
+             </div> 
+            <div className="footer-section" style={{flex: '1', minWidth: '150px'}}>
+                <ul className="footer-links" style={{display: 'flex', flexWrap: 'wrap', gap: '15px', listStyle: 'none', padding: 0, margin: 0, fontSize: '11px'}}>
+                    <li><a href="/#about" style={{color: '#94a3b8', textDecoration: 'none'}}>About</a></li>
+                    <li><a href="/#conference" style={{color: '#94a3b8', textDecoration: 'none'}}>Conference</a></li>
+                    <li><a href="/#sponsorship" style={{color: '#94a3b8', textDecoration: 'none'}}>Sponsorship</a></li>
+                    <li><a href="/#tickets" style={{color: '#94a3b8', textDecoration: 'none'}}>Register</a></li>
+                </ul>
+            </div>  
+            <div className="footer-section" style={{flex: '1', minWidth: '150px'}}>
+                 <ul className="footer-links" style={{display: 'flex', flexWrap: 'wrap', gap: '15px', listStyle: 'none', padding: 0, margin: 0, fontSize: '11px'}}>
+                    <li><a href="/privacy.html" style={{color: '#94a3b8', textDecoration: 'none'}}>Privacy</a></li>
+                    <li><a href="/terms.html" style={{color: '#94a3b8', textDecoration: 'none'}}>Terms</a></li>
+                </ul>
+            </div>  
+            <div className="footer-section" style={{flex: '1', minWidth: '150px'}}>
+                  <div style={{display: 'flex', alignItems: 'center', gap: '10px'}}>
+                    <span style={{fontSize: '10px', color: '#94a3b8'}}>Organised By</span>
+                    <div style={{width: '80px', background: 'rgba(255,255,255,0.95)', padding: '5px', borderRadius: '5px'}}>
+                      <img src="assets/molog-logo.png" style={{width: '100%', height: 'auto', display: 'block'}} alt="MOLOG" />
+                    </div>
+                  </div>
             </div>
           </div>
-          <div className="footer-section">
-            <div className="social-links">
-              <a href="https://www.facebook.com/glsvision2047/" target="_blank" aria-label="Facebook"><i className="fab fa-facebook-f"></i> Facebook</a>
-              <a href="https://www.linkedin.com/company/glsvision2047/" target="_blank" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i> LinkedIn</a>
-              <a href="https://x.com/glsvision2047" target="_blank" aria-label="Twitter"><i className="fab fa-twitter"></i> Twitter</a>
-              <a href="/exhibition/" aria-label="Shop"><i className="fas fa-shopping-cart"></i> Shop</a>
-              <a href="/exhibition/" aria-label="Exhibition"><i className="fas fa-store"></i> Exhibition</a>
-              <a href="https://www.instagram.com/glsvision2047/" target="_blank" aria-label="Instagram"><i className="fab fa-instagram"></i> Instagram</a>
+          <div style={{
+            marginTop: '15px',
+            paddingTop: '15px',
+            borderTop: '1px solid rgba(255,255,255,0.1)',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: '10px'
+          }}>
+            <p style={{fontSize: '10px', margin: 0, color: '#94a3b8'}}>&copy; 2026 GLS Vision 2047. All rights reserved.</p>
+            <div style={{display: 'flex', gap: '15px', fontSize: '11px'}}>
+              <a href="https://www.facebook.com/glsvision2047/" target="_blank" style={{color: '#94a3b8'}}><i className="fab fa-facebook-f"></i></a>
+              <a href="https://www.linkedin.com/company/glsvision2047/" target="_blank" style={{color: '#94a3b8'}}><i className="fab fa-linkedin-in"></i></a>
+              <a href="https://x.com/glsvision2047" target="_blank" style={{color: '#94a3b8'}}><i className="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/glsvision2047/" target="_blank" style={{color: '#94a3b8'}}><i className="fab fa-instagram"></i></a>
             </div>
-          </div>
-          <div className="footer-bottom">
-              <p>&copy; Global Leadership Summit Vision 2047. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -21,9 +21,19 @@ export default function BookNowSection() {
 
       <div className={`relative container-gls text-center px-4 md:px-0 fade-up ${isVisible ? "visible" : ""}`}>
         <p className="label-upper text-gold-muted mb-4 md:mb-6 text-[10px] md:text-sm">Don't Miss This</p>
-        <h2 className="heading-section text-ivory mb-6 max-w-3xl mx-auto">
+        <h2 className="heading-section text-ivory mb-2 max-w-3xl mx-auto">
           Secure Your Place at <span className="text-saffron">GLS Vision 2047</span>
         </h2>
+        
+        {/* Date & Venue Highlight Badge */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 mb-6">
+           <div className="bg-saffron/10 border border-saffron/20 px-3 py-1 rounded-full">
+              <span className="text-saffron font-extrabold text-sm tracking-widest uppercase">18–19 July 2026</span>
+           </div>
+           <div className="hidden md:block w-1.5 h-1.5 rounded-full bg-ivory/20"></div>
+           <span className="text-ivory/80 text-sm font-semibold tracking-wide uppercase">Yashobhoomi Convention Centre, New Delhi</span>
+        </div>
+
         <div className="gold-divider" />
         <p className="text-base md:text-lg text-ivory/70 mt-6 mb-10 max-w-xl mx-auto leading-relaxed">
           This is not just an event. It is a national platform where the future is shaped. Reserve your seat among India's most consequential gathering.

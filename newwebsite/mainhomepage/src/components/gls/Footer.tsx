@@ -20,12 +20,14 @@ export default function Footer() {
 
   return (
     <footer className="bg-navy border-t border-ivory/10">
-      <div className="container-gls py-12 md:py-16">
-        <div className="grid md:grid-cols-3 gap-10 md:gap-8 text-center md:text-left">
+      <div className="container-gls py-12 md:py-20 lg:py-24">
+        <div className="grid md:grid-cols-3 gap-16 md:gap-8 text-center">
           {/* Brand */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="h-10 w-auto mb-6 flex items-center">
-              <img src={logo} alt="GLS Vision 2047" className="h-[32px] md:h-full w-auto object-contain" />
+          <div className="flex flex-col items-center">
+            <div className="h-20 w-auto mb-10 flex items-center group">
+              <div className="bg-white/95 rounded-full p-3 shadow-2xl group-hover:scale-110 transition-all">
+                <img src={logo} alt="GLS Vision 2047" className="h-[64px] w-auto object-contain" />
+              </div>
             </div>
             <p className="text-ivory/50 text-sm leading-relaxed mb-6 max-w-xs">
               India's most consequential gathering of leaders, innovators & nation-builders.
@@ -58,33 +60,39 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="label-upper text-gold-muted mb-4 md:mb-6 text-[10px] md:text-xs">Contact</h4>
+            <h4 className="label-upper text-gold-muted mb-4 md:mb-6 text-[10px] md:text-xs">Event Details</h4>
             <div className="flex flex-col gap-3">
               <p className="text-ivory/60 text-sm">
-                <a href="mailto:secretariat@glsvision2047.com" className="hover:text-saffron transition-colors">
-                  secretariat@glsvision2047.com
+                <a href="mailto:chair@glsvision2047.com" className="hover:text-saffron transition-colors">
+                  chair@glsvision2047.com
                 </a>
               </p>
               <p className="text-ivory/60 text-sm">
-                <a href="tel:+917291907708" className="hover:text-saffron transition-colors">
-                  +91 7291907708
+                <a href="tel:+919911155588" className="hover:text-saffron transition-colors">
+                  +91 9911155588
                 </a>
               </p>
-              <p className="text-ivory/40 text-xs mt-2 leading-relaxed">
-                Yashobhoomi Convention Centre, New Delhi
-              </p>
+              <div className="mt-2 flex flex-col gap-1.5">
+                 <p className="text-saffron font-bold text-sm">
+                   18–19 July 2026
+                 </p>
+                 <p className="text-ivory/80 text-xs leading-relaxed font-medium">
+                   Yashobhoomi Convention Centre<br />
+                   New Delhi, India
+                 </p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-ivory/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-ivory/30 text-[10px] md:text-xs text-center md:text-left order-2 md:order-1">
+        <div className="border-t border-ivory/10 mt-16 pt-10 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-ivory/30 text-[10px] md:text-xs text-center order-2 md:order-1">
             © 2026 Global Leadership Summit Vision 2047. All rights reserved.
           </p>
           <div className="flex items-center gap-3 order-1 md:order-2">
             <span className="text-ivory/30 text-[10px] md:text-xs">Organised by</span>
-            <div className="h-6 w-auto flex items-center bg-white/10 rounded px-2 py-0.5">
-              <img src={mologLogo} alt="MOLOG" className="h-full w-auto object-contain opacity-80" />
+            <div className="h-8 w-auto flex items-center bg-white/95 rounded-lg px-2.5 py-1 shadow-sm">
+              <img src={mologLogo} alt="MOLOG" className="h-full w-auto object-contain" />
             </div>
           </div>
         </div>

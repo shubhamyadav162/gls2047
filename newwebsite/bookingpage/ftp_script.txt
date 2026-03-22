@@ -1,0 +1,4 @@
+open 46.28.44.62
+user u364184455_pan_iit Pan_iit@1614
+ls
+quit

@@ -3,11 +3,14 @@
 This document summarizes the current state of the project, including credentials, logic, and pending tasks to facilitate a smooth handover or new session start.
 
 ## 🛠 Project Structure
-- **Frontend**: React-based landing page in `c:\Users\s\Desktop\panit\paniit_landing_page\`.
-- **Backend**: PHP-based API and payment handlers in `c:\Users\s\Desktop\panit\wholewebsite\public_html\`.
-- **Deployment Path**: Files are built via `npm run build` and copied to:
-  - `/exhibition/` (React assets)
-  - `exhibition.html` (Entry point serving the React app)
+- **Frontend**: 
+  - Main Homepage: `c:\Users\s\Desktop\panit\newwebsite\mainhomepage\`
+  - Booking Page: `c:\Users\s\Desktop\panit\newwebsite\bookingpage\`
+- **Backend (PHP)**: Roots of `c:\Users\s\Desktop\panit\` (local) and `/var/www/html/` (VPS).
+- **Deployment Path**:
+  - Root `index.html` & `assets/`: From `mainhomepage/dist/`.
+  - `/exhibition/`: From `bookingpage/dist/`.
+  - All PHP scripts: Located in root.
 
 ## 🔑 Credentials & Connectivity
 
@@ -49,16 +52,12 @@ This document summarizes the current state of the project, including credentials
 
 ---
 
-## 📈 Deployment Commands
-If you make changes in the `paniit_landing_page` folder, run these:
-```powershell
-# 1. Build the app
-npm run build
-
-# 2. Deploy to website folders
-Copy-Item -Path "c:\Users\s\Desktop\panit\paniit_landing_page\dist\*" -Destination "c:\Users\s\Desktop\panit\wholewebsite\public_html\exhibition\" -Recurse -Force
-Copy-Item -Path "c:\Users\s\Desktop\panit\paniit_landing_page\dist\index.html" -Destination "c:\Users\s\Desktop\panit\wholewebsite\public_html\exhibition.html" -Force
-```
+## 🏗 Rebuild & Sync
+If you make changes in the `newwebsite` folders:
+1. Rebuild them (`npm run build`).
+2. Copy `mainhomepage/dist` contents to root.
+3. Copy `bookingpage/dist` contents to `/exhibition/`.
+4. Push to GitHub to update the VPS.
 
 ---
 

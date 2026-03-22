@@ -1,5 +1,5 @@
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { MapPin, Building, Phone, Mail, Users, Handshake } from "lucide-react";
+import { MapPin, Building, Phone, Mail, Users, Handshake, Calendar } from "lucide-react";
 
 export default function ContactSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -26,19 +26,15 @@ export default function ContactSection() {
             </p>
           </div>
 
-          {/* Office Addresses */}
+          {/* Schedule */}
           <div className={`card-premium fade-up stagger-2 ${isVisible ? "visible" : ""}`}>
             <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center mb-5">
-              <Building className="text-gold" size={24} strokeWidth={1.6} />
+              <Calendar className="text-gold" size={24} strokeWidth={1.6} />
             </div>
-            <h3 className="heading-card text-navy mb-3">Office Addresses</h3>
-            <p className="text-slate-text leading-relaxed text-sm mb-4">
-              A-83, Ground Floor, Pocket-D, Okhla Phase-II<br />
-              New Delhi-110020, India
-            </p>
-            <p className="text-slate-text leading-relaxed text-sm">
-              112, Nalanda Apartments, IIT Delhi, Hauz Khas<br />
-              New Delhi - 110016, India
+            <h3 className="heading-card text-navy mb-3">Schedule</h3>
+            <p className="text-slate-text leading-relaxed">
+              18–19 July 2026<br />
+              09:00 AM – 06:00 PM
             </p>
           </div>
 
@@ -50,19 +46,19 @@ export default function ContactSection() {
             <h3 className="heading-card text-navy mb-3">Contact</h3>
             <p className="text-slate-text leading-relaxed text-sm mb-2 flex items-center gap-2">
               <Mail size={14} className="text-saffron shrink-0" />
-              <a href="mailto:secretariat@glsvision2047.com" className="text-saffron hover:underline">
-                secretariat@glsvision2047.com
+              <a href="mailto:chair@glsvision2047.com" className="text-saffron hover:underline">
+                chair@glsvision2047.com
               </a>
             </p>
             <p className="text-slate-text leading-relaxed text-sm mb-4 flex items-center gap-2">
               <Phone size={14} className="text-saffron shrink-0" />
-              <a href="tel:+917291907708" className="text-saffron hover:underline">+91 7291907708</a>
+              <a href="tel:+919911155588" className="text-saffron hover:underline">+91 9911155588</a>
             </p>
             <div className="border-t border-border pt-4 mt-4">
               <p className="label-upper text-charcoal text-[10px] mb-2 flex items-center gap-1.5">
                 <Users size={12} className="text-slate-text" /> Organised by
               </p>
-              <p className="text-sm text-slate-text">NextGen Ventures • MOLOG</p>
+              <p className="text-sm font-bold text-navy">MOLOG</p>
             </div>
             <div className="border-t border-border pt-4 mt-4">
               <p className="label-upper text-charcoal text-[10px] mb-2 flex items-center gap-1.5">

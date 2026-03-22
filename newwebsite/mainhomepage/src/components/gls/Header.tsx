@@ -9,7 +9,6 @@ const navLinks = [
   { label: "Who Gathers", href: "#who-gathers" },
   { label: "Agenda", href: "#agenda" },
   { label: "Zones", href: "#zones" },
-
   { label: "Awards", href: "#awards" },
   { label: "Contact", href: "#contact" },
 ];
@@ -19,7 +18,7 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -32,74 +31,162 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "py-3 bg-ivory/90 backdrop-blur-xl shadow-sm"
-          : "py-4 md:py-5 bg-transparent"
-      }`}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 50,
+        transition: "all 0.4s ease",
+        background: scrolled
+          ? "rgba(0,45,98,0.97)"
+          : "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 100%)",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+        boxShadow: scrolled ? "0 2px 30px rgba(0,45,98,0.25)" : "none",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "none",
+        padding: "0 24px",
+      }}
     >
-      <div className="container-gls px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
-        <button onClick={() => handleNav("#home")} className="relative h-10 md:h-12 w-auto flex items-center">
-          <img src={logo} alt="GLS Vision 2047" className="h-[36px] md:h-full w-auto object-contain transition-all" />
+      <div
+        style={{
+          maxWidth: 1400,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: 76,
+        }}
+      >
+        {/* Logo */}
+        <button
+          onClick={() => handleNav("#home")}
+          style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center" }}
+        >
+          <div
+            style={{
+              background: "rgba(255,255,255,0.95)",
+              borderRadius: "50%",
+              padding: 8,
+              boxShadow: "0 4px 16px rgba(0,0,0,0.2)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <img src={logo} alt="GLS Vision 2047" style={{ height: 42, width: "auto", objectFit: "contain" }} />
+          </div>
         </button>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="gls-desktop-nav" style={{ display: "flex", alignItems: "center", gap: 28 }}>
           {navLinks.map((link) => (
             <button
               key={link.href}
               onClick={() => handleNav(link.href)}
-              className="text-sm font-medium text-charcoal/70 hover:text-saffron transition-colors duration-300"
+              style={{
+                background: "none", border: "none", cursor: "pointer",
+                color: "rgba(255,255,255,0.85)", fontSize: 13,
+                fontWeight: 600, letterSpacing: "0.02em",
+                transition: "color 0.2s", padding: "4px 0", whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#D4AF37")}
+              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "rgba(255,255,255,0.85)")}
             >
               {link.label}
             </button>
           ))}
           <a
             href={TICKETS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary !py-2.5 !px-6 !text-sm"
+            style={{
+              background: "#D4AF37", color: "#002D62", fontWeight: 800,
+              fontSize: 13, padding: "10px 24px", borderRadius: 30,
+              textDecoration: "none", letterSpacing: "0.03em",
+              boxShadow: "0 4px 16px rgba(212,175,55,0.4)",
+              transition: "all 0.2s", whiteSpace: "nowrap", display: "inline-block",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "#c3a033";
+              (e.currentTarget as HTMLElement).style.transform = "scale(1.05)";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.background = "#D4AF37";
+              (e.currentTarget as HTMLElement).style.transform = "scale(1)";
+            }}
           >
             Book Now
           </a>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Hamburger */}
         <button
-          className="lg:hidden flex flex-col gap-1.5 p-2 bg-navy/5 rounded-lg"
+          className="gls-hamburger"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
+          style={{
+            display: "none", flexDirection: "column", gap: 5,
+            padding: 10, background: "rgba(255,255,255,0.15)", borderRadius: 10,
+            border: "none", cursor: "pointer",
+          }}
         >
-          <span className={`w-6 h-0.5 bg-navy transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-2" : ""}`} />
-          <span className={`w-6 h-0.5 bg-navy transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-          <span className={`w-6 h-0.5 bg-navy transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+          <span style={{ display: "block", width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s", transform: mobileOpen ? "rotate(45deg) translate(5px, 5px)" : "none" }} />
+          <span style={{ display: "block", width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s", opacity: mobileOpen ? 0 : 1 }} />
+          <span style={{ display: "block", width: 24, height: 2.5, background: "#fff", borderRadius: 2, transition: "all 0.3s", transform: mobileOpen ? "rotate(-45deg) translate(5px, -5px)" : "none" }} />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       {mobileOpen && (
-        <div className={`lg:hidden fixed inset-0 top-[64px] bg-ivory/98 backdrop-blur-xl border-t border-border z-50 overflow-y-auto animate-fade-in`}>
-          <nav className="container-gls py-10 px-6 flex flex-col gap-8">
-            {navLinks.map((link) => (
-              <button
-                key={link.href}
-                onClick={() => handleNav(link.href)}
-                className="text-left text-2xl font-bold font-sora text-charcoal/90 hover:text-saffron transition-colors"
-              >
-                {link.label}
-              </button>
-            ))}
-            <a
-              href={TICKETS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary text-base py-4 px-8 mt-4 w-full shadow-lg"
+        <div
+          style={{
+            position: "fixed", top: 76, left: 0, right: 0, bottom: 0,
+            background: "rgba(0,45,98,0.98)", backdropFilter: "blur(24px)",
+            zIndex: 49, display: "flex", flexDirection: "column",
+            padding: "32px 24px", overflowY: "auto",
+          }}
+        >
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => handleNav(link.href)}
+              style={{
+                background: "none", border: "none", cursor: "pointer",
+                color: "#fff", fontSize: 26, fontWeight: 800,
+                textAlign: "left", padding: "16px 0",
+                borderBottom: "1px solid rgba(255,255,255,0.08)",
+                letterSpacing: "-0.01em",
+              }}
             >
-              Book Now
-            </a>
-          </nav>
+              {link.label}
+            </button>
+          ))}
+          <a
+            href={TICKETS_URL}
+            onClick={() => setMobileOpen(false)}
+            style={{
+              marginTop: 32, background: "#D4AF37", color: "#002D62",
+              fontWeight: 900, fontSize: 18, padding: "18px 24px",
+              borderRadius: 16, textDecoration: "none", textAlign: "center",
+              letterSpacing: "0.02em", boxShadow: "0 8px 30px rgba(212,175,55,0.4)",
+              display: "block",
+            }}
+          >
+            Book Now
+          </a>
         </div>
       )}
+
+      {/* Responsive CSS */}
+      <style>{`
+        @media (min-width: 1024px) {
+          .gls-desktop-nav { display: flex !important; }
+          .gls-hamburger { display: none !important; }
+        }
+        @media (max-width: 1023px) {
+          .gls-desktop-nav { display: none !important; }
+          .gls-hamburger { display: flex !important; }
+        }
+      `}</style>
     </header>
   );
 }
