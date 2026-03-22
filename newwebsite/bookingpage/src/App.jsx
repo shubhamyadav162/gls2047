@@ -706,36 +706,132 @@ export default function App() {
               className="bg-white w-full h-[100dvh] md:h-[90vh] md:max-h-[850px] md:max-w-[1200px] md:rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row relative"
             >
               
-              {/* LEFT PANEL: Branding & Visuals (Hidden on small mobile for space, or shown compact) */}
-              <div className="hidden md:flex md:w-[40%] lg:w-[35%] bg-[#002D62] relative flex-col text-white">
+              {/* LEFT PANEL: Dynamic — shows startup benefits when startup tab active, else generic branding */}
+              <div className="hidden md:flex md:w-[38%] lg:w-[35%] bg-[#002D62] relative flex-col text-white overflow-hidden">
                 <div className="absolute inset-0">
-                  <img src="assets/hero.png" alt="3D Environment" className="w-full h-full object-cover object-right opacity-60 mix-blend-screen block" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#002D62] via-[#002D62]/90 to-[#002D62]/80"></div>
+                  <img src="assets/hero.png" alt="GLS" className="w-full h-full object-cover object-right opacity-40 mix-blend-screen block" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#001a3d] via-[#002D62]/95 to-[#002D62]"></div>
                 </div>
 
-                <div className="relative z-10 p-10 flex flex-col h-full justify-between">
-                   <div>
-                     <button onClick={closeModal} className="mb-8 p-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors w-fit md:hidden">
-                       <X size={20} />
-                     </button>
-                     <div className="flex items-center gap-4 mb-6">
-                       <div className="bg-white/95 p-2.5 rounded-full shadow-lg">
-                         <img src="assets/vision2047logomain.png" alt="GLS" className="h-[40px] w-auto" />
-                       </div>
+                <div className="relative z-10 p-8 flex flex-col h-full overflow-y-auto">
+                  {/* Logo always visible */}
+                  <div className="flex items-center gap-3 mb-6 flex-shrink-0">
+                    <div className="bg-white/95 p-2 rounded-full shadow-lg">
+                      <img src="assets/vision2047logomain.png" alt="GLS" className="h-[32px] w-auto" />
                     </div>
-                     <h2 className="text-3xl font-bold text-white mb-3">Secure Your Pavilion Space</h2>
-                     <p className="text-blue-100 text-base leading-relaxed">Connect with 200+ global investors, government bodies, and 500+ CXOs under one roof.</p>
-                   </div>
+                    <span className="text-white/70 text-xs font-bold uppercase tracking-widest">GLS Vision 2047</span>
+                  </div>
 
-                   <div className="mt-12 bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl">
-                     <div className="flex gap-4">
-                       <div className="bg-[#D4AF37]/20 p-3 rounded-full h-fit text-[#D4AF37]"><MapPin size={24} /></div>
-                       <div>
-                         <h4 className="font-bold text-lg text-[#D4AF37] mb-1">Venue</h4>
-                          <p className="text-blue-50 text-sm">Yashobhoomi Convention Centre, New Delhi, India</p>
-                       </div>
-                     </div>
-                   </div>
+                  {clientType === 'startup' ? (
+                    /* ── STARTUP BENEFITS PANEL ── */
+                    <div className="flex-1 flex flex-col">
+                      <h2 className="text-2xl font-extrabold text-white mb-1 leading-tight">
+                        {selectedSize === 4 ? 'Startup POD' : selectedSize === 6 ? 'Startup POD+' : 'Startup POD PRO'}
+                      </h2>
+                      <p className="text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-5">
+                        {selectedSize === 4 ? '2×2 m · 4 sqm' : selectedSize === 6 ? '3×2 m · 6 sqm' : '3×3 m · 9 sqm'} · What you get
+                      </p>
+
+                      {/* Benefits list */}
+                      {selectedSize === 4 && (
+                        <div className="space-y-3 flex-1">
+                          {[
+                            { label: '4 sqm Area (2×2 m)', value: 'Worth ₹80,000', icon: '📐' },
+                            { label: '2 Delegate Passes', value: 'Worth ₹5,000', icon: '🎫' },
+                            { label: 'TV Screen + Table + Chairs', value: 'Worth ₹10,000', icon: '🖥️' },
+                          ].map((item, i) => (
+                            <div key={i} className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10">
+                              <span className="text-lg leading-none mt-0.5">{item.icon}</span>
+                              <div>
+                                <p className="text-white font-semibold text-sm leading-tight">{item.label}</p>
+                                <p className="text-[#D4AF37] text-xs font-bold mt-0.5">{item.value}</p>
+                              </div>
+                            </div>
+                          ))}
+                          <div className="mt-4 bg-white/5 border border-white/20 rounded-xl p-4">
+                            <p className="text-white/50 text-xs line-through mb-1">Actual Value: ₹95,000 + taxes</p>
+                            <p className="text-[#D4AF37] text-xl font-black">Early Bird: ₹25,000</p>
+                            <p className="text-white/70 text-xs mt-1">Pay just <span className="text-white font-bold">₹10,000 + taxes</span> to book now</p>
+                          </div>
+                        </div>
+                      )}
+                      {selectedSize === 6 && (
+                        <div className="space-y-3 flex-1">
+                          {[
+                            { label: '6 sqm Area (3×2 m)', value: 'Worth ₹1,20,000', icon: '📐' },
+                            { label: '1 VIP + 2 Delegate Passes', value: 'Worth ₹30,000', icon: '🎫' },
+                            { label: 'TV Screen + Table + Chairs', value: 'Worth ₹10,000', icon: '🖥️' },
+                          ].map((item, i) => (
+                            <div key={i} className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10">
+                              <span className="text-lg leading-none mt-0.5">{item.icon}</span>
+                              <div>
+                                <p className="text-white font-semibold text-sm leading-tight">{item.label}</p>
+                                <p className="text-[#D4AF37] text-xs font-bold mt-0.5">{item.value}</p>
+                              </div>
+                            </div>
+                          ))}
+                          <div className="mt-4 bg-white/5 border border-white/20 rounded-xl p-4">
+                            <p className="text-white/50 text-xs line-through mb-1">Actual Value: ₹1,60,000 + taxes</p>
+                            <p className="text-[#D4AF37] text-xl font-black">Early Bird: ₹50,000</p>
+                            <p className="text-white/70 text-xs mt-1">Pay just <span className="text-white font-bold">₹20,000 + taxes</span> to book now</p>
+                          </div>
+                        </div>
+                      )}
+                      {selectedSize === 9 && (
+                        <div className="space-y-3 flex-1">
+                          {[
+                            { label: '9 sqm Area (3×3 m)', value: 'Worth ₹1,80,000', icon: '📐' },
+                            { label: '2 VIP + 2 Delegate Passes', value: 'Worth ₹55,000', icon: '🎫' },
+                            { label: 'TV Screen + Table + Chairs', value: 'Worth ₹10,000', icon: '🖥️' },
+                          ].map((item, i) => (
+                            <div key={i} className="flex items-start gap-3 bg-white/10 backdrop-blur-sm rounded-xl p-3 border border-white/10">
+                              <span className="text-lg leading-none mt-0.5">{item.icon}</span>
+                              <div>
+                                <p className="text-white font-semibold text-sm leading-tight">{item.label}</p>
+                                <p className="text-[#D4AF37] text-xs font-bold mt-0.5">{item.value}</p>
+                              </div>
+                            </div>
+                          ))}
+                          <div className="mt-4 bg-white/5 border border-white/20 rounded-xl p-4">
+                            <p className="text-white/50 text-xs line-through mb-1">Actual Value: ₹2,45,000 + taxes</p>
+                            <p className="text-[#D4AF37] text-xl font-black">Early Bird: ₹1,00,000</p>
+                            <p className="text-white/70 text-xs mt-1">Pay just <span className="text-white font-bold">₹30,000 + taxes</span> to book now</p>
+                          </div>
+                        </div>
+                      )}
+
+                      {/* Venue at bottom */}
+                      <div className="mt-6 flex-shrink-0 border-t border-white/10 pt-4 flex items-center gap-2">
+                        <MapPin size={14} className="text-[#D4AF37] shrink-0" />
+                        <p className="text-white/60 text-xs">Yashobhoomi, New Delhi · 18–19 July 2026</p>
+                      </div>
+                    </div>
+                  ) : (
+                    /* ── GENERIC BRANDING FOR NON-STARTUP ── */
+                    <div className="flex-1 flex flex-col justify-between">
+                      <div>
+                        <h2 className="text-3xl font-bold text-white mb-3">Secure Your Pavilion Space</h2>
+                        <p className="text-blue-100 text-sm leading-relaxed">Connect with 200+ global investors, government bodies, and 500+ CXOs under one roof.</p>
+                        <ul className="mt-6 space-y-3">
+                          {benefits[clientType]?.features?.map((f, i) => (
+                            <li key={i} className="flex items-start gap-2 text-sm text-blue-100">
+                              <Check size={16} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                              <span>{f}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="mt-6 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl">
+                        <div className="flex gap-3">
+                          <div className="bg-[#D4AF37]/20 p-2.5 rounded-full h-fit text-[#D4AF37]"><MapPin size={20} /></div>
+                          <div>
+                            <h4 className="font-bold text-[#D4AF37] text-sm mb-0.5">Venue</h4>
+                            <p className="text-blue-50 text-xs">Yashobhoomi Convention Centre, New Delhi · 18–19 July 2026</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -854,73 +950,76 @@ export default function App() {
                         )}
                       </div>
 
-                      {/* EXCLUSIVE BENEFITS AREA */}
-                      <div className="bg-[#002D62]/5 border border-[#002D62]/10 rounded-2xl p-6">
-                        <h4 className="text-sm font-bold text-gray-800 uppercase tracking-widest flex items-center gap-2">
-                          <CheckCircle size={18} className="text-[#D4AF37]" /> 
-                          {clientType === 'startup' 
-                            ? (selectedSize === 4 ? 'Startup POD Benefits' : (selectedSize === 6 ? 'Startup POD+ Benefits' : 'Startup POD PRO Benefits')) 
-                            : benefits[clientType].desc}
-                        </h4>
-                        {clientType === 'startup' ? (
-                          <div className="mt-4 animate-in fade-in duration-300">
-                            {selectedSize === 4 && (
-                              <div className="space-y-3">
-                                <ul className="space-y-2 text-gray-700 text-sm">
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">4 sqm Area (2 mtr x2 mtr, <span className="font-bold">worth 80,000 Rs</span>)</span></li>
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">2 Delegate Passes (<span className="font-bold">worth 5k</span>)</span></li>
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">TV Screen + Table + Chairs Included (<span className="font-bold">worth 10k</span>)</span></li>
-                                </ul>
-                                <div className="mt-4 p-3 bg-white rounded-xl border border-gray-200">
-                                  <p className="text-xs text-gray-400 line-through">Actual Value: 95,000 + taxes</p>
-                                  <p className="text-base font-bold text-[#002D62]">Early Bird: 25,000 + taxes</p>
-                                  <p className="text-[#D4AF37] font-bold text-xs mt-1 border-t border-gray-100 pt-1">Pay Booking Amount 10,000 + taxes to secure</p>
-                                </div>
-                              </div>
-                            )}
-                            {selectedSize === 6 && (
-                              <div className="space-y-3">
-                                <ul className="space-y-2 text-gray-700 text-sm">
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">6 sqm Area (3 mtr x2 mtr, <span className="font-bold">worth 1.2 lakh Rs</span>)</span></li>
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">1 VIP + 2 Delegate Passes (<span className="font-bold">worth 25k+5k</span>)</span></li>
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">TV Screen + Table + Chairs Included (<span className="font-bold">worth 10k</span>)</span></li>
-                                </ul>
-                                <div className="mt-4 p-3 bg-white rounded-xl border border-gray-200">
-                                  <p className="text-xs text-gray-400 line-through">Actual Value: 1.6 lakh + taxes</p>
-                                  <p className="text-base font-bold text-[#002D62]">Early Bird: 50,000 + taxes</p>
-                                  <p className="text-[#D4AF37] font-bold text-xs mt-1 border-t border-gray-100 pt-1">Pay Booking Amount 20,000 + taxes to secure</p>
-                                </div>
-                              </div>
-                            )}
-                            {selectedSize === 9 && (
-                              <div className="space-y-3">
-                                <ul className="space-y-2 text-gray-700 text-sm">
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">9 sqm Area (3 mtr x3 mtr, <span className="font-bold">worth 1.8 lakh Rs</span>)</span></li>
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">2 VIP + 2 Delegate Passes (<span className="font-bold">worth 50k+5k</span>)</span></li>
-                                  <li className="flex gap-2"><Check size={18} className="text-[#002D62] shrink-0" /> <span className="leading-tight">TV Screen + Table + Chairs Included (<span className="font-bold">worth 10k</span>)</span></li>
-                                </ul>
-                                <div className="mt-4 p-3 bg-white rounded-xl border border-gray-200">
-                                  <p className="text-xs text-gray-400 line-through">Actual Value: 2.45 lakh + taxes</p>
-                                  <p className="text-base font-bold text-[#002D62]">Early Bird: 1 lakh + taxes</p>
-                                  <p className="text-[#D4AF37] font-bold text-xs mt-1 border-t border-gray-100 pt-1">Pay Booking Amount 30,000 + taxes to secure</p>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ) : (
-                          <ul className="space-y-3 mt-4">
+                      {/* EXCLUSIVE BENEFITS AREA — hidden on desktop for startup (shown in left panel) */}
+                      {/* On mobile always show. On desktop only show for non-startup. */}
+                      {(clientType !== 'startup') && (
+                        <div className="bg-[#002D62]/5 border border-[#002D62]/10 rounded-2xl p-6">
+                          <h4 className="text-sm font-bold text-gray-800 uppercase tracking-widest flex items-center gap-2 mb-4">
+                            <CheckCircle size={18} className="text-[#D4AF37]" />
+                            {benefits[clientType].desc}
+                          </h4>
+                          <ul className="space-y-3">
                             {benefits[clientType].features.map((f, i) => (
                               <li key={i} className="flex gap-3 text-sm text-gray-700">
-                                 <Check size={18} className="text-[#002D62] shrink-0 mt-0.5 font-bold" /> <span className="leading-tight">{f}</span>
+                                <Check size={18} className="text-[#002D62] shrink-0 mt-0.5" /> <span className="leading-tight">{f}</span>
                               </li>
                             ))}
                           </ul>
-                        )}
-                      </div>
-                      {benefits[clientType].passes && (
-                        <div className="mt-6 inline-block bg-white text-[#002D62] text-xs font-bold px-4 py-3 rounded-lg border border-[#002D62]/10 shadow-sm">
-                           <span className="text-gray-500 uppercase tracking-widest text-[10px] block mb-1">Complimentary Passes Included</span>
-                           {selectedPassText || benefits[clientType].passes}
+                          {benefits[clientType].passes && (
+                            <div className="mt-4 inline-block bg-white text-[#002D62] text-xs font-bold px-4 py-2 rounded-lg border border-[#002D62]/10 shadow-sm">
+                              <span className="text-gray-500 uppercase tracking-widest text-[10px] block mb-0.5">Complimentary Passes Included</span>
+                              {selectedPassText || benefits[clientType].passes}
+                            </div>
+                          )}
+                        </div>
+                      )}
+
+                      {/* Mobile-only benefits for startup */}
+                      {clientType === 'startup' && (
+                        <div className="md:hidden bg-[#002D62] text-white rounded-2xl p-5">
+                          <h4 className="text-sm font-bold text-[#D4AF37] uppercase tracking-widest mb-3 flex items-center gap-2">
+                            <CheckCircle size={16} className="text-[#D4AF37]" />
+                            {selectedSize === 4 ? 'POD Benefits' : selectedSize === 6 ? 'POD+ Benefits' : 'POD PRO Benefits'}
+                          </h4>
+                          {selectedSize === 4 && (
+                            <>
+                              <ul className="space-y-2">
+                                {[['📐','4 sqm Area (2×2 m)','Worth ₹80,000'],['🎫','2 Delegate Passes','Worth ₹5,000'],['🖥️','TV + Table + Chairs','Worth ₹10,000']].map(([ic,l,v],i)=>(
+                                  <li key={i} className="flex items-start gap-2 text-sm"><span>{ic}</span><span className="text-white/90">{l}</span><span className="ml-auto text-[#D4AF37] font-bold text-xs shrink-0">{v}</span></li>
+                                ))}
+                              </ul>
+                              <div className="mt-3 pt-3 border-t border-white/10">
+                                <p className="text-white/40 text-xs line-through">Actual: ₹95,000</p>
+                                <p className="text-[#D4AF37] font-black text-base">Early Bird: ₹25,000 · Book at ₹10,000</p>
+                              </div>
+                            </>
+                          )}
+                          {selectedSize === 6 && (
+                            <>
+                              <ul className="space-y-2">
+                                {[['📐','6 sqm Area (3×2 m)','Worth ₹1,20,000'],['🎫','1 VIP + 2 Delegate Passes','Worth ₹30,000'],['🖥️','TV + Table + Chairs','Worth ₹10,000']].map(([ic,l,v],i)=>(
+                                  <li key={i} className="flex items-start gap-2 text-sm"><span>{ic}</span><span className="text-white/90">{l}</span><span className="ml-auto text-[#D4AF37] font-bold text-xs shrink-0">{v}</span></li>
+                                ))}
+                              </ul>
+                              <div className="mt-3 pt-3 border-t border-white/10">
+                                <p className="text-white/40 text-xs line-through">Actual: ₹1,60,000</p>
+                                <p className="text-[#D4AF37] font-black text-base">Early Bird: ₹50,000 · Book at ₹20,000</p>
+                              </div>
+                            </>
+                          )}
+                          {selectedSize === 9 && (
+                            <>
+                              <ul className="space-y-2">
+                                {[['📐','9 sqm Area (3×3 m)','Worth ₹1,80,000'],['🎫','2 VIP + 2 Delegate Passes','Worth ₹55,000'],['🖥️','TV + Table + Chairs','Worth ₹10,000']].map(([ic,l,v],i)=>(
+                                  <li key={i} className="flex items-start gap-2 text-sm"><span>{ic}</span><span className="text-white/90">{l}</span><span className="ml-auto text-[#D4AF37] font-bold text-xs shrink-0">{v}</span></li>
+                                ))}
+                              </ul>
+                              <div className="mt-3 pt-3 border-t border-white/10">
+                                <p className="text-white/40 text-xs line-through">Actual: ₹2,45,000</p>
+                                <p className="text-[#D4AF37] font-black text-base">Early Bird: ₹1,00,000 · Book at ₹30,000</p>
+                              </div>
+                            </>
+                          )}
                         </div>
                       )}
  
@@ -974,70 +1073,38 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* FIXED BOTTOM SUMMARY STRIP (Flex-none) */}
-                <div className="flex-none bg-white border-t border-gray-200 shadow-[0_-10px_30px_rgba(0,0,0,0.06)] z-20">
-                   <div className="max-w-2xl mx-auto w-full p-4 md:px-8 md:py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                     <div className="w-full sm:w-auto flex justify-between sm:block">
-                        <div className="flex flex-col">
-                          <p className="text-[10px] text-[#D4AF37] font-extrabold uppercase tracking-widest mb-0.5">{vals.bookingLabel || (vals.isFull ? 'Package Amount (100%)' : 'Booking Amount (10%)')}</p>
-                          <div className="flex items-end gap-2">
-                            <div className="text-4xl font-black text-[#002D62] tracking-tighter shrink-0">
-                              {vals.currency}{vals.payable.toLocaleString('en-IN')}
-                            </div>
-                            <div className="flex flex-col justify-end pb-1">
-                               <span className="text-[10px] text-gray-400 font-bold uppercase block">{vals.tagLabel || (vals.isFull ? 'Full' : 'Booking Amount')}</span>
-                               <span className="text-[10px] text-[#002D62] font-black uppercase tracking-widest">+ GST</span>
-                             </div>
-                          </div>
-                          
-                          <div className="mt-2 pt-2 border-t border-gray-100 flex flex-wrap items-center gap-y-1 gap-x-3">
-                             <div className="flex items-center gap-1.5">
-                               <span className="text-[10px] text-gray-400 font-bold uppercase">Total Level:</span>
-                               <span className="text-[12px] font-bold text-gray-700">{vals.currency}{vals.total.toLocaleString('en-IN')} + GST</span>
-                             </div>
-                             {clientType === 'startup' && (
-                               <span className="text-[10px] bg-blue-50 text-[#002D62] px-2 py-0.5 rounded font-bold uppercase tracking-tight">Balance payable later</span>
-                             )}
-                             {vals.total >= 100000 && vals.currency === '₹' && (
-                               <span className="text-[10px] bg-gray-100 px-1.5 py-0.5 rounded text-gray-500 font-bold">≈ {(vals.total / 100000).toFixed(2)} Lakhs</span>
-                             )}
-                           </div>
-                         </div>
-                        
-                        <div className="text-right sm:text-left text-xs text-gray-500 leading-tight border-l border-gray-200 pl-4 ml-4 flex flex-col justify-center gap-1">
-                          <div className="flex justify-between w-40">
-                             <span className="opacity-70 text-[10px] font-bold">{vals.baseLabel || (vals.isFull ? 'Package Base:' : 'Booking Base:')}</span>
-                             <span className="font-bold text-gray-800">{vals.currency}{(!vals.isFull ? vals.bookingToken : vals.total).toLocaleString('en-IN')}</span>
-                          </div>
-                          {!vals.isFull && !vals.gstIncluded && (
-                            <div className="flex justify-between w-40">
-                               <span className="opacity-70 text-[10px] font-bold">+18% GST:</span> 
-                               <span className="font-bold text-gray-800">{vals.currency}{(vals.gst).toLocaleString('en-IN')}</span>
-                            </div>
-                          )}
-                          {!vals.isFull && vals.gstIncluded && (
-                            <div className="flex justify-between w-40">
-                               <span className="opacity-70 text-[10px] font-bold">GST:</span>
-                               <span className="font-bold text-gray-800">Included</span>
-                            </div>
-                          )}
-                          {!vals.isFull && (
-                            <div className="mt-1 pt-1 border-t border-gray-100 flex justify-between w-40">
-                               <span className="text-red-400 font-extrabold text-[9px] uppercase">Balance:</span> 
-                                <span className="font-bold text-gray-400 text-[11px]">{vals.currency}{(vals.total - (vals.bookingToken || 0)).toLocaleString('en-IN')}</span>
-                             </div>
-                          )}
-                        </div>
-                     </div>
+                {/* FIXED BOTTOM SUMMARY STRIP — compact single row */}
+                <div className="flex-none bg-white border-t border-gray-200 shadow-[0_-8px_24px_rgba(0,0,0,0.08)] z-20">
+                  <div className="max-w-2xl mx-auto w-full px-4 py-3 md:px-8 md:py-4 flex items-center gap-3">
+                    {/* Amount block */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[9px] text-[#D4AF37] font-extrabold uppercase tracking-widest leading-none mb-1">
+                        {clientType === 'startup' ? 'Booking Amount + GST' : (vals.isFull ? 'Total Amount + GST' : 'Booking Amount (10%) + GST')}
+                      </p>
+                      <div className="flex items-baseline gap-2">
+                        <span className="text-3xl font-black text-[#002D62] tracking-tight leading-none">
+                          {vals.currency}{vals.payable.toLocaleString('en-IN')}
+                        </span>
+                        <span className="text-[10px] text-gray-400 font-bold">+ GST</span>
+                        {clientType === 'startup' && (
+                          <span className="text-[10px] bg-blue-50 text-[#002D62] px-2 py-0.5 rounded-full font-bold border border-blue-100">Balance later</span>
+                        )}
+                      </div>
+                      <p className="text-[10px] text-gray-400 mt-0.5">
+                        Full price: {vals.currency}{vals.total.toLocaleString('en-IN')} + GST
+                        {vals.total >= 100000 && vals.currency === '₹' ? ` (≈ ${(vals.total/100000).toFixed(2)} L)` : ''}
+                      </p>
+                    </div>
 
-                     <button 
-                        onClick={handlePayment}
-                        disabled={isProcessing}
-                        className={`w-full sm:w-auto bg-[#D4AF37] hover:bg-[#c3a033] text-[#002D62] font-black px-6 py-3 sm:px-10 sm:py-4 rounded-xl shadow-lg shadow-[#D4AF37]/30 transition-transform active:scale-95 flex items-center justify-center gap-2 text-base sm:text-lg uppercase tracking-wide ${isProcessing ? 'opacity-70 cursor-not-allowed' : ''}`}
-                     >
-                       {isProcessing ? 'Processing...' : 'Pay Now'} <ArrowRight size={20} />
-                     </button>
-                   </div>
+                    {/* Pay Now CTA */}
+                    <button
+                      onClick={handlePayment}
+                      disabled={isProcessing}
+                      className={`flex-shrink-0 bg-[#D4AF37] hover:bg-[#c3a033] text-[#002D62] font-black px-6 py-3 rounded-xl shadow-md shadow-[#D4AF37]/30 transition-all active:scale-95 flex items-center gap-2 text-sm uppercase tracking-wide whitespace-nowrap ${isProcessing ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    >
+                      {isProcessing ? 'Processing...' : 'Pay Now'} <ArrowRight size={16} />
+                    </button>
+                  </div>
                 </div>
 
               </div>
